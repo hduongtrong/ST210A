@@ -1,0 +1,754 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{bbm}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ST210A - HW1
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+Statistics of joint Posson distribution
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $X_{i}'s$
+\end_inset
+
+ are independent, the joint distribution is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(x_{1},x_{2},...,x_{n})= & \prod_{i=1}^{n}\frac{\exp[x_{i}(\alpha+\beta t_{i})-\exp(\alpha+\beta t_{i})]}{x_{i}!}\\
+= & \frac{1}{\prod_{i=1}^{n}x_{i}!}\exp\bigg[\alpha\sum_{i=1}^{n}x_{i}+\beta\sum_{i=1}^{n}x_{i}t_{i}-\sum_{i=1}^{n}\exp(\alpha+\beta t_{i})\bigg]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So the joint distributions form a two parameter exponential family 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ and the corresponding statistics are: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+T_{1}= & \sum_{i=1}^{n}x_{i},T_{2}=\sum_{i=1}^{n}t_{i}x_{i}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Exponential family restricted to a region
+\end_layout
+
+\begin_layout Proof
+We have the cumulative distribution of Y is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}_{\theta}[Y\le y]= & \mathbb{P}[X\le y\mid X\in S]\\
+= & \frac{\mathbb{P}[X\le y\wedge X\in S]}{\mathbb{P}[X\in S]}\\
+= & \frac{1}{\mathbb{P}[X\in S]}\int_{X\in S\wedge X\le y}p_{\theta}(X)d\mu(X)\\
+= & \frac{1}{\mathbb{P}[X\in S]}\int_{X\le y}I_{S}(X)p_{\theta}(X)d\mu(X)\\
+\Rightarrow q_{\theta}(x)= & \frac{h(x)I_{S}(x)}{\mathbb{P}[X\in S]}\exp\bigg[\sum_{i=1}^{s}\eta_{i}(\theta)T_{i}(x)-B(\theta)\bigg]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $I_{S}$
+\end_inset
+
+ indicates the indicator function for set S.
+ 
+\end_layout
+
+\begin_layout Proof
+From the formula of 
+\begin_inset Formula $q_{\theta}(x)$
+\end_inset
+
+ above, we can see that 
+\begin_inset Formula $\{q_{\theta}(x),\theta\in\Omega\}$
+\end_inset
+
+ forms an exponential family that share everything with 
+\begin_inset Formula $\{p_{\theta}(x),\theta\in\Omega\}$
+\end_inset
+
+ but the 
+\begin_inset Formula $h(x)$
+\end_inset
+
+ function.
+ The new 
+\begin_inset Formula $h'(x)=\frac{h(x)I_{S}(x)}{\mathbb{P}[X\in S]}$
+\end_inset
+
+ satisfies the condition that it is non-negative.
+ 
+\end_layout
+
+\begin_layout Problem
+Consider an i.i.d sample 
+\begin_inset Formula $\{X_{1},X_{2},...,X_{n}\}\sim U([0,\theta])$
+\end_inset
+
+, 
+\begin_inset Formula $M_{n}=\max\{X_{1},X_{2},...,X_{n}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+a.
+ Prove that 
+\begin_inset Formula $M_{n}\overset{p}{\rightarrow}\theta$
+\end_inset
+
+ as 
+\begin_inset Formula $n\rightarrow+\infty.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+By definition of convergence in probability, let 
+\begin_inset Formula $\epsilon>0,\epsilon\in\mathbb{R}$
+\end_inset
+
+ be arbitrary.
+ If 
+\begin_inset Formula $\epsilon<\theta$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[|M_{n}-\theta|>\epsilon] & =\mathbb{P}[\theta-M_{n}>\epsilon]\\
+ & =\mathbb{P}[M_{n}<\theta-\epsilon]\\
+ & =\mathbb{P}[\max\{X_{1},X_{2},...,X_{n}\}<\theta-\epsilon]\\
+ & =\mathbb{P}[X_{1}<\theta-\epsilon\wedge X_{2}<\theta-\epsilon\wedge...\wedge X_{n}<\theta-\epsilon]\\
+ & =\mathbb{P}[X_{1}<\theta-\epsilon]\mathbb{P}[X_{2}<\theta-\epsilon]...\mathbb{P}[X_{n}<\theta-\epsilon]\\
+ & =(\frac{\theta-\epsilon}{\theta})^{n}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Where the fifth equality holds because 
+\begin_inset Formula $X_{i}'s$
+\end_inset
+
+ are independent.
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\lim_{n\rightarrow\infty}\mathbb{P}[|M_{n}-\theta|>\epsilon] & =\lim_{n\rightarrow\infty}(\frac{\theta-\epsilon}{\theta})^{n}\\
+ & =0
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $\epsilon\ge\theta,$
+\end_inset
+
+ then:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[M_{n}<\theta-\epsilon] & =0\\
+\Rightarrow\lim_{n\rightarrow\infty}\mathbb{P}[M_{n}<\theta-\epsilon] & =0
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So the limit is 0 for any arbitrary 
+\begin_inset Formula $\epsilon>0,$
+\end_inset
+
+ thus 
+\begin_inset Formula $M_{n}$
+\end_inset
+
+ converges in probability to 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+b.
+ Compute the Bias of 
+\begin_inset Formula $M_{n}$
+\end_inset
+
+.
+ We have 
+\begin_inset Formula $\forall x\in[0,\theta]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[M_{n}<x]= & \mathbb{P}[X_{1}<x\wedge X_{2}<x\wedge...\wedge X_{n}<x]\\
+= & \mathbb{P}[X_{1}<x]\mathbb{P}[X_{2}<x]...\mathbb{P}[X_{n}<x]\\
+= & (\frac{x}{\theta})^{n}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus the density for 
+\begin_inset Formula $M_{n}$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{\theta}(M_{n})= & \frac{d\mathbb{P}[M_{n}<x]}{dx}=\frac{n}{\theta^{n}}x^{n-1}\\
+\Rightarrow\mathbb{E}M_{n}= & \int_{0}^{\theta}xf_{\theta}(x)dx\\
+= & \int_{0}^{\theta}\frac{n}{\theta^{n}}x^{n}dx\\
+= & \frac{n}{\theta^{n}}\frac{x^{n+1}}{n+1}\bigg|_{0}^{\theta}=\frac{n}{n+1}\theta\\
+\Rightarrow{\rm Bias(M_{n})=} & (\mathbb{E}[M_{n}-\theta])^{2}\\
+= & \frac{1}{(n+1)^{2}}\theta^{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Compute the Variance of 
+\begin_inset Formula $M_{n}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}(M_{n})= & \int_{0}^{\theta}(x-\mathbb{E}x)^{2}f_{\theta}(x)dx\\
+= & \int_{0}^{\theta}(x-\frac{n}{n+1}\theta)^{2}\frac{n}{\theta^{n}}x^{n-1}dx\\
+= & \int_{0}^{\theta}\big\{\frac{n}{\theta^{n}}x^{n+1}-\frac{2n^{2}}{(n+1)\theta^{n-1}}x^{n}+\frac{n^{3}}{(n+1)^{2}\theta^{n-2}}x^{n-1}\big\} dx\\
+= & \theta^{2}\big(\frac{n}{n+2}-\frac{2n^{2}}{(n+1)^{2}}+\frac{n^{2}}{(n+1)^{2}}\big)\\
+= & \theta^{2}\frac{n}{(n+1)^{2}(n+2)}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+c.
+ The risk of 
+\begin_inset Formula $M_{n}$
+\end_inset
+
+ under quadratic loss is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+R(\theta,M_{n})= & {\rm Bias}(M_{n})^{2}+{\rm Var}(M_{n})\\
+= & \theta^{2}(\frac{2n+2}{(n+1)^{2}(n+2)})\\
+= & \theta^{2}\frac{2}{(n+1)(n+2)}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Find the natural parameter space
+\end_layout
+
+\begin_layout Proof
+We need to find 
+\begin_inset Formula $\eta$
+\end_inset
+
+ such as 
+\begin_inset Formula $A(\eta)<\infty.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+A(\eta)= & \log\int\exp(-\eta x)x^{2}d\mu(x)\\
+= & \log\sum_{x=1}^{\infty}\exp(-\eta x)x^{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now consider the series 
+\begin_inset Formula $\sum_{x=1}^{\infty}e^{-\eta x},$
+\end_inset
+
+ if 
+\begin_inset Formula $\eta\le0$
+\end_inset
+
+ then it is obvious that the series diverges as it is at least as large
+ as 
+\begin_inset Formula $\sum_{x=1}^{\infty}1.$
+\end_inset
+
+ If 
+\begin_inset Formula $\eta>0,$
+\end_inset
+
+ then the series converges according to the ratio test.
+ So the parameter space is 
+\begin_inset Formula $\mathbb{R}^{+}.$
+\end_inset
+
+ For 
+\begin_inset Formula $\eta>0$
+\end_inset
+
+, let:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+C= & \sum_{x=1}^{\infty}e^{-\eta x}\\
+= & e^{-\eta}(1+\sum_{x=1}^{\infty}e^{-\eta x})\\
+= & e^{-\eta}(1+C)\\
+\Rightarrow C= & \frac{e^{-\eta}}{1-e^{-\eta}}=\frac{e^{\eta}}{e^{\eta}-1}\\
+\frac{dC}{d\eta}= & \sum_{x=1}^{\infty}-xe^{-\eta x}=\bigg(\frac{e^{\eta}}{e^{\eta}-1}\bigg)^{'}=\frac{-e^{\eta}}{(e^{\eta}-1)^{2}}\\
+\Rightarrow\frac{d^{2}C}{d\eta^{2}}= & \sum_{x=1}^{\infty}x^{2}e^{-\eta x}=\bigg(\frac{-e^{\eta}}{(e^{\eta}-1)^{2}}\bigg)^{'}=\frac{e^{2\eta}+e^{\eta}}{(e^{\eta}-1)^{3}}\\
+\Rightarrow A(\eta)= & \log\frac{e^{2\eta}+e^{\eta}}{(e^{\eta}-1)^{3}}\\
+\Rightarrow A'(\eta)= & \frac{e^{2\eta}+4e^{\eta}+1}{1-e^{2\eta}}\\
+\Rightarrow A''(\eta)= & \frac{4e^{\eta}(e^{2\eta}+e^{\eta}+1)}{(e^{2\eta}-1)^{2}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So we have: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}X= & -\mathbb{E}[T(X)]=-A'(\eta)=\frac{e^{2\eta}+4e^{\eta}+1}{e^{2\eta}-1}\\
+{\rm Var}[X]= & {\rm Var}[T(X)]=A''(\eta)=\frac{4e^{\eta}(e^{2\eta}+e^{\eta}+1)}{(e^{2\eta}-1)^{2}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Identifiable parameterization
+\end_layout
+
+\begin_layout Proof
+a.
+ This parameterization is not identificable since for
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\theta_{1}= & (\alpha_{1},\alpha_{2},...,\alpha_{p},\nu,\sigma^{2})\\
+\theta_{2}= & (\alpha_{1}+1,\alpha_{2}+1,...,\alpha_{p}+1,\nu-1,\sigma^{2})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Then 
+\begin_inset Formula $\theta_{1}\neq\theta_{2},$
+\end_inset
+
+ but each of 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ have the same distribution for these 
+\begin_inset Formula $\theta_{1},\theta_{2}$
+\end_inset
+
+ and they are independent thus they the two joint distribution are the same.
+ 
+\end_layout
+
+\begin_layout Proof
+b.
+ First we need the probability mass to sum up to 1.
+ For that we need to divided by the constant 
+\begin_inset Formula $e^{\theta_{0}}+e^{\theta_{1}}.$
+\end_inset
+
+ And so we have the probability mass function:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(x;\theta)= & \frac{\exp(\theta_{0}x+\theta_{1}(1-x))}{e^{\theta_{0}}+e^{\theta_{1}}}\\
+\Rightarrow p(0;\theta)= & \frac{e^{\theta_{1}}}{e^{\theta_{0}}+e^{\theta_{1}}}=\frac{1}{1+e^{\theta_{0}-\theta_{1}}}\\
+p(1;\theta)= & \frac{e^{\theta_{0}}}{e^{\theta_{0}}+e^{\theta_{1}}}=\frac{1}{1+e^{\theta1-\theta_{0}}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This parameterization is not identificable since for any 
+\begin_inset Formula $\theta=(\theta_{0},\theta_{1}),\theta'=(\theta_{0}',\theta_{1}')$
+\end_inset
+
+ such that 
+\begin_inset Formula $\theta_{0}-\theta_{1}=\theta_{0}'-\theta_{1}',\theta_{0}\neq\theta_{0}'$
+\end_inset
+
+, we have 
+\begin_inset Formula $\theta\neq\theta'$
+\end_inset
+
+ but the 
+\begin_inset Formula $p(x;\theta)=p'(x,\theta)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+c.
+ For 
+\begin_inset Formula $\theta\neq\theta',$
+\end_inset
+
+ assume the contradiction that 
+\begin_inset Formula $\mathbb{P}_{\theta}=\mathbb{P}_{\theta'}.$
+\end_inset
+
+ Thus the marginal distribution of 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ is the same as the marginal distribution for 
+\begin_inset Formula $X_{1}'.$
+\end_inset
+
+ Thus 
+\begin_inset Formula $\theta=\theta'$
+\end_inset
+
+ contradiction.
+ So 
+\begin_inset Formula $\mathbb{P}_{\theta}\neq\mathbb{P}_{\theta'}.$
+\end_inset
+
+ So this parameterization is identificable.
+ 
+\end_layout
+
+\begin_layout Lemma
+Let 
+\begin_inset Formula $X,Y\sim Poisson(\lambda_{1}),Poisson(\lambda_{2}),$
+\end_inset
+
+ then 
+\begin_inset Formula $X+Y\sim Poisson(\lambda_{1}+\lambda_{2}).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[X+Y=n]= & \sum_{m=0}^{n}\mathbb{P}[X=m]\mathbb{P}[Y=n-m]\\
+= & \sum_{m=0}^{n}e^{-\lambda_{1}}\frac{\lambda_{1}^{m}}{m!}e^{-\lambda_{2}}\frac{\lambda_{2}^{n-m}}{(n-m)!}\\
+= & e^{-\lambda_{1}-\lambda_{2}}\sum_{m=0}^{n}\frac{1}{m!(n-m)!}\lambda_{1}^{m}\lambda_{2}^{m}\\
+= & e^{-\lambda_{1}-\lambda_{2}}(\lambda_{1}+\lambda_{2})^{n}\frac{1}{n!}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+which is the probability mass function of 
+\begin_inset Formula $Poisson(\lambda_{1}+\lambda_{2}).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+Recursively, we have if 
+\begin_inset Formula $X_{1},X_{2},...,X_{n}$
+\end_inset
+
+ are independent Poisson with parameters 
+\begin_inset Formula $\lambda_{1},\lambda_{2},...,\lambda_{n}$
+\end_inset
+
+ then 
+\begin_inset Formula $X_{1}+X_{2}+...+X_{n}\sim Poisson(\lambda_{1}+\lambda_{2}+...+\lambda_{n})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+Sufficient Statistics
+\end_layout
+
+\begin_layout Proof
+a.
+ From Lemma 1., we have 
+\begin_inset Formula $T\sim Poisson(n\theta).$
+\end_inset
+
+ Now 
+\begin_inset Formula $\forall x_{1},x_{2},...,x_{n},t\in\in\mathbb{N},$
+\end_inset
+
+ if 
+\begin_inset Formula $t=\sum_{i=1}^{n}x_{i},$
+\end_inset
+
+ then:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[X_{1}=x_{1},X_{2}=x_{2},...,X_{n}=x_{n}\mid T=t] & =\frac{\mathbb{P}[(X_{1}=x_{1},X_{2}=x_{2},...,X_{n}=x_{n})\wedge T=t]}{\mathbb{P}[T=t]}\\
+ & =\frac{\mathbb{P}[X_{1}=x_{1},X_{2}=x_{2},...,X_{n}=x_{n}]}{\mathbb{P}[T=t]}\\
+ & =\frac{\mathbb{P}[X_{1}=x_{1}]\mathbb{P}[X_{2}=x_{2}]...\mathbb{P}[X_{n}=x_{n}]}{\mathbb{P}[T=t]}\\
+ & =\frac{\prod_{i=1}^{n}\frac{1}{x_{i}!}\theta^{x_{i}}e^{-\theta}}{\frac{1}{t!}(n\theta)^{t}e^{-n\theta}}\\
+ & =\frac{(\sum x_{i})!}{\prod_{i=1}^{n}x_{i}!}\frac{1}{n^{t}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $t\neq\sum_{i=1}^{n}x_{i},$
+\end_inset
+
+ then 
+\begin_inset Formula $\mathbb{P}[X_{1}=x_{1},X_{2}=x_{2},...,X_{n}=x_{n}\mid T=t]=0.$
+\end_inset
+
+ So in all cases, the conditional joint distribution 
+\begin_inset Formula $\mathbb{P}[X_{1},X_{2},...,X_{n}\mid T]$
+\end_inset
+
+ does not depend on 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ So T is a sufficient statistics.
+ 
+\end_layout
+
+\begin_layout Proof
+b.
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[X_{1}=x_{1},X_{2}=x_{2},...,X_{n}=x_{n}] & =\mathbb{P}[X_{1}=x_{1}]\mathbb{P}[X_{2}=x_{2}]...\mathbb{P}[X_{n}=x_{n}]\\
+ & =\prod_{i=1}^{n}\frac{1}{x_{i}!}\theta^{x_{i}}e^{-\theta}\\
+ & =\theta^{\sum_{i=1}^{n}x_{i}}e^{-n\theta}\prod_{i=1}^{n}\frac{1}{x_{i}!}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $g_{\theta}(T(x))=\theta^{T(x)}e^{-n\theta},h(x)=\prod_{i=1}^{n}\frac{1}{x_{i}!},$
+\end_inset
+
+ then we 
+\begin_inset Formula $g_{\theta}\ge0,\forall\theta>0,h(x)\ge0,$
+\end_inset
+
+ thus 
+\begin_inset Formula $p_{\theta}(x)$
+\end_inset
+
+ satisfies the factorization condition.
+ So TT is a sufficient statistics.
+ 
+\end_layout
+
+\end_body
+\end_document

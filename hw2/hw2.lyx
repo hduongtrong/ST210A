@@ -1,0 +1,992 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ST210A - Homework 2
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+Sample of two-dimensional normal distribution
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(a)
+\series default
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+W=\left[\begin{array}{c}
+X_{1}\\
+...\\
+X_{n}\\
+Y_{1}\\
+...\\
+Y_{n}
+\end{array}\right]\AC N\left(\left[\begin{array}{c}
+0\\
+...\\
+0\\
+0\\
+...\\
+0
+\end{array}\right],\left[\begin{array}{cccccc}
+1 &  & 0 & \theta &  & 0\\
+ & \ddots &  &  & \ddots\\
+0 &  & 1 & 0 &  & \theta\\
+\theta &  & 0 & 1 &  & 0\\
+ & \ddots &  &  & \ddots\\
+0 &  & \theta & 0 &  & 1
+\end{array}\right]\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Denote 
+\begin_inset Formula $X=[X_{1},X_{2},...,X_{n}]^{T},Y=[Y_{1},Y_{2},...,Y_{n}]^{T},W=[X^{T},Y^{T}]$
+\end_inset
+
+.
+ For simpification, we write the covariance matrix as 
+\begin_inset Formula $\Sigma=\left[\begin{array}{cc}
+I_{n} & \theta I_{n}\\
+\theta I_{n} & I_{n}
+\end{array}\right]$
+\end_inset
+
+.
+ For a block matrix 
+\begin_inset Formula $S=\left[\begin{array}{cc}
+A & B\\
+C & D
+\end{array}\right]$
+\end_inset
+
+, we have 
+\begin_inset Formula $\det(S)=\det(A)\det(D-CA^{-1}B)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\Rightarrow\det(\Sigma)= & \det(I_{n})\det(I_{n}-\theta I_{n}I_{n}\theta I_{n})\\
+= & \det((1-\theta^{2})I_{n})\\
+= & (1-\theta^{2})^{n}\\
+\Sigma^{-1}= & \frac{1}{(1-\theta^{2})^{n}}\left[\begin{array}{cc}
+I_{n} & -\theta I_{n}\\
+-\theta I_{n} & I_{n}
+\end{array}\right]\\
+\Rightarrow f_{W}(w)= & \frac{1}{\sqrt{(2\pi)^{2n}(1-\theta^{2})^{n}}}\exp\left\{ -\frac{1}{2}w^{T}\Sigma^{-1}w\right\} \\
+= & \frac{1}{\sqrt{(2\pi)^{2n}(1-\theta^{2})^{n}}}\exp\left\{ -\frac{1}{2(1-\theta^{2})^{n}}\left[x^{T},y^{T}\right]\left[\begin{array}{cc}
+I_{n} & -\theta I_{n}\\
+-\theta I_{n} & I_{n}
+\end{array}\right]\left[\begin{array}{c}
+x\\
+y
+\end{array}\right]\right\} \\
+= & \frac{1}{\sqrt{(2\pi)^{2n}(1-\theta^{2})^{n}}}\exp\left\{ -\frac{1}{2(1-\theta^{2})^{n}}\left[x^{T}-\theta y^{T},-\theta x^{T}+y^{T}\right]\left[\begin{array}{c}
+x\\
+y
+\end{array}\right]\right\} \\
+= & \frac{1}{\sqrt{(2\pi)^{2n}(1-\theta^{2})^{n}}}\exp\left\{ -\frac{1}{2(1-\theta^{2})^{n}}\left(x^{T}x+y^{T}y-2\theta x^{T}y\right)\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $T=\left[X^{T}X+Y^{T}Y,X^{T}Y\right]^{T}:=[T_{1},T_{2}]^{T}$
+\end_inset
+
+, then 
+\begin_inset Formula $f_{T}(t)=g_{\theta}(T),$
+\end_inset
+
+ for:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+g_{\theta}(T)=\frac{1}{\sqrt{(2\pi)^{2n}(1-\theta^{2})^{n}}}\exp\left\{ -\frac{1}{2(1-\theta^{2})^{n}}\left[1,-2\theta\right]T\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Then by the factorization theorem, 
+\begin_inset Formula $T$
+\end_inset
+
+ is a sufficient statistics.
+ 
+\end_layout
+
+\begin_layout Proof
+Now assume that 
+\begin_inset Formula $f_{W}(w)=kf_{W}(w'),k>0$
+\end_inset
+
+, we have 
+\begin_inset Formula $\forall\theta$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\log f_{W}(w)= & \log f_{W}(w')+\log k\\
+\Rightarrow-\frac{1}{2(1-\theta^{2})^{n}}(T_{1}-2\theta T_{2})= & -\frac{1}{2(1-\theta^{2})^{n}}(T'_{1}-2\theta T'_{2})+\log k\\
+\Rightarrow T_{1}-2\theta T_{2}= & T'_{1}-2\theta T'_{2}-2(1-\theta^{2})^{n}\log k
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since the LHS and RHS of the last expression are polynomial of 
+\begin_inset Formula $\theta$
+\end_inset
+
+, and they are equal 
+\begin_inset Formula $\forall\theta\in(-1,1),$
+\end_inset
+
+ we must have all the coefficient for each degree of the two polynomial
+ are equal.
+ For degree 
+\begin_inset Formula $2n$
+\end_inset
+
+, we have 
+\begin_inset Formula $-2\log k=0\Rightarrow k=1.$
+\end_inset
+
+ For degree 1, we have 
+\begin_inset Formula $T_{2}=T'_{2},$
+\end_inset
+
+ and for degree zero we have 
+\begin_inset Formula $T_{1}=T'_{1}.$
+\end_inset
+
+ Thus 
+\begin_inset Formula $T=T'.$
+\end_inset
+
+ By theorem 3.11 in Keener, we have 
+\begin_inset Formula $T$
+\end_inset
+
+ is minimal sufficient.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(b) 
+\series default
+Let 
+\begin_inset Formula $h(T)=\left[1,0\right]T=X^{T}X+Y^{T}Y,$
+\end_inset
+
+ then 
+\begin_inset Formula $h(T)$
+\end_inset
+
+ is not a constant function, but 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}h(T)= & \mathbb{E}\left[\sum_{i=1}^{n}X_{i}^{2}+\sum_{i=1}^{n}Y_{i}^{2}\right]\\
+= & 2n
+\end{alignat*}
+
+\end_inset
+
+ is a constant.
+ Thus 
+\begin_inset Formula $T$
+\end_inset
+
+ is not complete.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(c)
+\series default
+ We have 
+\begin_inset Formula $[X_{1},X_{2},...,X_{n}]^{T}\sim N(\mathbf{0},I),$
+\end_inset
+
+ as such 
+\begin_inset Formula $Z_{1}=\sum_{i=1}^{n}X_{i}^{2}$
+\end_inset
+
+ has distribution independent of 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ In fact it has a 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ distribution with k degree of freedom.
+ Thus 
+\begin_inset Formula $Z_{1}$
+\end_inset
+
+ is ancillary.
+ Similarly 
+\begin_inset Formula $Z_{2}$
+\end_inset
+
+ is ancillary.
+ 
+\end_layout
+
+\begin_layout Proof
+Now consider 
+\begin_inset Formula $Z=[Z_{1},Z_{2}]^{T}.$
+\end_inset
+
+ For 
+\begin_inset Formula $X_{i},Y_{i},Y_{i}=\theta X_{i}+Y_{i}-\theta X_{i}:=\theta X_{i}+U_{i}.$
+\end_inset
+
+ Then:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\theta={\rm Cov}(X_{i},Y_{i}) & ={\rm Cov}(X_{i},\theta X_{i})+{\rm Cov}(X_{i},U_{i})\\
+ & =\theta+{\rm Cov}(X_{i},U_{i})\\
+\Rightarrow{\rm Cov}(X_{i},U_{i}) & =0
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus 
+\begin_inset Formula $X_{i},U_{i}$
+\end_inset
+
+ are independent since they are normal and uncorrelated.
+ Let 
+\begin_inset Formula $U_{i}=\sqrt{1-\theta^{2}}V_{i}$
+\end_inset
+
+ then 
+\begin_inset Formula $V_{i}$
+\end_inset
+
+ has variance 1.
+ At the end we have: 
+\begin_inset Formula $Y_{i}=\theta X_{i}+\sqrt{1-\theta^{2}}V_{i}.$
+\end_inset
+
+ Now:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+X_{i}^{2}Y_{i}^{2}= & \theta^{2}X_{i}^{4}+2\theta\sqrt{1-\theta^{2}}X_{i}^{3}V+(1-\theta^{2})X_{i}^{2}V_{i}^{2}\\
+\Rightarrow\mathbb{E}\left[X_{i}^{2}Y_{i}^{2}\right]= & 3\theta^{2}+1-\theta^{2}=2\theta^{2}+1.\\
+\Rightarrow{\rm Cov}(X_{i}^{2},Y_{i}^{2})= & \mathbb{E}\left[X_{i}^{2}Y_{i}^{2}\right]-\mathbb{E}\left[X_{i}^{2}\right]\mathbb{E}\left[Y_{i}^{2}\right]\\
+= & 2\theta^{2}\\
+\Rightarrow{\rm Cov}(Z_{1},Z_{2})= & \sum_{i=1}^{n}\sum_{j=1}^{n}{\rm Cov}(X_{i}^{2},Y_{j}^{2})\\
+= & \sum_{i=1}^{n}{\rm Cov}(X_{i}^{2},Y_{i}^{2})\\
+= & 2n\theta^{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since the 
+\begin_inset Formula ${\rm Cov}(Z_{1},Z_{2})$
+\end_inset
+
+ depends on 
+\begin_inset Formula $\theta,$
+\end_inset
+
+ the joint distribution of 
+\begin_inset Formula $[Z_{1},Z_{2}]$
+\end_inset
+
+ must also depend on 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ Thus 
+\begin_inset Formula $[Z_{1},Z_{2}]$
+\end_inset
+
+ is not ancillary.
+ 
+\end_layout
+
+\begin_layout Problem
+Uniform on 
+\begin_inset Formula $(-\theta,\theta)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(a)
+\series default
+ For each 
+\begin_inset Formula $X_{i},f_{X_{i}}(x_{i})=\frac{1}{2\theta}\mathbb{I}[-\theta<x_{i}<\theta]$
+\end_inset
+
+, since 
+\begin_inset Formula $X_{i}'s$
+\end_inset
+
+ are independent, 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{X}(x)= & \frac{1}{(2\theta)^{n}}\prod_{i=1}^{n}\mathbb{I}\left[-\theta<x_{i}<\theta\right]\\
+= & \frac{1}{(2\theta)^{n}}\mathbb{I}\left[x_{i}\in(-\theta,\theta),\forall i=1,...,n\right]\\
+= & \frac{1}{(2\theta)^{n}}\mathbb{I}\left[\max_{i\in\{1,...,n\}}\mid x_{i}\mid<\theta\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus 
+\begin_inset Formula $T=\max_{i\in\{1,...,n\}}\mid x_{i}\mid$
+\end_inset
+
+ is a sufficient statistic.
+ Now if 
+\begin_inset Formula $\forall\theta,$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{X}(x) & =kf_{X}(x')\\
+\Rightarrow\mathbb{I}\left[T<\theta\right] & =k\mathbb{I}\left[T'<\theta\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Then 
+\begin_inset Formula $k=1,$
+\end_inset
+
+ and 
+\begin_inset Formula $T=T'.$
+\end_inset
+
+ Thus 
+\begin_inset Formula $T$
+\end_inset
+
+ is minimal sufficient.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(b)
+\series default
+ We will show that 
+\begin_inset Formula $V$
+\end_inset
+
+ is ancillary.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+V= & \frac{\bar{X}}{X_{(n)}-X_{(1)}}\\
+= & \frac{\frac{1}{n}\sum_{i=1}^{n}X_{i}}{X_{(n)}-X_{(1)}}\\
+= & \frac{1}{n}\frac{\sum_{i=1}^{n}\frac{X_{i}}{\theta}}{\frac{X_{(n)}}{\theta}-\frac{X_{(1)}}{\theta}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $Y_{i}$
+\end_inset
+
+ be i.i.d uniform on 
+\begin_inset Formula $(-1,1),$
+\end_inset
+
+ then 
+\begin_inset Formula $V=\frac{1}{n}\frac{\sum_{i=1}^{n}Y_{i}}{Y_{(n)}-Y_{(1)}},$
+\end_inset
+
+ as such the distribution of 
+\begin_inset Formula $V$
+\end_inset
+
+ does not depend on 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $V$
+\end_inset
+
+ is ancillary.
+ By the Basu theorem, 
+\begin_inset Formula $T$
+\end_inset
+
+ is independent with V.
+ 
+\end_layout
+
+\begin_layout Problem
+Uniform on 
+\begin_inset Formula $\left[\theta-\frac{1}{2},\theta+\frac{1}{2}\right].$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(a)
+\series default
+ 
+\begin_inset Formula $T=\left(X_{(1)},X_{(2)}\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $X=\left[X_{1},X_{2},...,X_{n}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{X_{i}}(x_{i})= & \mathbb{I}\left[\theta-\frac{1}{2}\le x_{i}\le\theta+\frac{1}{2}\right]\\
+\Rightarrow f_{X}(x)= & \prod_{i=1}^{n}\mathbb{I}\left[\theta-\frac{1}{2}\le x_{i}\le\theta+\frac{1}{2}\right]\\
+= & \mathbb{I}\left[x_{i}\in\left[\theta-\frac{1}{2},\theta+\frac{1}{2}\right],\forall i\in\{1,2,...,n\}\right]\\
+= & \mathbb{I}\left[x_{(n)}<\theta+\frac{1}{2}\wedge x_{(1)}>\theta-\frac{1}{2}\right].
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So 
+\begin_inset Formula $T$
+\end_inset
+
+ is sufficient.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(b)
+\series default
+ By the Rao-Blackwell theorem for the sufficient statistics 
+\begin_inset Formula $T$
+\end_inset
+
+, we have
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+R(\theta,\delta(X_{1},...,X_{n}))\le & R(\theta,\bar{X})\\
+\Leftrightarrow\mathbb{E}\left[(\theta-\delta)^{2}\right]\le & \mathbb{E}\left[(\theta-\bar{X})^{2}\right]\\
+\Leftrightarrow{\rm MSE}(\delta)\le & {\rm MSE}(\bar{X}).
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since the loss function is not linear, the equality hold iff 
+\begin_inset Formula $\bar{X}\mid\min\{X_{i}\},\max\{X_{i}\}$
+\end_inset
+
+ is equal to a constant with probability 1, which is not true when 
+\begin_inset Formula $n>2.$
+\end_inset
+
+ So 
+\begin_inset Formula $MSE$
+\end_inset
+
+ for 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is strictly better than 
+\begin_inset Formula $MSE$
+\end_inset
+
+ for 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ when 
+\begin_inset Formula $n>2.$
+\end_inset
+
+ And we can easily see that they are equal when 
+\begin_inset Formula $n=2$
+\end_inset
+
+ or 
+\begin_inset Formula $n=1.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+Now we will calculate 
+\begin_inset Formula $\delta.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+First for 
+\begin_inset Formula $A,B$
+\end_inset
+
+ independent random variables, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[X\right]= & \mathbb{E}\left[\mathbb{E}\left[X\mid A\right]\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[\bar{X}\mid\min\{X_{i}\}=a,\max\{X_{i}\}=b\right]= & \mathbb{E}\left[\bar{X}\mid X_{i}\in[a,b],\forall i=1,...,n\right]\\
+= & \mathbb{E}\left[\frac{1}{n}\sum_{i=1}^{n}X_{i}\mid X_{i}\in[a,b],\forall i=1,...,n\right]\\
+= & \frac{1}{n}\sum_{i=1}^{n}\mathbb{E}\left[X_{i}\mid X_{j}\in[a,b],\forall i=1,...,n\right]\\
+= & \frac{1}{n}\sum_{i=1}^{n}\mathbb{E}\left[X_{i}\mid X_{i}\in[a,b]\right]\\
+= & \frac{1}{n}\sum_{i=1}^{n}\frac{b+a}{2}\\
+= & \frac{b+a}{2}=\frac{\min\{X_{i}\}+\max\{X_{i}\}}{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Location-scale family
+\end_layout
+
+\begin_layout Proof
+Write 
+\begin_inset Formula $X_{i}=a+bZ_{i}$
+\end_inset
+
+ then 
+\begin_inset Formula $Z_{i}$
+\end_inset
+
+ has known cumulative distribution function 
+\begin_inset Formula $F(x)$
+\end_inset
+
+ does not depend on neither a nor b.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(a)
+\series default
+ Now 
+\begin_inset Formula $(X_{1}-X_{i})/b=Z_{1}-Z_{i}$
+\end_inset
+
+ has distribution not depending on 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $(X_{1}-X_{i})/b$
+\end_inset
+
+ are ancillary if b is known.
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(b)
+\series default
+ 
+\begin_inset Formula $(X_{1}-a)/(X_{i}-a)=Z_{1}/Z_{i}$
+\end_inset
+
+ has distribution not depending on b.
+ Thus it is ancillary
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(c)
+\series default
+ 
+\begin_inset Formula $(X_{1}-X_{i})/(X_{2}-X_{i})=b(Z_{1}-Z_{i})/(b(Z_{2}-Z_{i}))=(Z_{1}-Z_{i})/(Z_{2}-Z_{i})$
+\end_inset
+
+ has distribution not depending on neither a nor b.
+ Thus the statistics is ancillary.
+ 
+\end_layout
+
+\begin_layout Problem
+Unbiased estimator
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(a)
+\series default
+ 
+\begin_inset Formula $\mathbb{E}S_{1}=\mathbb{P}[X_{1}=0]\times1+\mathbb{P}[X_{1}\neq0]\times0=\mathbb{P}[X_{1}=0]=\exp(-\lambda).$
+\end_inset
+
+ Thus 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ is an unbiased estimator.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\mathbb{E}S_{2}=\frac{1}{n}\mathbb{E}\mathbb{I}\left[X_{i}=0\right]=\frac{1}{n}n\exp(-\lambda)=\exp(-\lambda).$
+\end_inset
+
+ Thus 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ is also unbiased.
+ Note that we can see that 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ has a smaller risk than 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ as it has smaller variance (due to averaging independent observation).
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(b)
+\series default
+ Consider the density function
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{X}(x)= & \prod_{i=1}^{n}\frac{\lambda^{x_{i}}e^{-\lambda}}{x_{i}!}\\
+= & e^{-n\lambda}\lambda^{\sum_{i=1}^{n}x_{i}}\frac{1}{\prod_{i=1}^{n}x_{i}!}\\
+= & g_{\lambda}(\sum_{i=1}^{n}x_{i})h(x)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus by the factorization theorem, 
+\begin_inset Formula $T(x)=\sum_{i=1}^{n}x_{i}$
+\end_inset
+
+ is sufficient.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(c)
+\series default
+ From the lemma we proved in the last homework, sum of independent Poisson
+ is Poisson with mean parameter equal to sum of mean parameter.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}[S_{1}\mid T=t]= & \mathbb{E}[\mathbb{I}[X_{1}=0]\mid T=t]\\
+= & \mathbb{P}[X_{1}=0\mid T=t]\\
+= & \frac{\mathbb{P}[X_{1}=0\wedge\sum_{i=1}^{n}X_{i}=t]}{\mathbb{P}[\sum_{i=1}^{n}X_{i}=t]}\\
+= & \frac{\mathbb{P}[X_{1}=0\wedge\sum_{i=2}^{n}X_{i}=t]}{\mathbb{P}[\sum_{i=1}^{n}X_{i}=t]}\\
+= & \frac{\mathbb{P}[X_{1}=0]\mathbb{P}[\sum_{i=2}^{n}X_{i}=t]}{\mathbb{P}[\sum_{i=1}^{n}X_{i}=t]}\\
+= & \frac{\exp(-\lambda)((n-1)\lambda)^{t}\exp(-(n-1)\lambda)/t!}{(n\lambda)^{t}\exp(-n\lambda)/t!}\\
+= & \frac{(n-1)^{t}}{n^{t}}=\left(1-\frac{1}{n}\right)^{t}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}[S_{2}\mid T=t]= & \mathbb{E}\left[\frac{1}{n}\sum_{j=1}^{n}\mathbb{I}[X_{j}=0]\mid\sum_{i=1}^{n}X_{i}=t\right]\\
+= & \frac{1}{n}\sum_{j=1}^{n}\mathbb{E}\left[\mathbb{I}[X_{j}=0]\mid\sum_{i=1}^{n}X_{i}=t\right]\\
+= & \frac{1}{n}n\mathbb{E}[S_{1}\mid T=t]\\
+= & \left(1-\frac{1}{n}\right)^{t}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So apply Rao-Blackwell to two estimators result in the same estimator.
+ Now since T is complete as it comes from a full-rank exponential distribution
+ family.
+ It is expected that the two Rao-Blackwellized of 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ are the same as they are both the UMVU.
+ 
+\end_layout
+
+\begin_layout Problem
+Determine UMUV for 
+\begin_inset Formula $e^{-2\lambda}$
+\end_inset
+
+ for single 
+\begin_inset Formula $Poisson$
+\end_inset
+
+ distribution mean 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Let an unbiased estimator be 
+\begin_inset Formula $g(X),$
+\end_inset
+
+ we need:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}[g(X)] & =e^{-2\lambda}\\
+\Rightarrow\sum_{i=0}^{\infty}g(i)e^{-\lambda}\frac{\lambda^{i}}{i!} & =e^{-2\lambda}\\
+\Rightarrow\sum_{i=0}^{\infty}g(i)\frac{\lambda^{i}}{i!} & =e^{-\lambda}\\
+\Rightarrow\sum_{i=0}^{\infty}g(i)\frac{\lambda^{i}}{i!} & =\sum_{i=0}^{\infty}(-1)^{i+1}\frac{\lambda^{i}}{i!}\\
+\Rightarrow g(i) & =(-1)^{i+1},\forall i
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So 
+\begin_inset Formula $g(X)=(-1)^{X+1}.$
+\end_inset
+
+ Since there is only one observation, this 
+\begin_inset Formula $g(X)$
+\end_inset
+
+ is the only unbiased estimator, thus it is UMUV.
+ 
+\end_layout
+
+\end_body
+\end_document

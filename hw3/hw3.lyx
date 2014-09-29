@@ -1,0 +1,1100 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+STAT215A - HW3
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+UMVU
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(a)
+\series default
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{\theta}(x)= & \prod_{i=1}^{n}\frac{\phi(x_{i})}{\Phi(\theta)}\mathbb{I}[x_{i}<\theta]\\
+= & \prod_{i=1}^{n}\frac{\frac{1}{\sqrt{2\pi}}\exp\{-\frac{1}{2}x_{i}^{2}\}}{\Phi(\theta)}\mathbb{I}[x_{i}<\theta]\\
+= & \frac{1}{(2\pi)^{n/2}}\exp\left(-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2}\right)\frac{1}{\Phi^{n}(\theta)}\prod_{i=1}^{n}\mathbb{I}[x_{i}<\theta]\\
+= & \frac{1}{(2\pi)^{n/2}}\exp(-\frac{1}{2}\sum_{i=1}^{n}x_{i}^{2})\frac{\mathbb{I}[\max_{i\in\{1,...,n\}}\{x_{i}\}<\theta]}{\Phi^{n}(\theta)}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By the factorization theorem, 
+\begin_inset Formula $\max\{X_{i}\}$
+\end_inset
+
+ is a sufficient statistic.
+ We will prove that it is a complete statistics.
+ In fact, we have for 
+\begin_inset Formula $t<\theta$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[T<t]= & \mathbb{P}[X_{i}<t,\forall1\le i\le n]\\
+= & \mathbb{P}[X_{i}<t]^{n}\\
+= & \left(\int_{-\infty}^{t}\frac{\phi(x)}{\Phi(\theta)}dx\right)^{n}\\
+= & \frac{(\Phi(t))^{n}}{(\Phi(\theta))^{n}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $t\ge\theta,\mathbb{P}[T<t]=1.$
+\end_inset
+
+ Thus the density of T is: 
+\begin_inset Formula $p_{T}(t)=n\frac{(\Phi(t))^{n-1}}{(\Phi(\theta))^{n}}\phi(t)\mathbb{I}[(-\infty,\theta)].$
+\end_inset
+
+ So for any function 
+\begin_inset Formula $h(T)$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}h(T)= & c,\forall\theta\\
+\Leftrightarrow\int_{-\infty}^{\theta}h(t)p_{T}(t)dt= & c,\forall\theta\\
+\Leftrightarrow n\int_{-\infty}^{\theta}h(t)\Phi^{n-1}(t)\phi(t)dt= & c\Phi^{n}(\theta),\forall\theta\\
+\Rightarrow\frac{\partial}{\partial\theta}n\int_{-\infty}^{\theta}h(t)\Phi^{n-1}(t)\phi(t)dt= & \frac{\partial}{\partial\theta}c\Phi^{n}(\theta),\forall\theta\\
+\Rightarrow nh(\theta)\Phi^{n-1}(\theta)\phi(\theta)= & cn\Phi^{n-1}(\theta)\phi(\theta)\\
+\Rightarrow h(\theta)= & c
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So T is complete.
+ Now we will try to find an unbiased estimator of 
+\begin_inset Formula $g(\theta)$
+\end_inset
+
+ in the form of 
+\begin_inset Formula $h(T).$
+\end_inset
+
+ We need:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}h(T)= & g(\theta),\forall\theta\\
+\Leftrightarrow\int_{-\infty}^{\theta}h(t)p_{T}(t)dt= & g(\theta)\\
+\Leftrightarrow\int_{-\infty}^{\theta}h(t)n\frac{\Phi^{n-1}(t)}{\Phi^{n}(\theta)}\phi(t)dt= & g(\theta)\\
+\Leftrightarrow n\int_{-\infty}^{\theta}h(t)\Phi^{n-1}(t)\phi(t)dt= & g(\theta)\Phi^{n}(\theta)\\
+(1)\Rightarrow nh(\theta)\Phi^{n-1}(\theta)\phi(\theta)= & g'(\theta)\Phi^{n}(\theta)+g(\theta)n\Phi^{n-1}(\theta)\phi(\theta)\\
+\Leftrightarrow nh(\theta)\phi(\theta)= & g'(\theta)\Phi(\theta)+ng(\theta)\phi(\theta)\\
+\Leftrightarrow h(\theta)= & \frac{g'(\theta)\Phi(\theta)}{n\phi(\theta)}+g(\theta)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+On the other hand, the only step in the above derivation of 
+\begin_inset Formula $h$
+\end_inset
+
+ that is not equivalent is the part of taking partial derivative.
+ Since in general 
+\begin_inset Formula $f(x)=g(x)\Rightarrow F(x)=G(x)+c,$
+\end_inset
+
+ we need to double check:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+ & n\int_{-\infty}^{\theta}\left(\frac{g'(t)\Phi(t)}{n\phi(t)}+g(t)\right)\Phi^{n-1}(t)\phi(t)dt\\
+= & \int_{-\infty}^{\theta}\Phi^{n}(t)g'(t)dt+\int_{-\infty}^{\theta}ng(t)\Phi^{n-1}(t)\phi(t)dt\\
+= & \int_{-\infty}^{\theta}\Phi^{n}(t)dg(t)+\int_{-\infty}^{\theta}g(t)d\Phi^{n-1}(t)\\
+= & \Phi^{n}(t)g(t)\bigg|_{-\infty}^{\theta}\\
+= & \Phi^{n}(\theta)g(\theta)-\lim_{t\rightarrow-\infty}\Phi^{n}(t)g(t)\\
+= & \Phi^{n}(\theta)g(\theta)-\lim_{t\rightarrow-\infty}\frac{1}{(2\pi)^{n/2}}\exp(-\frac{n}{2}t^{2})g(t)\\
+= & \Phi^{n}(\theta)g(\theta)-\lim_{t\rightarrow-\infty}\frac{1}{(2\pi)^{n/2}}\frac{g(t)}{\exp(\frac{n}{2}t^{2})}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+With the assumption that 
+\begin_inset Formula $g(t)$
+\end_inset
+
+ is dominated by 
+\begin_inset Formula $\exp(\frac{n}{2}t^{2})$
+\end_inset
+
+ as t approaches 
+\begin_inset Formula $-\infty$
+\end_inset
+
+, we have the 
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+ direction in 
+\begin_inset Formula $(1)$
+\end_inset
+
+ as well.
+ Thus 
+\begin_inset Formula $h(T)$
+\end_inset
+
+ is an unbiased estimator of 
+\begin_inset Formula $g(\theta).$
+\end_inset
+
+ Since 
+\begin_inset Formula $h(T)=\frac{g'(T)\Phi(T)}{n\phi(T)}+g(T)$
+\end_inset
+
+ is a function of 
+\begin_inset Formula $T,$
+\end_inset
+
+ it is UMVU.
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+(b)
+\series default
+ It is obvious that 
+\begin_inset Formula $g(\theta)=\theta^{2}$
+\end_inset
+
+ is differentiable and goes to infinity as 
+\begin_inset Formula $\theta\rightarrow\pm\infty$
+\end_inset
+
+ much slower than 
+\begin_inset Formula $\exp(\theta^{2}).$
+\end_inset
+
+ So we can apply 
+\begin_inset Formula $(a)$
+\end_inset
+
+ and the estimate is 
+\begin_inset Formula $\frac{2T\Phi(T)}{n\phi(T)}+T^{2}$
+\end_inset
+
+ for 
+\begin_inset Formula $T=\max\{-2.3,-1.2,0\}=0,$
+\end_inset
+
+ thus the estimate is 0.
+ 
+\end_layout
+
+\begin_layout Problem
+Fisher Information
+\end_layout
+
+\begin_layout Proof
+(a) The Fisher information:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & \mathbb{E}_{\theta}\left(\frac{\partial\log p_{\theta}(X)}{\partial\theta}\right)^{2}\\
+= & \mathbb{E}_{\theta}\left(\frac{\partial\left(-\log\theta+\log f\left(x/\theta\right)\right)}{\partial\theta}\right)^{2}\\
+= & \mathbb{E}_{\theta}\left(-\frac{1}{\theta}-\frac{f'(x/\theta)}{f(x/\theta)}\frac{x}{\theta^{2}}\right)^{2}\\
+= & \mathbb{E}_{\theta}\left[\frac{1}{\theta^{2}}\left(1+\frac{xf'(x/\theta)}{\theta f(x/\theta)}\right)^{2}\right]\\
+= & \frac{1}{\theta^{2}}\int\left(1+\frac{xf'(x/\theta)}{\theta f(x/\theta)}\right)^{2}\frac{1}{\theta}f\left(\frac{x}{\theta}\right)dx
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Change variable 
+\begin_inset Formula $y=x/\theta,$
+\end_inset
+
+ then 
+\begin_inset Formula $dy=dx/\theta$
+\end_inset
+
+.
+ Then:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & \frac{1}{\theta^{2}}\int\left(1+\frac{yf'(y)}{f(y)}\right)^{2}f(y)dy
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) 
+\begin_inset Formula $\xi=\log\theta\Rightarrow\theta=\exp\xi\Rightarrow h(\xi)=\exp\xi$
+\end_inset
+
+.
+ The Fisher information now is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\tilde{I}(\xi)= & \left[h'(\xi)\right]^{2}\mathbb{E}_{\theta}\left(\frac{\partial\log p_{\theta}(X)}{\partial\theta}\right)^{2}\\
+= & \exp^{2}(\xi)\frac{1}{\theta^{2}}\int\left(1+\frac{yf'(y)}{f(y)}\right)^{2}f(y)dy\\
+= & \theta^{2}\frac{1}{\theta^{2}}\int\left(1+\frac{yf'(y)}{f(y)}\right)^{2}f(y)dy\\
+= & \int\left(1+\frac{yf'(y)}{f(y)}\right)^{2}f(y)dy
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This does not depend on 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+(c) Cauchy distribution has density 
+\begin_inset Formula $\frac{1}{\pi(x^{2}+1)}.$
+\end_inset
+
+ Thus the scale family has density 
+\begin_inset Formula $\frac{1}{\theta}\frac{1}{\pi(\frac{x^{2}}{\theta^{2}}+1)}=\frac{\theta}{\pi(x^{2}+\theta^{2})}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & -\mathbb{E}_{\theta}\frac{\partial^{2}\log p_{\theta}(x)}{\partial\theta^{2}}\\
+= & -\mathbb{E}_{\theta}\frac{\partial^{2}(\log\theta-\log\pi-\log(x^{2}+\theta^{2}))}{\partial\theta^{2}}\\
+= & -\mathbb{E}_{\theta}\left[-\frac{1}{\theta^{2}}+\frac{\partial\frac{2\theta}{(x^{2}+\theta^{2})}}{\partial\theta}\right]\\
+= & -\mathbb{E}_{\theta}\left[-\frac{1}{\theta^{2}}+\frac{2(x^{2}+\theta^{2})-2\theta2\theta}{(x^{2}+\theta^{2})^{2}}\right]\\
+= & \frac{1}{\theta^{2}}+\mathbb{E}_{\theta}\left[\frac{2(\theta^{2}-x^{2})}{(x^{2}+\theta^{2})^{2}}\right]\\
+= & \frac{1}{\theta^{2}}+\int_{-\infty}^{\infty}\frac{2(x^{2}-\theta^{2})}{(x^{2}+\theta^{2})^{2}}\frac{\theta}{\pi(x^{2}+\theta^{2})}dx\\
+= & \frac{1}{\theta^{2}}+\frac{2}{\theta^{2}}\int_{-\infty}^{\infty}\frac{\frac{x^{2}}{\theta^{2}}-1}{\pi\left(\frac{x^{2}}{\theta^{2}}+1\right)^{3}}d\frac{x}{\theta}\\
+= & \frac{1}{\theta^{2}}+\frac{2}{\theta^{2}}\int_{-\infty}^{\infty}\frac{y^{2}-1}{\pi(y^{2}+1)^{3}}dy\\
+= & \frac{1}{\theta^{2}}+\frac{2}{\theta^{2}}\int_{-\infty}^{\infty}\left[\frac{1}{\pi(y^{2}+1)^{2}}-\frac{2}{\pi(y^{2}+1)^{3}}\right]dy
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\int\frac{1}{(y^{2}+1)}dy & =\tan^{-1}(y)+c\\
+\int\frac{1}{(y^{2}+1)^{2}}dy & =\frac{1}{2}\left(\frac{y}{(y^{2}+1)}+\tan^{-1}(y)\right)+c\\
+\int\frac{1}{(y^{2}+1)^{3}dy} & =\frac{1}{8}\left(\frac{3y^{3}+5y}{(y^{2}+1)^{2}}+\tan^{-1}(y)\right)+c
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+ & \int_{-\infty}^{\infty}\left[\frac{1}{\pi(y^{2}+1)^{2}}-\frac{2}{\pi(y^{2}+1)^{3}}\right]dy\\
+= & -\frac{y^{3}+3y+(y^{2}+1)^{2}\tan^{-1}(y)}{4\pi(y^{2}+1)^{2}}\bigg|_{-\infty}^{\infty}\\
+= & -\frac{1}{4\pi}(\lim_{y\rightarrow\infty}\tan^{-1}(y)-\lim_{y\rightarrow-\infty}\tan^{-1}(y))\\
+= & -\frac{1}{4\pi}\left(\frac{\pi}{2}--\frac{\pi}{2}\right)=-\frac{1}{4}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & \frac{1}{\theta^{2}}-\frac{2}{\theta^{2}}\frac{1}{4}=\frac{1}{2\theta^{2}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Poisson Processes
+\end_layout
+
+\begin_layout Proof
+(a) (I swap Y to X, and k through out this problem).
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[X_{0}=k_{0}]= & \frac{\theta^{k_{0}}e^{-\theta}}{k_{0}!}\\
+\mathbb{P}[X_{1}=k_{1}\mid X_{0}=k_{0}]= & \frac{\mathbb{P}[X_{1}=k_{1},X_{0}=k_{0}]}{\mathbb{P}[X_{0}=k_{0}]}\\
+\Rightarrow\mathbb{P}[X_{1}=k_{1},X_{0}=k_{0}]= & \mathbb{P}[X_{1}=k_{1}\mid X_{0}=k_{0}]\mathbb{P}[X_{0}=k_{0}]\\
+= & \frac{(\theta k_{0})^{k_{1}}e^{-\theta k_{0}}}{k_{1}!}\frac{\theta^{k_{0}}e^{-\theta}}{k_{0}!}\\
+\Rightarrow & \mathbb{P}[X_{2}=k_{2},X_{1}=k_{1},X_{0}=k_{0}]\\
+= & \mathbb{P}[X_{2}=k_{2}\mid X_{1}=k_{1},X_{0}=k_{0}]\mathbb{P}[X_{1}=k_{1},X_{0}=k_{0}]\\
+= & \frac{(\theta k_{1})^{k_{2}}e^{-\theta k_{1}}}{k_{2}!}\frac{(\theta k_{0})^{k_{1}}e^{-\theta k_{0}}}{k_{1}!}\frac{\theta^{k_{0}}e^{-\theta}}{k_{0}!}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By an inductive reasoning, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+ & \mathbb{P}[X_{n}=k_{n},X_{n-1}=k_{n-1},...,X_{0}=k_{0}]\\
+= & \frac{\theta^{k_{0}}\prod_{i=1}^{n}(\theta k_{i-1})^{k_{i}}}{\prod_{i=0}^{n}k_{i}!}\exp\left(-\theta\left(\sum_{i=0}^{n-1}k_{i}+1\right)\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The log-likelihood is then:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+L(\theta)= & -\theta(\sum_{i=0}^{n-1}k_{i}+1)+\log\theta\sum_{i=0}^{n}k_{i}+f(k_{0},k_{1},...,k_{n})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To find the critical point:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+L'(\theta)= & -\sum_{i=0}^{n-1}-1+\frac{1}{\theta}\sum_{i=0}^{n}k_{i}=0\\
+\Leftrightarrow\theta= & \frac{k_{0}+k_{1}+...+k_{n}}{k_{0}+k_{1}+...+k_{n-1}+1}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $L''(\theta)=-\frac{1}{\theta^{2}}\sum_{i=0}^{n}k_{i}<0$
+\end_inset
+
+ thus 
+\begin_inset Formula $L$
+\end_inset
+
+ is concave up on 
+\begin_inset Formula $(0,\infty)$
+\end_inset
+
+.
+ Thus the critical point is the max.
+ MLE is given by 
+\begin_inset Formula $\left(\sum_{i=0}^{n}k_{i}\right)/\left(1+\sum_{i=0}^{n-1}k_{i}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) The information is: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & -\mathbb{E}\frac{\partial^{2}\log p_{\theta}(X)}{\partial\theta^{2}}\\
+= & \mathbb{E}\left[\frac{1}{\theta^{2}}\sum_{i=0}^{n}X_{i}\right]\\
+= & \frac{1}{\theta^{2}}\sum_{i=0}^{n}\mathbb{E}X_{i}\\
+\mathbb{E}X_{0}= & \theta\\
+\mathbb{E}X_{1}= & \mathbb{E}\mathbb{E}[X_{1}\mid X_{0}]\\
+= & \mathbb{E}\theta X_{0}=\theta\mathbb{E}X_{0}=\theta^{2}\\
+\mathbb{E}X_{2}= & \mathbb{E}\mathbb{E}[X_{2}\mid X_{1}]\\
+= & \mathbb{E}\theta X_{1}=\theta\mathbb{E}X_{1}=\theta^{3}\\
+\mathbb{E}X_{i}= & \theta^{i+1},i=0,1,2,...,n\\
+\Rightarrow I(\theta)= & \frac{1}{\theta^{2}}(\theta+\theta^{2}+...+\theta^{n+1})\\
+= & \frac{1-\theta^{n+1}}{\theta(1-\theta)},\theta\neq1
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Intuitively, if 
+\begin_inset Formula $\theta<1,$
+\end_inset
+
+ the later 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ will have smaller and smaller information on 
+\begin_inset Formula $\theta,$
+\end_inset
+
+ and this will approach 0.
+ When 
+\begin_inset Formula $\theta>1,$
+\end_inset
+
+ the later the 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ in the sequence, the more information it contains about 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ This amount of information increases exponentially.
+ 
+\end_layout
+
+\begin_layout Problem
+Error Bound
+\end_layout
+
+\begin_layout Proof
+(a) Let 
+\begin_inset Formula $q(X,\theta)=\exp(n\theta-\sum X_{i})\mathbb{I}[\min X_{i}\ge\theta]$
+\end_inset
+
+ be the distribution of vector 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ By CS inequality, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}_{\theta}(\delta){\rm Var}_{\theta}(\psi)\ge & {\rm Cov}_{\theta}^{2}(\delta,\psi)\\
+\Rightarrow{\rm Var}_{\theta}(\delta)\ge & \frac{{\rm Cov}_{\theta}^{2}(\delta,\psi)}{{\rm Var}_{\theta}(\psi)}.
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now note that if 
+\begin_inset Formula $\theta'>\theta$
+\end_inset
+
+ then 
+\begin_inset Formula $q_{\theta}(X)=0\Rightarrow q_{\theta'}(X)=0.$
+\end_inset
+
+(This is true when 
+\begin_inset Formula $\theta'>\theta$
+\end_inset
+
+ because if 
+\begin_inset Formula $q_{\theta}(X)=0\Rightarrow\min X_{i}<\theta\Rightarrow\min X_{i}<\theta'\Rightarrow q_{\theta'}(X)=0$
+\end_inset
+
+).
+ Under regularity condition, with the appropriate choice of 
+\begin_inset Formula $\psi(X)=L(x)-1,L(X)=q_{\theta'}(x)/q_{\theta}(x),q_{\theta}(x)>0,L(X)=1,$
+\end_inset
+
+ otherwise for 
+\begin_inset Formula $\theta'>\theta,$
+\end_inset
+
+ we have: 
+\begin_inset Formula ${\rm Cov}_{\theta}(\delta,\psi)=g(\theta')-g(\theta).$
+\end_inset
+
+ Plugging this back to the inequality above, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}_{\theta}(\delta)\ge & \frac{(g(\theta')-g(\theta))^{2}}{\mathbb{E}\left(\frac{q(X,\theta')}{q(X,\theta)}-1\right)^{2}},\forall\theta'>\theta\\
+\Rightarrow{\rm Var}_{\theta}(\delta)\ge & \sup_{\theta'>\theta}\frac{(g(\theta')-g(\theta))^{2}}{\mathbb{E}\left(\frac{q(X,\theta')}{q(X,\theta)}-1\right)^{2}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "20col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) We will calculate:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+A= & \mathbb{E}_{\theta}\left[\left(\frac{q(X,\theta')}{q(X,\theta)}-1\right)^{2}\right]\\
+= & \mathbb{E}_{\theta}\left[\left(\frac{q(X,\theta')}{q(X,\theta)}-1\right)^{2}\bigg|\min X_{i}<\theta'\right]\mathbb{P}[\min X_{i}<\theta']+\\
+ & +\mathbb{E}_{\theta}\left[\left(\frac{q(X,\theta')}{q(X,\theta)}-1\right)^{2}\bigg|\min X_{i}\ge\theta'\right]\mathbb{P}[\min X_{i}\ge\theta']\\
+= & \mathbb{E}_{\theta}\left[\left(\frac{0}{q(X,\theta)}-1\right)^{2}\right](1-\mathbb{P}[\min X_{i}\ge\theta'])+\\
+ & +\mathbb{E}_{\theta}\left[\left(\frac{q(X,\theta')}{q(X,\theta)}-1\right)^{2}\bigg|\min X_{i}\ge\theta'\right]\mathbb{P}[\min X_{i}\ge\theta']
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}[\min X_{i}\ge\theta']= & \mathbb{P}[X_{i}\ge\theta',\forall X_{i}]\\
+= & \mathbb{P}^{n}[X_{1}\ge\theta']\\
+= & \exp^{n}(-\theta'+\theta)\\
+= & \exp(-n(\theta'-\theta))
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus the above expectation is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+A= & 1-\exp(-n(\theta'-\theta))+\mathbb{E}_{\theta}\left[\left(\frac{q(X,\theta')}{q(X,\theta)}-1\right)^{2}\bigg|\min X_{i}\ge\theta'\right]\mathbb{\exp}(-n(\theta'-\theta))\\
+= & 1-\exp(-n(\theta'-\theta))+\mathbb{E}_{\theta}\left[\left(\exp\left\{ n\theta'-\sum X_{i}-n\theta+\sum X_{i}\right\} -1\right)^{2}\right]\exp(-n(\theta'-\theta))\\
+= & 1-\exp(-n(\theta'-\theta))+\left(\exp\left\{ n\theta'-n\theta\right\} -1\right)^{2}\exp(-n(\theta'-\theta))\\
+= & 1-\frac{1}{B}+(B-1)^{2}\frac{1}{B},B=\exp(n(\theta'-\theta))\\
+= & 1-\frac{1}{B}+B-2+\frac{1}{B}=B-1=\exp(n(\theta'-\theta))-1
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Plugging this result of A back to our inequality obtained from (a), we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}_{\theta}(\delta)\ge & \sup_{\theta'\ge\theta}\frac{(\theta'-\theta)^{2}}{\exp(n(\theta'-\theta))-1}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $y=\theta'-\theta,$
+\end_inset
+
+ limit to 
+\begin_inset Formula $y>0,$
+\end_inset
+
+ then the derivative of 
+\begin_inset Formula $h(y)=\frac{y^{2}}{\exp(ny)-1}$
+\end_inset
+
+ is equal to zero iff:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+ & 2y(\exp(ny)-1)-y^{2}n\exp(ny)=0\\
+\Leftrightarrow & \frac{2}{ny}-\frac{\exp(ny)}{\exp(ny)-1}=0\\
+\Leftrightarrow & 2\exp(ny)-2=ny\exp(ny)\\
+\Leftrightarrow & (2-ny)\exp(ny)=2
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $C>0$
+\end_inset
+
+ be the solution to 
+\begin_inset Formula $(2-x)e^{x}=2,$
+\end_inset
+
+ then 
+\begin_inset Formula $C$
+\end_inset
+
+ is unique (~1.59) and constant with respect to 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $C=na^{*}$
+\end_inset
+
+ for 
+\begin_inset Formula $a^{*}$
+\end_inset
+
+ from the problem (
+\begin_inset Formula $a^{*}=C/n$
+\end_inset
+
+ is dependent on n).
+ Since 
+\begin_inset Formula $\lim_{y\rightarrow0^{+}}h(y)=\lim_{y\rightarrow\infty}h(y)=0,$
+\end_inset
+
+ and 
+\begin_inset Formula $h(y)>0,\forall y>0.$
+\end_inset
+
+ Thus there is a maximum for 
+\begin_inset Formula $h(y).$
+\end_inset
+
+ Thus the maximum is attained at the unique critical point of 
+\begin_inset Formula $a^{*}=C/n.$
+\end_inset
+
+ At this point 
+\begin_inset Formula $a^{*},$
+\end_inset
+
+ we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+h(y^{*})= & \frac{(\frac{C}{n})^{2}}{\exp C-1}=\frac{1}{n^{2}}\frac{C{}^{2}}{\exp C-1}=\frac{1}{n^{2}}\frac{C^{2}}{\frac{2}{2-C}-1}=\frac{1}{n^{2}}C(2-C).
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We should stop here since this is a 
+\begin_inset Formula $\mathcal{O}(1/n^{2})$
+\end_inset
+
+ bound, better than the 
+\begin_inset Formula $\mathcal{O}(1/n^{3})$
+\end_inset
+
+ bound 
+\begin_inset Formula $a^{*}/n^{2}$
+\end_inset
+
+ that the problem asks for.
+ However to get the bound the problem ask for, we need to prove:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+C(2-C)\ge & a^{*}=\frac{C}{n}\\
+\Leftrightarrow2-C\ge & \frac{1}{n}\\
+\Leftrightarrow n\ge & \frac{1}{2-C}\sim2.46
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So the problem's inequality is only true for 
+\begin_inset Formula $n\ge3.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "20col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(c) The lower bound for error 
+\begin_inset Formula $\mathcal{O}(1/n^{2})$
+\end_inset
+
+ that we gets from part (b) is better than smaller than the lower bound
+ for error 
+\begin_inset Formula $\mathcal{O}(1/n)$
+\end_inset
+
+ that one normally gets.
+ That means we can have lower error for this problem.
+ We make a guess this is the case because for this problem, the distribution
+ is one one side of 
+\begin_inset Formula $\theta,$
+\end_inset
+
+ thus we get additional precision when predicting 
+\begin_inset Formula $\theta$
+\end_inset
+
+ because we know for sure 
+\begin_inset Formula $\theta$
+\end_inset
+
+ must be smaller than 
+\begin_inset Formula $\min X_{i}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+(d) From part (b), we have 
+\begin_inset Formula $\mathbb{P}[\min X_{i}\ge t]=\exp(-n(t-\theta))\Rightarrow\mathbb{P}[\min X_{i}\le t]=1-\exp(-n(t-\theta))$
+\end_inset
+
+.
+ Thus the density for 
+\begin_inset Formula $\min X_{i}$
+\end_inset
+
+ is 
+\begin_inset Formula $f(t)=n\exp(-n(t-\theta))$
+\end_inset
+
+ for 
+\begin_inset Formula $t\ge\theta,$
+\end_inset
+
+ and zero otherwise.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\min X_{i}= & \int_{\theta}^{\infty}tn\exp(-n(t-\theta))dt\\
+= & \exp(n\theta)\int_{\theta}^{\infty}tn\exp(-nt)\frac{1}{n}dnt\\
+= & \exp(n\theta)\frac{1}{n}\int_{n\theta}^{\infty}y\exp(-y)dy\\
+= & \frac{1}{n}\exp(n\theta)\left(-\frac{y+1}{\exp x}\right)\bigg|_{n\theta}^{\infty}\\
+= & \frac{n\theta+1}{n}=\theta+\frac{1}{n}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus 
+\begin_inset Formula $\delta(X)=\min X_{i}-\frac{1}{n}$
+\end_inset
+
+ is an unbiased estimator of 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ Now we calculate the variance:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}(\min X_{i}-\frac{1}{n})= & {\rm Var}(\min X_{i})\\
+= & \mathbb{E}\left[(\min X_{i})^{2}\right]-(\mathbb{E}\min X_{i})^{2}\\
+\mathbb{E}\left[(\min X_{i})^{2}\right]= & \int_{\theta}^{\infty}t^{2}n\exp(-n(t-\theta))dt\\
+= & \exp(n\theta)\int_{\theta}^{\infty}t^{2}n^{2}\frac{1}{n}\exp(-nt)\frac{1}{n}dnt\\
+= & \frac{1}{n^{2}}\exp(n\theta)\int_{n\theta}^{\infty}y^{2}\exp(-y)dy\\
+= & -\frac{\exp(n\theta)}{n^{2}}\frac{x^{2}+2x+2}{\exp x}\bigg|_{n\theta}^{\infty}\\
+= & \frac{n^{2}\theta^{2}+2n\theta+2}{n^{2}}\\
+\Rightarrow{\rm Var}(\min X_{i}-\frac{1}{n})= & \frac{n^{2}\theta^{2}+2n\theta+2}{n^{2}}-\frac{\theta^{2}n^{2}+2n\theta+1}{n^{2}}\\
+= & \frac{1}{n^{2}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Poisson Truncated
+\end_layout
+
+\begin_layout Proof
+We have the density for truncated Poisson for 
+\begin_inset Formula $k\ge1$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[X_{i}=k\right]= & \frac{1}{1-\exp(-\lambda)}\frac{\lambda^{k}\exp(-\lambda)}{k!}\\
+\Rightarrow p_{X}(x)=\mathbb{P}[X_{i}=k_{i},\forall X_{i}]= & \frac{1}{(1-\exp(-\lambda))^{n}}\frac{\lambda^{\sum x_{i}}\exp(-n\lambda)}{\prod_{i=1}^{n}k_{i}!}\\
+\Rightarrow\log p_{X}(x,\lambda)= & -n\log(1-\exp(-\lambda))+\sum x_{i}\log\lambda-n\lambda+h(k_{1},k_{2},...,k_{n})\\
+\Rightarrow\frac{\partial\log p_{X}(x,\lambda)}{\partial\lambda}= & -n+\frac{1}{\lambda}\sum x_{i}-n\frac{\exp(-\lambda)}{1-\exp(-\lambda)}\\
+\Rightarrow\frac{\partial\log p_{X}(x,\lambda)}{\partial\lambda}= & \frac{1}{\lambda}\sum x_{i}-n\frac{1}{1-\exp(-\lambda)}\\
+\Rightarrow\frac{\partial^{2}\log p_{X}(x,\lambda)}{\partial\lambda^{2}}= & -\frac{1}{\lambda^{2}}\sum x_{i}+n\frac{\exp(-\lambda)}{(1-\exp(-\lambda))^{2}}\\
+\Rightarrow I(\theta)= & \mathbb{E}\left[\frac{1}{\lambda^{2}}\sum x_{i}-n\frac{\exp(-\lambda)}{(1-\exp(-\lambda))^{2}}\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now for 
+\begin_inset Formula $Y\sim Poi(\lambda)$
+\end_inset
+
+ (not truncated), then:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\lambda=\mathbb{E}Y= & \mathbb{E}\left[Y\mid Y=0\right]\mathbb{P}[Y=0]+\mathbb{E}[Y\mid Y>0]\mathbb{P}[Y>0]\\
+\Rightarrow\lambda= & \mathbb{E}[Y\mid Y>0](1-\exp(-\lambda))\\
+\Rightarrow\mathbb{E}[Y\mid Y>0]= & \frac{\lambda}{1-\exp(-\lambda)}\\
+\Rightarrow\mathbb{E}X_{i}= & \frac{\lambda}{1-\exp(-\lambda)}\\
+\Rightarrow I(\theta)= & \frac{1}{\lambda^{2}}n\frac{\lambda}{1-\exp(-\lambda)}-n\frac{\exp(-\lambda)}{(1-\exp(-\lambda))^{2}}\\
+= & \frac{n}{(1-\exp(-\lambda))^{2}\lambda}\left(1-\exp(-\lambda)-\lambda\exp(-\lambda)\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus the information bound for any unbiased estimator of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}(\delta)\ge & \frac{(g'(\lambda))^{2}}{I(\theta)}=\frac{\lambda(1-\exp(-\lambda))^{2}}{n(1-\exp(-\lambda)-\lambda\exp(-\lambda))}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+P/S.
+ This is not even a homework.
+ This is like a chapter in a book.
+ Good one.
+\end_layout
+
+\end_body
+\end_document
