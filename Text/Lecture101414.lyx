@@ -1,0 +1,580 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+ARE
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sqrt{n}\left(\hat{X}_{n}-\theta\right)\Rightarrow\mathcal{N}\left(0,\frac{1}{4\left(F'(\theta)\right)^{2}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thm 8.18.
+ 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ iid cdf F.
+ 
+\begin_inset Formula $Y\in(0,1).\hat{\theta}_{n}$
+\end_inset
+
+ be 
+\begin_inset Formula $\gamma_{n}^{th}$
+\end_inset
+
+ order statistics.
+ 
+\begin_inset Formula $F(\theta)=\gamma.$
+\end_inset
+
+ 
+\begin_inset Formula $F'(\gamma)$
+\end_inset
+
+ exists.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow\sqrt{n}\left(\hat{\theta}-\theta\right)\Rightarrow\mathcal{N}\left(0,\frac{\gamma(1-\gamma)}{\left(F'(\theta)\right)^{2}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ARE - Asymptotic Relative Effificiency
+\end_layout
+
+\begin_layout Standard
+Ex.
+ Compare 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{X}_{n}$
+\end_inset
+
+ as estimators of a location parameter 
+\begin_inset Formula $\left\{ f(x-\theta)\right\} $
+\end_inset
+
+ f symmatric.
+ So 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is mean and median.
+ 
+\end_layout
+
+\begin_layout Standard
+CLT: 
+\begin_inset Formula $\sqrt{n}\left(\bar{X}_{n}-\theta\right)\Rightarrow N(0,\sigma^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sigma^{2}=\int x^{2}f(x)dx$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sqrt{n}\left(\tilde{X}_{n}-\theta\right)\Rightarrow\mathcal{N}\left(0,\tilde{\sigma}^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tilde{\sigma}^{2}=\frac{1}{4(f(0))^{2}}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+ARE = 
+\begin_inset Formula $\frac{\tilde{\sigma}^{2}}{\hat{\sigma}^{2}}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Ex.
+ f is standard normaml.
+ 
+\begin_inset Formula $f(x)=\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}x^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sigma^{2}=1,\tilde{\sigma}^{2}=\pi/2$
+\end_inset
+
+.
+ ARE 
+\begin_inset Formula $\pi/2.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+f is 
+\begin_inset Formula $\frac{1}{2}e^{-\left|x\right|}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tilde{\sigma}^{2}=1.$
+\end_inset
+
+ 
+\begin_inset Formula $\hat{\sigma}^{2}=\int\frac{1}{2}x^{2}e^{-|x|}dx=\Gamma(3)=2.$
+\end_inset
+
+ 
+\begin_inset Formula $ARE=\frac{1}{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Note that the best estimator in both cases are the MLE.
+ A hint for the intuition that MLE as a good estimator is right.
+ 
+\end_layout
+
+\begin_layout Standard
+Ex2.
+ 
+\begin_inset Formula $p=P_{\theta}(X_{i}\le a)=\Phi(a-\theta)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{p}=\Theta(a-\bar{X}_{n})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tilde{p}=\frac{1}{n}\sum\mathbb{I}_{\{X_{i}\le a\}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+CLT 
+\begin_inset Formula $\Rightarrow\sqrt{n}\left(\tilde{p}-p\right)\Rightarrow N(0,p(1-p))=N(0,\Phi(a-\theta)(1-\Phi(a-\theta)))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+CLT + delta 
+\begin_inset Formula $\Rightarrow\sqrt{n}(\hat{p}-p)\Rightarrow N(0,\hat{\sigma}^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{\sigma}^{2}=\left(\frac{d}{dx}\Phi(a-x)\mid_{x=\Theta}\right)^{2}=\Phi^{2}(a-\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The moral is the non-parametric estimator is not good for estimating the
+ tail, as we have very few data.
+ The parametric with assumption on the distribution is better for estimating
+ some tail probability.
+ On the other hand if we are estimating something close to the mean, then
+ they are both good.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Section
+M-estimator 
+\end_layout
+
+\begin_layout Standard
+M-estimator is an estimator which is a solution to an equation, optimization.
+ Sometimes C-estimator is an solution for an optimization while M-estimator
+ is a root.
+ 
+\end_layout
+
+\begin_layout Standard
+Recall exp family derivation of distribution of MLE of 
+\begin_inset Formula $\eta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Psi$
+\end_inset
+
+ is inverse of 
+\begin_inset Formula $A'.$
+\end_inset
+
+ 
+\begin_inset Formula $A'(\eta)=T.$
+\end_inset
+
+ Want:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dT}{d\eta}=A''(\eta)\Rightarrow\frac{d\eta}{dT}=\frac{1}{A''\circ\Psi(T)}$
+\end_inset
+
+ evaluate at 
+\begin_inset Formula $A'(\eta)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d\eta}{dT}\bigg|_{A'(\eta)}=\frac{1}{A''(\eta)}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{T}$
+\end_inset
+
+ is MLE for 
+\begin_inset Formula $E_{\eta}T$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\bar{T}=\frac{1}{n}\sum_{i}T(X_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula ${\rm Var}\bar{T}=\frac{1}{n}A"(\eta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\stackrel{delta}{\Rightarrow}\sqrt{n}(\hat{\eta}-\eta)\Rightarrow N(0,\frac{1}{A"(\eta)})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Empirical Processess.
+ 
+\end_layout
+
+\begin_layout Standard
+Thm 9.14.
+ Assume
+\end_layout
+
+\begin_layout Standard
+1.
+ 
+\begin_inset Formula $X_{1},X_{2},...$
+\end_inset
+
+ iid 
+\begin_inset Formula $f_{\theta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ 
+\begin_inset Formula $A=\left\{ x:f_{\theta}(x)>0\right\} $
+\end_inset
+
+ doesn't depend on 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+3.
+ 
+\begin_inset Formula $\forall x\in A,\frac{\partial^{2}f(x\mid\theta)}{\partial\theta^{2}}$
+\end_inset
+
+ exists and is cont
+\end_layout
+
+\begin_layout Standard
+4.
+ Let 
+\begin_inset Formula $W(\theta)=\log f_{\theta}(x)$
+\end_inset
+
+ .
+ 
+\begin_inset Formula $I(\theta)$
+\end_inset
+
+ exists, is finite, and can be computed as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $I(\theta)=\mathbb{E}_{\theta}\left(W'(\theta)\right)^{2}$
+\end_inset
+
+ or 
+\begin_inset Formula $I(\theta)=-\mathbb{E}W''(\theta)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbb{E}_{\theta}W'(\theta)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ 
+\begin_inset Formula $\forall\theta\in\Omega^{0}$
+\end_inset
+
+ the interior of the parameter space, 
+\begin_inset Formula $\exists\epsilon>0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{E}_{\theta}\|1_{[\theta-\epsilon,\theta+\epsilon]}W''\|_{\infty}<\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+6.
+ 
+\begin_inset Formula $MLE$
+\end_inset
+
+ 
+\begin_inset Formula $\hat{\theta}_{n}$
+\end_inset
+
+ is consistent.
+ (
+\begin_inset Formula $\hat{\theta}_{n}$
+\end_inset
+
+ goes to 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in probability as 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+With these assumption 
+\begin_inset Formula $\sqrt{n}\left(\hat{\theta}_{n}-\theta\right)\Rightarrow N(0,\frac{1}{I(\theta)})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Proof.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $l_{n}(\omega)=\sum_{i}\log f_{\omega}(X_{i})$
+\end_inset
+
+ (
+\begin_inset Formula $\omega$
+\end_inset
+
+ is not from the sample space but rather the parameter space)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\bar{W}_{n}(\omega)=\frac{1}{n}l_{n}(\omega)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Taylor expand 
+\begin_inset Formula $\bar{W}_{n}(\omega)$
+\end_inset
+
+ around 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and evaluate at 
+\begin_inset Formula $\hat{\theta}_{n}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{W}_{n}'(\hat{\theta}_{n})=\hat{W}'_{n}(\theta)+\hat{W}"_{n}(\tilde{\theta}_{n})(\hat{\theta}_{n}-\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now the LHS is zero because the MLE is the solution to first derivative
+ equal to zero.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow\sqrt{n}(\hat{\theta}_{n}-\theta)=\frac{\sqrt{n}\bar{W}'_{n}(\theta)}{-\bar{W}_{n}"(\hat{\theta}_{n})}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+DINI theorem.
+ Read the book
+\end_layout
+
+\end_body
+\end_document

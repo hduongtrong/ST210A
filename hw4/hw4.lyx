@@ -1,0 +1,618 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ST210A - Homework 4
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+Geometric Distribution
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $g(X)$
+\end_inset
+
+ be an unbiased estimator of 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ We need:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\forall\theta\in0,1(),\mathbb{E}g(X)= & \theta\\
+\Leftrightarrow\sum_{k=0}^{\infty}g(k)\theta(1-\theta)^{k}= & \theta\\
+\Leftrightarrow\sum_{k=0}^{\infty}g(k)(1-\theta)^{k}= & 1,\forall\theta\in(0,1)\\
+\Leftrightarrow\sum_{k=0}^{\infty}g(k)\lambda^{k}= & 1,\forall\lambda=1-\theta\in(0,1)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus 
+\begin_inset Formula $g(0)=1,g(k)=0,\forall k\ge1.$
+\end_inset
+
+ So 
+\begin_inset Formula $g(X)=\mathbb{I}[X=0].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}(g(X))= & \mathbb{E}g^{2}(X)-(\mathbb{E}g(X))^{2}\\
+= & \theta-\theta^{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The Fisher information for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & \mathbb{E}\left[-\frac{\partial^{2}\log\left(\theta(1-\theta)^{x}\right)}{\partial\theta^{2}}\right]\\
+= & \mathbb{E}\left[-\frac{\partial^{2}(\log\theta+x\log(1-\theta))}{\partial\theta^{2}}\right]\\
+= & \mathbb{E}\left[-\frac{\partial}{\partial\theta}\left(\frac{1}{\theta}-\frac{x}{1-\theta}\right)\right]\\
+= & \mathbb{E}\left[\frac{1}{\theta^{2}}+\frac{x}{(1-\theta)^{2}}\right]\\
+= & \frac{1}{\theta^{2}}+\frac{1}{(1-\theta)^{2}}\left(\frac{1}{\theta}-1\right)\\
+= & \frac{1}{\theta^{2}}+\frac{1}{\theta(1-\theta)}=\frac{1}{\theta^{2}(1-\theta)}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus the error bound for an unbiased estimator according to Theorem 4.9 in
+ Keener is: 
+\begin_inset Formula $\theta^{2}(1-\theta).$
+\end_inset
+
+ This error bound is strictly smaller than the variance of 
+\begin_inset Formula $g(X)$
+\end_inset
+
+ for 
+\begin_inset Formula $0<\theta<1.$
+\end_inset
+
+ (
+\begin_inset Formula $g(X)$
+\end_inset
+
+ is the only unbiased estimator).
+ 
+\end_layout
+
+\begin_layout Problem
+Poisson with Gamma Prior
+\end_layout
+
+\begin_layout Proof
+(a) We have the posterior density of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(\theta\mid x)= & \frac{p(x\mid\theta)p(\theta)}{p(x)}\\
+= & \frac{1}{p(x)}\frac{\theta^{x}e^{-\theta}}{x!}\frac{1}{b^{a}\Gamma(a)}\theta^{a-1}e^{-\theta/b}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus we have for any estimator 
+\begin_inset Formula $d(X)$
+\end_inset
+
+ of 
+\begin_inset Formula $\Theta$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[L(\Theta,d(X))\mid X=x\right]= & \int_{0}^{\infty}\frac{(\theta-d(X))^{2}}{\theta}p(\theta\mid x)d\theta\\
+= & \int_{0}^{\infty}\frac{(\theta-d(X))^{2}}{\theta}\frac{1}{p(x)}\frac{\theta^{x}e^{-\theta}}{x!}\frac{1}{b^{a}\Gamma(a)}\theta^{a-1}e^{-\theta/b}d\theta\\
+= & \frac{1}{p(x)b^{a}\Gamma(a)}\int_{0}^{\infty}(\theta-d(X))^{2}\theta^{x+a-2}e^{-\theta-\theta/b}\frac{\left(\frac{b}{b+1}\right)^{x+a-1}\Gamma(x+a-1)}{\left(\frac{b}{b+1}\right)^{x+a-1}\Gamma(x+a-1)}d\theta\\
+= & h(x,b,a)\int_{0}^{\infty}(\theta-d(X))^{2}\frac{1}{(\frac{b}{b+1})^{x+a-1}\Gamma(x+a-1)}\theta^{x+a-2}e^{-\frac{-\theta}{(b/(b+1))}}d\theta
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We can see that the above integral is 
+\begin_inset Formula $\mathbb{E}(\lambda-d(X))^{2}$
+\end_inset
+
+ for 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ follows 
+\begin_inset Formula $Gamma(x+a-1,\frac{b}{b+1}).$
+\end_inset
+
+ This expectation can be rewritten as: 
+\begin_inset Formula $\mathbb{E}(\lambda-\mu(\lambda)+\mu(\lambda)-d(X))={\rm Var}(\lambda)+\mathbb{E}(d(X)-\mu(\lambda))^{2}$
+\end_inset
+
+, and is minimized when 
+\begin_inset Formula $d(X)=\mu(\lambda)=(x+a-1)\frac{b}{b+1}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+According to Theorem 7.1 from Keener, 
+\begin_inset Formula $d(X)=(x+a-1)\frac{b}{b+1}$
+\end_inset
+
+ is the Bayes estimator w.r.t the family of Gamma(a, b) prior.
+ 
+\end_layout
+
+\begin_layout Proof
+(b) The estimator 
+\begin_inset Formula $\delta(X)=X$
+\end_inset
+
+ can be obtained as 
+\begin_inset Formula $a=1,b\rightarrow\infty.$
+\end_inset
+
+ This is exponential distribution with mean parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ approaching zero.
+ 
+\end_layout
+
+\begin_layout Problem
+Uniform with log-normal prior
+\end_layout
+
+\begin_layout Proof
+(a) First the conditional density of 
+\begin_inset Formula $X=(X_{1},X_{2},...,X_{n})^{T}$
+\end_inset
+
+is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(X_{i}=x_{i},\forall1\le i\le n\mid\Theta=\theta)= & \frac{1}{\theta^{n}}\mathbb{I}[0<x_{i}<\theta,\forall1\le i\le n]\\
+= & \frac{1}{\theta^{n}}\mathbb{I}[\min x_{i}>0]\mathbb{I}[\max x_{i}<\theta]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $\log\theta$
+\end_inset
+
+ is a bijective function on 
+\begin_inset Formula $\mathbb{R}^{+},$
+\end_inset
+
+ conditioning on 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the same as conditioning on 
+\begin_inset Formula $\log\theta.$
+\end_inset
+
+ Thus:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p(\theta\mid X)= & \frac{1}{p(X)}p(X\mid\theta)p(\theta)\\
+= & \frac{1}{p(X)}\frac{\mathbb{I}[\min x_{i}>0]\mathbb{I}[\max x_{i}<\theta]}{\theta^{n}}\frac{1}{\sqrt{2\pi}\theta\sigma_{0}}\exp\left(-\frac{1}{2\sigma_{0}^{2}}\left(\ln\theta-\mu_{0}\right)^{2}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Applying the change of variable density for 
+\begin_inset Formula $\lambda=g(\theta)=\log\theta,$
+\end_inset
+
+ we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p_{\lambda}(\lambda\mid X)= & \frac{1}{p(X)}\frac{\mathbb{I}[\min x_{i}>0]\mathbb{I}[\max x_{i}<\exp\lambda]}{\exp(n\lambda)}\frac{1}{\sqrt{2\pi}\exp(\lambda)\sigma_{0}}\exp\left(-\frac{1}{2\sigma_{0}^{2}}\left(\lambda-\mu_{0}\right)^{2}\right)\\
+= & \frac{\mathbb{I}[\min x_{i}>0]\mathbb{I}[\max x_{i}<\exp\lambda]}{\sqrt{2\pi}\sigma_{0}p(X)\exp(n\lambda+\lambda)}\exp\left(-\frac{1}{2\sigma_{0}^{2}}\left(\lambda-\mu_{0}\right)^{2}\right)\\
+= & \frac{\mathbb{I}[\min x_{i}>0]\mathbb{I}[\max x_{i}<\exp\lambda]}{\sqrt{2\pi}\sigma_{0}p(X)}\exp\left(-\frac{1}{2\sigma_{0}^{2}}\left(\lambda-\mu_{0}\right)^{2}+(n+1)\lambda\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) Under the specified loss function, we need to find 
+\begin_inset Formula $\delta(X)$
+\end_inset
+
+ that minimizes:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[L(\Theta,\delta(X)\mid X=x\right]= & \mathbb{P}\left[\Theta\neq\delta(X)\mid X=x\right]\\
+= & 1-\mathbb{P}\left[\Theta=\delta(X)\mid X=x\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We can minimize the expectation by maximize the a posterior probability
+ 
+\begin_inset Formula $\mathbb{P}\left[\Theta=\delta(X)\mid X=x\right]=\mathbb{P}\left[\log\Theta=\log(\delta(X))\right]$
+\end_inset
+
+, but this doesn't make sense because this probability is always zero.
+ Instead we will attempt to maximize the density function 
+\begin_inset Formula $p_{\log\Theta}.$
+\end_inset
+
+ From part (a), we have the density is maximized iff 
+\begin_inset Formula $\frac{1}{2\sigma_{0}^{2}}\left(\lambda-\mu_{0}\right)^{2}+(n+1)\lambda$
+\end_inset
+
+ is minimized and 
+\begin_inset Formula $\lambda\ge\log\max x_{i}.$
+\end_inset
+
+ The quadratic expression is minimized at either 
+\begin_inset Formula $\frac{1}{\sigma_{0}^{2}}(\lambda-\mu_{0})+n+1=0,$
+\end_inset
+
+ the point that make derivative equal to zero, or at the critical point
+ 
+\begin_inset Formula $\log\max x_{i}.$
+\end_inset
+
+ The linear equation has solution 
+\begin_inset Formula $\lambda=\mu_{0}-(n+1)\sigma_{0}^{2}.$
+\end_inset
+
+ Thus the minimum is attained at 
+\begin_inset Formula $\lambda=\max(\log\max x_{i},\mu_{0}-(n+1)\sigma_{0}^{2})$
+\end_inset
+
+ by the nature of quadratic function left-half truncated.
+ This is equivalent to 
+\begin_inset Formula $\theta=\max\left(\max x_{i},\exp\left(\mu_{0}-(n+1)\sigma_{0}^{2}\right)\right).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+In conclusion the Beyes estimator is 
+\begin_inset Formula $\delta(X)=\max\left(\max x_{i},\exp\left(\mu_{0}-(n+1)\sigma_{0}^{2}\right)\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+Beyes Estimator vs.
+ Unbiased Estimator
+\end_layout
+
+\begin_layout Proof
+Assuming that 
+\begin_inset Formula $\exists\delta(X)$
+\end_inset
+
+ that is both unbiased and Bayes estimator.
+ As a Beyes estimator, it minimizes:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[L(g(\Theta),\delta(X))\mid X=x\right]= & \mathbb{E}\left[(g(\Theta)-\delta(X))^{2}\mid X=x\right],\forall x
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+As shown before any random variable 
+\begin_inset Formula $X$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{E}(X-a)^{2}$
+\end_inset
+
+ is minimized w.r.t a when 
+\begin_inset Formula $a=\mathbb{E}X.$
+\end_inset
+
+ Thus the above expectation is minimized when 
+\begin_inset Formula $\delta(x)=\mathbb{E}\left[g(\Theta)\mid X=x\right]$
+\end_inset
+
+ (a.e).
+ But as an unbiased estimator of 
+\begin_inset Formula $g(\Theta),$
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{E}\left[\delta(X)\mid\Theta=\theta\right]=g(\theta)$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Proof
+Thus the Bayes risk:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[g(\Theta)\delta(X)\right]= & \mathbb{E}\left[\mathbb{E}\left[g(\Theta)\delta(X)\mid X\right]\right]\\
+= & \mathbb{E}\left[\delta(X)\mathbb{E}\left[g(\Theta)\mid X\right]\right]\\
+= & \mathbb{E}\left[\delta^{2}(X)\right]\\
+\mathbb{E}\left[g(\Theta)\delta(X)\right]= & \mathbb{E}\left[\mathbb{E}\left[g(\Theta)\delta(X)\mid\Theta\right]\right]\\
+= & \mathbb{E}\left[g(\Theta)\mathbb{E}\left[\delta(X)\mid X\right]\right]\\
+= & \mathbb{E}\left[g^{2}(\Theta)\right]\\
+\Rightarrow\mathbb{E}\left[\left(g(\theta)-\delta(X)\right)^{2}\right]= & \mathbb{E}\left[g^{2}(\Theta)\right]+\mathbb{E}\left[\delta^{2}(X)\right]-2\mathbb{E}\left[g(\Theta)\delta(X)\right]\\
+= & 0
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus under quadratic loss, unbiased estimator agree with Bayes estimator
+ implies Bayes risk is zero.
+ On the other hand, if Bayes Risk is zero, then 
+\begin_inset Formula $g(\theta)=\delta(X)$
+\end_inset
+
+ almost everywhere.
+ Thus 
+\begin_inset Formula $\delta(X)$
+\end_inset
+
+ is an unbiased estimator and also a Bayes estimator.
+ So it is a two way relation.
+ 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Moment of Normal Distribution
+\end_layout
+
+\begin_layout Proof
+(a) We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}g'(X)= & -\int\exp\left(\sum_{i=1}^{d}\theta_{i}T_{i}(x)-A(\theta)\right)h(x)g'(x)dx\\
+= & -\int\exp\left(\sum_{i=1}^{d}\theta_{i}T_{i}(x)-A(\theta)\right)h(x)dg(x)\\
+= & -\exp\left(\sum_{i=1}^{d}\theta_{i}T_{i}(x)-A(\theta)\right)h(x)g(x)\bigg|_{-\infty}^{\infty}+\int g(x)d\exp\left(\sum_{i=1}^{d}\theta_{i}T_{i}(x)-A(\theta)\right)h(x)\\
+= & 0+\int g(x)\bigg\{ h'(x)\exp\left(\sum_{i=1}^{d}\theta_{i}T_{i}(x)-A(\theta)\right)+\\
+ & +h(x)\exp\left(\sum_{i=1}^{d}\theta_{i}T_{i}(x)-A(\theta)\right)\left(\sum_{i=1}^{d}\theta_{i}T_{i}'(X)\right)\bigg\}\\
+= & \int g(x)\left[\frac{h'(x)}{h(x)}+\sum_{i=1}^{d}\theta_{i}T_{i}^{'}(x)\right]\exp\left(\sum_{i=1}^{d}\theta_{i}T_{i}(x)-A(\theta)\right)h(x)dx\\
+= & \mathbb{E}\left\{ \left[\frac{h'(X)}{h(X)}+\sum_{i=1}^{d}\theta_{i}T'_{i}(X)\right]g(X)\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) For normal, the density is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f(x)= & \frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ -\frac{(x-\mu)^{2}}{2\sigma^{2}}\right\} \\
+= & \frac{1}{\sqrt{2\pi}}\exp\left\{ -\frac{1}{2\sigma^{2}}x^{2}+\frac{\mu}{\sigma^{2}}x-\frac{\mu}{2\sigma^{2}}-\log\sigma\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So from (a), we have: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[g'(X)\right]= & -\mathbb{E}\left\{ \left[\frac{h'(X)}{h(X)}+\sum_{i=1}^{d}\theta_{i}T'_{i}(X)\right]g(X)\right\} \\
+= & -\mathbb{E}\left[\left(-\frac{1}{2\sigma^{2}}2X+\frac{\mu}{\sigma^{2}}\right)g(X)\right]\\
+= & \frac{1}{\sigma^{2}}\mathbb{E}\left[\left(X-\mu\right)g(X)\right]\\
+= & \frac{1}{\sigma^{2}}\left(\mathbb{E}\left[Xg(X)\right]-\mathbb{E}\left[X\right]\mathbb{E}\left[g(X)\right]\right)\\
+= & \frac{1}{\sigma^{2}}{\rm Cov}(X,g(X))
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(c) We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Cov}(X^{2},X)= & \sigma^{2}\mathbb{E}\left[2X\right]\\
+\Leftrightarrow\mathbb{E}X^{3}-\mathbb{E}X^{2}\mathbb{E}X= & \sigma^{2}2\mu\\
+\Leftrightarrow\mathbb{E}X^{3}= & 2\mu\sigma^{2}+(\sigma^{2}+\mu^{2})\mu\\
+= & 3\mu\sigma^{2}+\mu^{3}\\
+{\rm Cov}(X^{3},X)= & \sigma^{2}\mathbb{E}\left[3X^{2}\right]\\
+\Leftrightarrow\mathbb{E}X^{4}-\mathbb{E}X^{3}\mathbb{E}X= & \sigma^{2}3(\sigma^{2}+\mu^{2})\\
+\Leftrightarrow\mathbb{E}X^{4}= & (3\mu\sigma^{2}+\mu^{3})\mu+3\sigma^{4}+3\sigma^{2}\mu^{2}\\
+= & 6\mu^{2}\sigma^{2}+\mu^{4}+3\sigma^{4}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

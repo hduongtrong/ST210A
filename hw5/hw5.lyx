@@ -1,0 +1,769 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+STAT 210A - Homework 5
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+Bernoulii
+\end_layout
+
+\begin_layout Proof
+We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[X_{n+1}=1\mid X_{1}=k_{1},X_{2}=k_{2},...,X_{n}=k_{n}\right]= & \frac{\mathbb{P}\left[X_{n+1}=1,X_{1}=k_{1},X_{2}=k_{2},...,X_{n}=k_{n}\right]}{\mathbb{P}\left[X_{1}=k_{1},X_{2}=k_{2},...,X_{n}=k_{n}\right]}\\
+= & \frac{\int_{0}^{1}\mathbb{P}\left[X_{n+1}=1,X_{1}=k_{1},X_{2}=k_{2},...,X_{n}=k_{n}\mid\theta\right]d\theta}{\int_{0}^{1}\mathbb{P}\left[X=k_{1},X_{2}=k_{2},...,X_{n}=k_{n}\mid\theta\right]d\theta}\\
+= & \frac{\int_{0}^{1}\theta\prod_{i=1}^{n}\left(\theta^{k_{i}}(1-\theta)^{1-k_{i}}\right)d\theta}{\int_{0}^{1}\prod_{i=1}^{n}\left(\theta^{k_{i}}(1-\theta)^{1-k_{i}}\right)d\theta}\\
+= & \frac{\int_{0}^{1}\theta^{\left(\sum k_{i}\right)+1}(1-\theta)^{n-\sum k_{i}}d\theta}{\int_{0}^{1}\theta^{\left(\sum k_{i}\right)}(1-\theta)^{n-\sum k_{i}}d\theta}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now consider the sequence of integral 
+\begin_inset Formula $a_{m,l}=\int_{0}^{1}\theta^{m}(1-\theta)^{l}d\theta$
+\end_inset
+
+.
+ Notice that first 
+\begin_inset Formula $a_{m,l}=a_{l,m},$
+\end_inset
+
+ second 
+\begin_inset Formula $a_{m,0}=a_{0,m}=\frac{1}{m+1}.$
+\end_inset
+
+ Using integration by part we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+a_{m,l}= & \int_{0}^{1}\theta^{m}(1-\theta)^{l}d\theta\\
+= & \frac{1}{2}\int_{0}^{1}\theta^{m-1}(1-\theta)^{l}d\theta^{2}\\
+= & \frac{1}{2}\theta^{m+1}(1-\theta)^{t}\bigg|_{0}^{1}-\frac{1}{2}\int_{0}^{1}\theta^{2}d\left(\theta^{m-1}(1-\theta)^{l}\right)\\
+= & -\frac{1}{2}\int_{0}^{1}(m-1)\theta^{m}(1-\theta)^{l}-l\theta^{m+1}(1-\theta)^{l-1}d\theta\\
+= & -\frac{m-1}{2}a_{m,l}+\frac{l}{2}a_{m+1,l-1}\\
+\Rightarrow\frac{m+1}{2}a_{m,l}= & \frac{l}{2}a_{m+1,l-1}\\
+\Rightarrow a_{m,l}= & \frac{l}{m+1}a_{m+1,l-1}\\
+\Rightarrow a_{m,l}= & \frac{l}{m+1}\frac{l-1}{m+2}...\frac{1}{m+l}a_{m+l,0}\\
+= & \frac{l!m!}{(m+l+1)!}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So we have the ratio:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\frac{a_{m+1,l}}{a_{m,l}}= & \frac{l!(m+1)!}{(m+l+2)!}\frac{(m+l+1)!}{l!m!}=\frac{m+1}{m+l+2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus our probability is: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[X_{n+1}=1\mid X_{1}=k_{1},X_{2}=k_{2},...,X_{n}=k_{n}\right]= & \frac{1+\sum k_{i}}{n+2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So the probability is quite close to the ratio of 1 from the Bernoulli trial,
+ which is 
+\begin_inset Formula $\frac{\sum k_{i}}{n}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Problem
+Gaussian setting
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula 
+\begin{alignat*}{1}
+X_{i}\mid\mu,\sigma^{2}\stackrel{i.i.d}{\sim} & \mathcal{N}(\mu,\sigma^{2})\\
+\Rightarrow p(X\mid\mu,\sigma^{2})\sim & \frac{1}{(2\pi\sigma^{2})^{n/2}}\exp\left\{ -\frac{1}{2\sigma^{2}}\sum(x-\mu)^{2}\right\} \\
+\Yleft & (\sigma^{2})^{-n/2}\exp\left(-c/\sigma^{2}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(a) From the class, if we fix 
+\begin_inset Formula $\sigma^{2},$
+\end_inset
+
+ the conjugate prior for 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is Gaussian 
+\begin_inset Formula $\mathcal{N}(c,d^{2})=\frac{1}{\sqrt{2\pi}d}\exp\left\{ -\frac{1}{2d^{2}}(x-c)^{2}\right\} $
+\end_inset
+
+.
+ If we fix 
+\begin_inset Formula $\mu,$
+\end_inset
+
+ the conjugate prior for 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is inverse Gamma 
+\begin_inset Formula $IG(a,b)\sim\frac{b^{a}}{\Gamma(a)}x^{-(a-1)}\exp(-\frac{b}{x}).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+Now if we assume 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ independent, and taking the product of the priors, which is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{\mu,\sigma^{2}}(y,z)= & \frac{1}{\sqrt{2\pi}d}\exp\left\{ -\frac{1}{2d^{2}}(y-c)^{2}\right\} \frac{b^{a}}{\Gamma(a)}z^{-(a-1)}\exp(-\frac{b}{z})\\
+\prec & z^{-(a-1)}\exp\left\{ -\frac{1}{2d^{2}}(y-c)^{2}-\frac{b}{z}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus the posterior distribution is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{\mu,\sigma^{2}\mid X}(y,z)\prec & z^{-n/2}\exp\left\{ -\frac{1}{2z}\left[ny^{2}-2y\sum x+\sum x^{2}\right]\right\} z^{-(a-1)}\exp\left\{ -\frac{1}{2d^{2}}(y-c)^{2}-\frac{b}{z}\right\} \\
+= & z^{-(a-1+n/2)}\exp\left\{ \frac{Ay^{2}+By+C}{z}+Dy^{2}+Ey+F\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+where 
+\begin_inset Formula $A,B,C,D,E,F$
+\end_inset
+
+ are constant with respect to 
+\begin_inset Formula $y,z.$
+\end_inset
+
+ The posterior distribution is different with the prior distribution, since
+ in the posterior we have the term 
+\begin_inset Formula $y/z,y^{2}/z,$
+\end_inset
+
+ while the prior does not.
+ 
+\end_layout
+
+\begin_layout Proof
+(b) A conjugate prior would be: 
+\begin_inset Formula $\sigma^{2}\sim IG(a,b),\mu\mid\sigma^{2}\sim\mathcal{N}(c,d^{2}\sigma^{2}).$
+\end_inset
+
+ Indeed, the prior distribution for 
+\begin_inset Formula $\mu,\sigma^{2}$
+\end_inset
+
+ is: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{\mu,\sigma^{2}}(y,z)= & f_{\mu\mid\sigma^{2}}(y)g_{\sigma^{2}}(z)\\
+\prec & \frac{1}{\sqrt{2\pi z}}\exp\left\{ -\frac{1}{2d^{2}z}(y-c)^{2}\right\} z^{-(a-1)}\exp\left(-\frac{b}{z}\right)\\
+\prec & z^{-(a-1/2)}\exp\left\{ -\frac{1}{2d^{2}z}(y-c)^{2}-\frac{b}{z}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The posterior distribution is then:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{\mu,\sigma\mid X}(y,z)\prec & f_{X\mid\mu=y,\sigma^{2}=z}(X)f_{\mu,\sigma}(y,z)\\
+\prec & z^{-n/2}\exp\left\{ -\frac{1}{2z}\left(\sum_{i=1}^{n}(x_{i}-y)^{2}\right)\right\} z^{-(a-1/2)}\exp\left\{ -\frac{1}{2d^{2}z}(y-c)^{2}-\frac{b}{z}\right\} \\
+\prec & z^{-(a-1/2-n/2)}\exp\left\{ -\frac{1}{2}(y-A)^{2}-\frac{B}{z}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For some 
+\begin_inset Formula $A,B$
+\end_inset
+
+ not depending on 
+\begin_inset Formula $y,z$
+\end_inset
+
+.
+ Thus the posterior distribution has the same form as the prior distribution.
+ The prior mentioned at the beginning of (b) is a conjugate prior.
+ 
+\end_layout
+
+\begin_layout Proof
+Conjugate prior is nice computationally as we aggregate more data throughout
+ time.
+ For example, in estimating the mean return and risk of a stock, one can
+ keep updating the estimator daily as one gather more data.
+ On the other hand, conjugate prior is restrictive, if we have firm belief
+ that 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ do not have anything to do with eachother, and we have a lot of computation
+ power at hand, we can use the non-conjugate product prior.
+ 
+\end_layout
+
+\begin_layout Problem
+Constant Fisher information
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $g$
+\end_inset
+
+ be the inverse of 
+\begin_inset Formula $h$
+\end_inset
+
+ or 
+\begin_inset Formula $\theta=g(\eta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(a) Binomial distribution 
+\begin_inset Formula $Bin(n,\theta).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+The Fisher information for 
+\begin_inset Formula $\eta=h(\theta)$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\tilde{I}(\eta) & =I(\theta)\left[g'(\eta)\right]^{2}\\
+ & =-\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\frac{\partial^{2}\log p_{\theta}(X)}{\partial\theta^{2}}\\
+ & =-\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\frac{\partial^{2}\log\left(\frac{n!}{k!(n-k)!}p^{k}(1-p)^{n-k}\right)}{\partial\theta^{2}}\\
+ & =-\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\frac{\partial^{2}\left(\log n!-\log k!-\log(n-k)!+k\log\theta+(n-k)\log(1-\theta)\right)}{\partial\theta^{2}}\\
+ & =-\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\left[\frac{\partial}{\partial\theta}\left(\frac{k}{\theta}-\frac{n-k}{1-\theta}\right)\right]\\
+ & =-\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\left[-\frac{k}{\theta^{2}}-\frac{n-k}{(1-\theta)^{2}}\right]\\
+ & =\left[g'(\eta)\right]^{2}\left(\frac{n\theta}{\theta^{2}}+\frac{n-n\theta}{(1-\theta)^{2}}\right)\\
+ & =\left[g'(\eta)\right]^{2}n\left(\frac{1}{\theta}+\frac{1}{1-\theta}\right)\\
+ & =\left[g'(\eta)\right]^{2}n\frac{1}{\theta(1-\theta)}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We want 
+\begin_inset Formula $\tilde{I}(\eta)=a.$
+\end_inset
+
+ Thus:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+g'(\eta)^{2}= & \frac{a}{n}\theta(1-\theta)\\
+\Leftrightarrow g'(\eta)^{2}= & \frac{a}{n}g(\eta)(1-g(\eta))\\
+\Rightarrow g(\eta)= & \frac{1}{2}(\cos\left[\sqrt{a/n}(\eta+c)\right]+\frac{1}{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So we can pick a function for example 
+\begin_inset Formula $g(\eta)=\frac{1}{2}\cos\eta+\frac{1}{2}\Rightarrow2\theta=\cos\eta+1\Rightarrow\eta=\arccos(2\theta-1).$
+\end_inset
+
+ Thus 
+\begin_inset Formula $h(\theta)=\arccos(2\theta-1),\theta\in(0,1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) The Fisher information for for 
+\begin_inset Formula $\eta=h(\theta)$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\tilde{I}(\eta)= & -\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\frac{\partial^{2}\log p_{\theta}(X)}{\partial\theta^{2}}\\
+= & -\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\frac{\partial^{2}}{\partial\theta^{2}}\left\{ -\log\Gamma(a)-a\log\theta+(a-1)\log x-\frac{x}{\theta}\right\} \\
+= & -\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\frac{\partial}{\partial\theta}\left\{ -\frac{a}{\theta}+\frac{x}{\theta^{2}}\right\} \\
+= & -\left[g'(\eta)\right]^{2}\mathbb{E}_{\theta}\left\{ \frac{a}{\theta^{2}}-\frac{2x}{\theta^{3}}\right\} \\
+= & \left[g'(\eta)\right]^{2}\frac{a}{\theta^{2}}=\frac{\left[g'(\eta)\right]^{2}}{\left[g(\eta)\right]^{2}}a
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We want 
+\begin_inset Formula $\tilde{I}(\eta)=c$
+\end_inset
+
+ constant, we can choose 
+\begin_inset Formula $g(\eta)=\exp\frac{1}{\sqrt{a}}\eta\Rightarrow h(\theta)=\sqrt{a}\log\theta,\theta\in(0,\infty)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+(c) The Fisher information for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & -\mathbb{E}_{\theta}\frac{\partial^{2}\left(\frac{3}{2}\log\theta+2\log x-\frac{\theta x^{2}}{2}\right)}{\partial\theta^{2}}\\
+= & -\mathbb{E}_{\theta}\frac{\partial\left(\frac{3}{2\theta}-\frac{x^{2}}{2}\right)}{\partial\theta}\\
+= & -\mathbb{E}_{\theta}-\frac{3}{2\theta^{2}}=\frac{3}{2}\theta^{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now 
+\begin_inset Formula $\tilde{I}(\eta)=\left[g'(\eta)\right]^{2}I(\theta),$
+\end_inset
+
+ and we want 
+\begin_inset Formula $\tilde{I}(\eta)$
+\end_inset
+
+ to be constant, which mean 
+\begin_inset Formula $(g'(\eta))^{2}g^{2}(\eta)$
+\end_inset
+
+ constant.
+ So we can pick 
+\begin_inset Formula $g(\eta)=\sqrt{\eta}\Rightarrow h(\theta)=\theta^{2}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Problem
+Linear Regression Model
+\end_layout
+
+\begin_layout Proof
+1.
+ The posterior distribution:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p_{\beta\mid y}\prec & p_{\beta}p_{y\mid\beta}\\
+\prec & \exp\left\{ -\frac{1}{2}\beta^{T}gX^{T}X\beta\right\} \exp\left\{ -\frac{1}{2}(y-X\beta)^{T}(y-X\beta)\right\} \\
+\prec & \exp\left\{ -\frac{1}{2}\left[-2y^{T}X\beta+(1+g)\beta^{T}X^{T}X\beta\right]\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We want the expression inside 
+\begin_inset Formula $\exp$
+\end_inset
+
+ to have the form 
+\begin_inset Formula $(\beta-A)^{T}(1+g)X^{T}X(\beta-A)$
+\end_inset
+
+.
+ This means we need: 
+\begin_inset Formula $(1+g)A^{T}X^{T}X=y^{T}X\Leftarrow(1+g)A^{T}=y^{T}X(X^{T}X)^{-1}\Leftrightarrow A^{T}=\frac{1}{1+g}y^{T}X(X^{T}X)^{-1}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Rightarrow A=\frac{1}{1+g}(X^{T}X)^{-1}X^{T}y$
+\end_inset
+
+.
+ With this choice of 
+\begin_inset Formula $A$
+\end_inset
+
+, we see that 
+\begin_inset Formula $\beta\mid y$
+\end_inset
+
+ is normal with mean 
+\begin_inset Formula $A,$
+\end_inset
+
+ covariance matrix 
+\begin_inset Formula $\frac{1}{1+g}(X^{T}X)^{-1}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+2.
+ 
+\begin_inset Formula $\mathbb{E}(\beta\mid y)=\frac{1}{1+g}(X^{T}X)^{-1}X^{T}y=\frac{1}{1+g}\hat{\beta}.$
+\end_inset
+
+ For 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is the usual MLE of 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+3.
+ 
+\begin_inset Formula $\mathbb{E}\left[\mu\mid y\right]=\mathbb{E}\left[X\beta\mid y\right]=\frac{1}{1+g}X(X^{T}X)^{-1}X^{T}y$
+\end_inset
+
+, which is the usual least square 
+\begin_inset Formula $\hat{y}$
+\end_inset
+
+ multiplied with 
+\begin_inset Formula $\frac{1}{1+g}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+4.
+ 
+\begin_inset Formula ${\rm Var}\left[\mu\mid y\right]={\rm Var}\left[X\beta\mid y\right]=X\left({\rm Var}\beta\mid y\right)X^{T}=\frac{1}{1+g}X(X^{T}X)^{-1}X^{T}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+5.
+ First, since 
+\begin_inset Formula $\beta\mid y$
+\end_inset
+
+ is normal, 
+\begin_inset Formula $\mu=X\beta\mid y$
+\end_inset
+
+ is normal.
+ So 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{k}$
+\end_inset
+
+ are independent iff the covariance matrix is diagonal.
+ But since 
+\begin_inset Formula $X^{T}X=I_{p}\Rightarrow{\rm Var}\left[\mu\mid y\right]=\frac{1}{1+g}XX^{T}$
+\end_inset
+
+ which is not guarranteed to be diagonal.
+ For example let 
+\begin_inset Formula $X^{T}=u_{i}^{T}$
+\end_inset
+
+ for 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ is a vector norm 1 in 
+\begin_inset Formula $\mathbb{R}^{n},$
+\end_inset
+
+ then 
+\begin_inset Formula $X^{T}X=1,$
+\end_inset
+
+ but 
+\begin_inset Formula $XX^{T}$
+\end_inset
+
+ is in general not 
+\begin_inset Formula $I_{n}.$
+\end_inset
+
+ So the answer is no.
+ 
+\end_layout
+
+\begin_layout Problem
+Bernoulli
+\end_layout
+
+\begin_layout Proof
+1.
+ From question 
+\begin_inset Formula $5.1,$
+\end_inset
+
+ we have the conditional distribution of 
+\begin_inset Formula $X_{1},X_{2},...,X_{n}$
+\end_inset
+
+ on 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p_{X_{1},...,X_{n}}(x_{1},...,x_{n})= & \int\theta^{\sum x_{i}}(1-\theta)^{n-\sum x_{i}}\mu(d\theta)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Since this distribution only depends on 
+\begin_inset Formula $\sum x_{i},$
+\end_inset
+
+ and reordering 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ does not change the sum of them.
+ We have that a permutation of 
+\begin_inset Formula $X_{i}'s$
+\end_inset
+
+ having the same distribution as 
+\begin_inset Formula $X_{i}'s.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+2.
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Cov}\left(X_{i},X_{j}\right)= & \mathbb{E}\left[X_{i}X_{j}\right]-\mathbb{E}\left[X_{i}\right]\mathbb{E}\left[X_{j}\right]\\
+= & \mathbb{E}\mathbb{E}\left[X_{i}X_{j}\mid\theta\right]-\mathbb{E}^{2}\left[X_{i}\right]\\
+= & \mathbb{E}\left[\mathbb{E}\left[X_{i}\mid\theta\right]\mathbb{E}\left[X_{j}\mid\theta\right]\right]-\mathbb{E}^{2}\mathbb{E}\left[X_{i}\mid\theta\right]\\
+= & \mathbb{E}\theta^{2}-\mathbb{E}^{2}\theta={\rm Var}\theta\ge0.
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This covariance is zero iff 
+\begin_inset Formula ${\rm Var}\theta=0.$
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document
