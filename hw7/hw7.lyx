@@ -879,8 +879,8 @@ We have
 \begin_layout Proof
 Asymptotically, the confidence interval in part (b) is wider than that in
  part (a).
- This makes because we have more structure in part (a), as the mean and
- variance are related, thus we should be more confidence with our estimate.
+ This makes sense because we have more structure in part (a), as the mean
+ and variance are related, thus we should be more confidence with our estimate.
  
 \end_layout
 
