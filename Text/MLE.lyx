@@ -1,0 +1,1092 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Large-Sample Theory
+\end_layout
+
+\begin_layout Definition
+Convergence in Distribution.
+ Let 
+\begin_inset Formula $Y_{n}$
+\end_inset
+
+ be a sequence of random variables, 
+\begin_inset Formula $H_{n}$
+\end_inset
+
+ be the CDF of 
+\begin_inset Formula $Y_{n}$
+\end_inset
+
+ and H be the CDF of 
+\begin_inset Formula $Y.$
+\end_inset
+
+ 
+\begin_inset Formula $Y_{n}\overset{d}{\rightarrow}Y$
+\end_inset
+
+ if 
+\begin_inset Formula $H_{n}(y)\rightarrow H(y)$
+\end_inset
+
+ for every y at which 
+\begin_inset Formula $H$
+\end_inset
+
+ is continuous.
+ 
+\end_layout
+
+\begin_layout Lemma
+Implications
+\end_layout
+
+\begin_layout Lemma
+1.
+ 
+\begin_inset Formula $Y_{n}\overset{d}{\rightarrow}Y$
+\end_inset
+
+ iff 
+\begin_inset Formula $\mathbb{E}f(Y_{n})\rightarrow\mathbb{E}f(Y)\forall$
+\end_inset
+
+ bounded, continuous f.
+\end_layout
+
+\begin_layout Lemma
+2.
+ 
+\begin_inset Formula $Y_{n}\overset{d}{\rightarrow}Y$
+\end_inset
+
+ and g is continuous 
+\begin_inset Formula $\Rightarrow g(Y_{n})\overset{d}{\rightarrow}g(Y)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Central Limit Theorem.
+ Given 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ i.i.d with mean 
+\begin_inset Formula $\mu,$
+\end_inset
+
+ variance 
+\begin_inset Formula $\sigma^{2}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}(\bar{X}_{n}-\mu)\overset{d}{\rightarrow} & \mathcal{N}(0,\sigma^{2})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+Slutsky's Theorem.
+ Suppose 
+\begin_inset Formula $Y_{n}\overset{d}{\rightarrow}Y,A_{n}\overset{P}{\rightarrow}a,B_{n}\overset{P}{\rightarrow}b.$
+\end_inset
+
+ Then:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+A_{n}+B_{n}Y_{n}\overset{d}{\rightarrow} & a+bY
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+Delta Method.
+ Given 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ i.i.d with mean 
+\begin_inset Formula $\mu,$
+\end_inset
+
+ variance 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+.
+ f is differentiable at 
+\begin_inset Formula $\mu.$
+\end_inset
+
+ Then
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}(f(\bar{X}_{n})-f(\mu))\overset{d}{\rightarrow} & \mathcal{N}(0,(f'(\mu))^{2}\sigma^{2})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Uniform Integrability
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sup_{n\ge1}\mathbb{E}\left[\left|X_{n}\right|\mathbb{I}_{\left|X_{n}\right|\ge t}\right]\rightarrow0 & \mbox{as t \rightarrow\infty}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $X_{n}\overset{d}{\rightarrow}X$
+\end_inset
+
+ and uniform integrability 
+\begin_inset Formula $\Rightarrow\mathbb{E}\left[X_{n}\right]\rightarrow\mathbb{E}\left[X\right]$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Note that this theorem is not a result of Lemma 1, because the function
+ 
+\begin_inset Formula $f(x)=x$
+\end_inset
+
+ is not bounded.
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $\hat{\eta}_{MLE}$
+\end_inset
+
+ be the MLE estimate for the 
+\begin_inset Formula $\eta$
+\end_inset
+
+ parameter of exponential family.
+ Then:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(\hat{\eta}_{MLE}-\eta\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{1}{A''(\eta)}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MLE achieves Cramer-Rao in an asymptotic sense.
+ Except not quite because of super efficicency.
+ 
+\end_layout
+
+\begin_layout Theorem
+Keener 8.18.
+ Let 
+\begin_inset Formula $\left(X_{i}\right)_{i\ge1}$
+\end_inset
+
+ be i.i.d rv with common CDF 
+\begin_inset Formula $F,$
+\end_inset
+
+ let 
+\begin_inset Formula $\gamma\in(0,1)$
+\end_inset
+
+, and let 
+\begin_inset Formula $\tilde{\theta}_{n}$
+\end_inset
+
+ be the 
+\begin_inset Formula $\lfloor\gamma n\rfloor'th$
+\end_inset
+
+ order statistics for 
+\begin_inset Formula $X_{1},X_{2},...,X_{n}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $F(\theta)=\gamma,$
+\end_inset
+
+ and if 
+\begin_inset Formula $F'(\gamma)$
+\end_inset
+
+ exists and is finite and positive, then:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}(\tilde{\theta}-\theta)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{\gamma(1-\gamma)}{\left[F'(\theta)\right]^{2}}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Estimating Equations and Maximum Likelihood
+\end_layout
+
+\begin_layout Subsection
+Weak Law for Random Functions
+\end_layout
+
+\begin_layout Definition
+Random Element.
+ Let 
+\begin_inset Formula $(\Omega,\mathcal{F},\mathbb{P})$
+\end_inset
+
+ be a probability space, and 
+\begin_inset Formula $(E,\mathcal{E})$
+\end_inset
+
+ a measurable space.
+ A random element with value in 
+\begin_inset Formula $E$
+\end_inset
+
+ is a function 
+\begin_inset Formula $X:\Omega\rightarrow E$
+\end_inset
+
+ which is 
+\begin_inset Formula $(\mathcal{F},\mathcal{E})-measurable.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Random Function is an example of random element.
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a compact set.
+ Let 
+\begin_inset Formula $W_{i}(t)=h(t,X_{i}),t\in K$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $h(t,x)$
+\end_inset
+
+ is continuous in t, 
+\begin_inset Formula $\forall x.$
+\end_inset
+
+ 
+\begin_inset Formula $W_{i}$
+\end_inset
+
+ are random functions taking values in 
+\begin_inset Formula $C(K),$
+\end_inset
+
+ the set of continuous function.
+ 
+\end_layout
+
+\begin_layout Definition
+Supremum Norm.
+ For 
+\begin_inset Formula $w\in C(K)$
+\end_inset
+
+, the supremum norm of 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is defined as:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{alignat*}{1}
+\|w\|_{\infty}= & \sup_{t\in K}\left|w(t)\right|
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Convergence means 
+\begin_inset Formula $\|w_{n}-w\|_{\infty}\rightarrow0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Lemma
+Keener p152.
+ Let 
+\begin_inset Formula $W$
+\end_inset
+
+ be a random function in 
+\begin_inset Formula $C(k).$
+\end_inset
+
+Define 
+\begin_inset Formula $\mu(t)=\mathbb{E}W(t).t\in K$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\mathbb{E}\|W\|_{\infty}<\infty,$
+\end_inset
+
+ then 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is continuous.
+ Also:
+\end_layout
+
+\begin_layout Lemma
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sup_{t\in K}\mathbb{E}\sup_{s:\|s-t\|<\epsilon}\left|W(s)-W(t)\right|\rightarrow & 0
+\end{alignat*}
+
+\end_inset
+
+ as 
+\begin_inset Formula $\epsilon\rightarrow0.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+Dini's Theorem.
+ Suppose 
+\begin_inset Formula $f_{1}\ge f_{2}\ge...$
+\end_inset
+
+ are positive functions in 
+\begin_inset Formula $C(K).$
+\end_inset
+
+ If 
+\begin_inset Formula $f_{n}(x)\rightarrow0,\forall x\in K,$
+\end_inset
+
+ then 
+\begin_inset Formula $\sup_{x\in K}f_{n}(K)\rightarrow0.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Dini theorem turns pointwise statement into uniform statement.
+ A more general form in Empirical Process Theory is:
+\end_layout
+
+\begin_layout Theorem
+Uniform Weak Law.
+ Keener p153.
+ Let 
+\begin_inset Formula $W,W_{1},W_{2},...$
+\end_inset
+
+ be i.i.d random functions in 
+\begin_inset Formula $C(K),$
+\end_inset
+
+ K compact, with mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbb{E}\|W\|_{\infty}<\infty$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\bar{W}_{n}=\frac{1}{n}\sum_{i=1}^{n}W_{i}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $\|\bar{W}_{n}-\mu\|_{\infty}\overset{\mathbb{P}}{\rightarrow}0.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $G_{n},n\ge1,$
+\end_inset
+
+ be random function in 
+\begin_inset Formula $C(K),$
+\end_inset
+
+ K compact, and suppose 
+\begin_inset Formula $\|G_{n}-g\|_{\infty}\overset{\mathbb{P}}{\rightarrow}0$
+\end_inset
+
+ with g a nonrandom function in 
+\begin_inset Formula $C(K).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+1.
+ If 
+\begin_inset Formula $t_{n},n\ge1$
+\end_inset
+
+ are random variables converging in probability to a constant 
+\begin_inset Formula $t^{*}\in K,t_{n}\overset{\mathbb{P}}{\rightarrow}t^{*},$
+\end_inset
+
+ then 
+\begin_inset Formula $G_{n}(t_{n})\overset{\mathbb{P}}{\rightarrow}g(t^{*}).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+2.
+ If g achieves its maximum at a unique value 
+\begin_inset Formula $t^{*},$
+\end_inset
+
+ and if 
+\begin_inset Formula $t_{n}$
+\end_inset
+
+ are random variables maximizing 
+\begin_inset Formula $G_{n},$
+\end_inset
+
+ so that: 
+\begin_inset Formula $G_{n}(t_{n})=\sup_{t\in K}G_{n}(t),$
+\end_inset
+
+ then 
+\begin_inset Formula $t_{n}\overset{\mathbb{P}}{\rightarrow}t^{*}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+3.
+ If 
+\begin_inset Formula $K\subset\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $g(t)=0$
+\end_inset
+
+ has a uninque solution 
+\begin_inset Formula $t^{*},$
+\end_inset
+
+ and if 
+\begin_inset Formula $t_{n}$
+\end_inset
+
+ are random variables solving 
+\begin_inset Formula $G_{n}(t_{n})=0,$
+\end_inset
+
+ then 
+\begin_inset Formula $t_{n}\overset{\mathbb{P}}{\rightarrow}t^{*}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Consistency of The MLE
+\end_layout
+
+\begin_layout Standard
+For this subsection, let 
+\begin_inset Formula $X,X_{1},X_{2},...$
+\end_inset
+
+ be i.i.d with common density 
+\begin_inset Formula $f_{\theta},\theta\in\Omega,$
+\end_inset
+
+ and let 
+\begin_inset Formula $l_{n}$
+\end_inset
+
+ be the log-likelihood function for the first n obs:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+l_{n}(\omega)= & \sum_{i=1}^{n}\log f_{\omega}(X_{i})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The MLE estimator 
+\begin_inset Formula $\hat{\theta}_{n}=\hat{\theta}_{n}(X_{1},...,X_{n})$
+\end_inset
+
+ maximize 
+\begin_inset Formula $l_{n}.$
+\end_inset
+
+ Assuming 
+\begin_inset Formula $f_{\theta}(x)$
+\end_inset
+
+ is continuous in 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Definition
+The Kullback-Leiber information is defined as:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta,\omega)= & \mathbb{E}\log\left[f_{\theta}(X)/f_{\omega}(X)\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Here 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is thought of as the true value of the unknown parameter, 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is a dummy variable.
+ This information is viewed as a measure of the information discriminating
+ between 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega$
+\end_inset
+
+ when 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is the true value of the unknown parameter.
+ 
+\end_layout
+
+\begin_layout Lemma
+If 
+\begin_inset Formula $P_{\theta}\neq P_{\omega},$
+\end_inset
+
+ then 
+\begin_inset Formula $I(\theta,\omega)>0.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+Define 
+\begin_inset Formula $W(\omega)=\log\left[\frac{f_{\omega}(X)}{f_{\theta}(X)}\right].$
+\end_inset
+
+ If 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is compact, 
+\begin_inset Formula $\mathbb{E}_{\theta}\|W\|_{\infty}<\infty,f_{\omega}(x)$
+\end_inset
+
+ is continuous function of 
+\begin_inset Formula $\omega$
+\end_inset
+
+ for a.e.
+ x, and 
+\begin_inset Formula $P_{\omega}\neq P_{\omega},\forall\omega\neq\theta,$
+\end_inset
+
+ then under 
+\begin_inset Formula $P_{\theta},\hat{\theta}_{n}\overset{\mathbb{P}}{\rightarrow}\theta.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Note that here 
+\begin_inset Formula $\hat{\theta}_{n}$
+\end_inset
+
+ is the MLE for n observation, which mean it maximize 
+\begin_inset Formula $W(\omega).$
+\end_inset
+
+ This theorem establishes the consistency of MLE.
+ 
+\end_layout
+
+\begin_layout Theorem
+Suppose 
+\begin_inset Formula $\Omega=\mathbb{R}^{p},$
+\end_inset
+
+ 
+\begin_inset Formula $f_{\omega}(x)$
+\end_inset
+
+ is a continuous function of 
+\begin_inset Formula $\omega$
+\end_inset
+
+ for a.e.
+ x, 
+\begin_inset Formula $P_{\omega}\neq P_{\theta}$
+\end_inset
+
+ for all 
+\begin_inset Formula $\omega\neq\theta,$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{\omega}(x)\rightarrow0$
+\end_inset
+
+ as 
+\begin_inset Formula $\omega\rightarrow\infty.$
+\end_inset
+
+ If 
+\begin_inset Formula $\mathbb{E}_{\theta}\|\mathbb{I}_{K}W\|_{\infty}<\infty$
+\end_inset
+
+ for any compact set 
+\begin_inset Formula $K\subset\mathbb{R}^{p},$
+\end_inset
+
+ and if 
+\begin_inset Formula $\mathbb{E}_{\theta}\sup_{\|\omega\|>a}W(\omega)<\infty$
+\end_inset
+
+ for some 
+\begin_inset Formula $a>0,$
+\end_inset
+
+ then under 
+\begin_inset Formula $\mathbb{P}_{\theta},\hat{\theta}_{n}\overset{\mathbb{P}}{\rightarrow}\theta.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Limiting Distribution for the MLE
+\end_layout
+
+\begin_layout Theorem
+Keener 9.14.
+ Assume:
+\end_layout
+
+\begin_layout Theorem
+1.
+ RV 
+\begin_inset Formula $X,X_{1},X_{2},...$
+\end_inset
+
+ are i.i.d with common density 
+\begin_inset Formula $f_{\theta},\theta\in\Omega\subset\mathbb{R}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+2.
+ The set 
+\begin_inset Formula $A=\left\{ x\mid f_{\theta}(x)>0\right\} $
+\end_inset
+
+ is independent of 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+3.
+ 
+\begin_inset Formula $\forall x\in A,\partial^{2}f_{\theta}(x)/\partial\theta^{2}$
+\end_inset
+
+ exists and is continuous in 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+4.
+ Let 
+\begin_inset Formula $W(\theta)=\log f_{\theta}(X).$
+\end_inset
+
+ The Fisher information 
+\begin_inset Formula $I(\theta)$
+\end_inset
+
+ from a single observation exists, is finite and can be found using either:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\theta)= & \mathbb{E}_{\theta}W'(\theta)^{y2},\mbox{ or}\\
+I(\theta)= & -\mathbb{E}_{\theta}W''(\theta)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+5.
+ 
+\begin_inset Formula $\forall\theta$
+\end_inset
+
+ in the interior of 
+\begin_inset Formula $\Omega,$
+\end_inset
+
+ 
+\begin_inset Formula $\exists\epsilon>0$
+\end_inset
+
+ such that:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}_{\theta}\|\mathbb{I}_{\left[\theta-\epsilon,\theta+\epsilon\right]}W''\|_{\infty}< & \infty
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+6.
+ The maximum likelihood estimator 
+\begin_inset Formula $\hat{\theta}_{n}$
+\end_inset
+
+ is consistent
+\end_layout
+
+\begin_layout Theorem
+Then for any 
+\begin_inset Formula $\theta$
+\end_inset
+
+ in the interior of 
+\begin_inset Formula $\Omega,$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(\hat{\theta}_{n}-\theta\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{1}{I(\theta)}\right)
+\end{alignat*}
+
+\end_inset
+
+ as 
+\begin_inset Formula $n\rightarrow\infty.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Lemma
+Suppose 
+\begin_inset Formula $Y_{n}\overset{d}{\rightarrow}Y,$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbb{P}(B_{n})\rightarrow1$
+\end_inset
+
+ as 
+\begin_inset Formula $n\rightarrow\infty.$
+\end_inset
+
+ Then for arbitrary rv 
+\begin_inset Formula $Z_{n},n\ge1,Y_{n}\mathbb{I}_{B_{n}}+Z_{n}\mathbb{I}_{B_{n}^{C}}\overset{d}{\rightarrow}Y$
+\end_inset
+
+ as 
+\begin_inset Formula $n\rightarrow\infty.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Confidence Intervals
+\end_layout
+
+\begin_layout Definition
+If 
+\begin_inset Formula $\delta_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+ are statistics, then the random interval 
+\begin_inset Formula $(\delta_{0},\delta_{1})$
+\end_inset
+
+ is called a 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+ confidence interval for 
+\begin_inset Formula $g(\theta)$
+\end_inset
+
+ iff:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}_{\theta}(g(\theta)\in(\delta_{0},\delta_{1}))\ge & 1-\alpha
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+for all 
+\begin_inset Formula $\theta\in\Omega.$
+\end_inset
+
+ Also, a random set 
+\begin_inset Formula $S=S(X)$
+\end_inset
+
+ constructed from data 
+\begin_inset Formula $X$
+\end_inset
+
+ is clled a 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+ confidence region for 
+\begin_inset Formula $g(\theta)$
+\end_inset
+
+ if:
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}_{\theta}(g(\theta)\in S)\ge & 1-\alpha
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+for all 
+\begin_inset Formula $\theta\in\Omega.$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

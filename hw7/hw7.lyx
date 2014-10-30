@@ -1,0 +1,888 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+ST210A - HW7
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+Method of moments estimation
+\end_layout
+
+\begin_layout Proof
+According to CLT:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(\mu(\hat{\theta})-\mu(\theta)\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\sigma^{2}(\theta)\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is strictly increasing, thus 
+\begin_inset Formula $\mu^{-1}$
+\end_inset
+
+ exists, and 
+\begin_inset Formula $\frac{d}{dx}\mu^{-1}=\frac{1}{\mu'(\mu^{-1}(x))}$
+\end_inset
+
+ exists since the denominator is always positive (as 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is strictly increasing so 
+\begin_inset Formula $\mu'$
+\end_inset
+
+ is positive).
+ Now applying the Delta method, 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(\mu^{-1}\mu(\hat{\theta})-\mu^{-1}\mu(\theta)\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\left[\mu^{-1}(\mu(\theta))'\right]^{2}\sigma^{2}(\theta)\right)\\
+\Leftrightarrow\sqrt{n}\left(\hat{\theta}-\theta\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{\sigma^{2}(\theta)}{\mu'(\mu^{-1}(\mu(\theta)))^{2}}\right)\\
+\Leftrightarrow\sqrt{n}\left(\hat{\theta}-\theta\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{\sigma^{2}(\theta)}{\left(\mu'(\theta)\right)^{2}}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Empirical Process - Distribution of Root of Equation
+\end_layout
+
+\begin_layout Proof
+(a) Let 
+\begin_inset Formula $W_{n}=t^{X_{n}}-X_{n}^{2}$
+\end_inset
+
+ be random function, for 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+ compact.
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}W_{n}= & \mathbb{E}\left[t^{X}-X^{2}\right]\\
+= & \int_{0}^{1}t^{x}dx-\int_{0}^{1}x^{2}dx\\
+= & \frac{t-1}{\ln t}-\frac{1}{3}\\
+\|W_{n}\|_{\infty}= & \sup_{t\in[0,1]}t^{X_{n}}-X_{n}^{2}=1-X_{n}^{2}\\
+\mathbb{E}\|W_{n}\|_{\infty}= & 1-\mathbb{E}X_{n}^{2}=\frac{2}{3}<\infty
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So the conditions of Uniform Weak Law of Random Function are met, thus we
+ have: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\|\bar{W}_{n}-\frac{t-1}{\ln t}+\frac{1}{3}\|_{\infty}\overset{\mathbb{P}}{\rightarrow} & 0
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now take 
+\begin_inset Formula $G_{n}=\bar{W}_{n},g(t)=\frac{t-1}{\ln t}-\frac{1}{3},$
+\end_inset
+
+ then 
+\begin_inset Formula $g(t)$
+\end_inset
+
+ has a unique solution in 
+\begin_inset Formula $[0,1],c\approx0.06$
+\end_inset
+
+.
+ The conditions of Theorem 9.4 in Keener are met, thus we have 
+\begin_inset Formula $T_{n}\overset{\mathbb{P}}{\rightarrow}c,$
+\end_inset
+
+ as 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+ for c is the solution of 
+\begin_inset Formula $g(t)$
+\end_inset
+
+ as mentioned above.
+ 
+\end_layout
+
+\begin_layout Proof
+(b) We follow the procedure as in the proof for Theorem 9.14 in Keener.
+ 
+\end_layout
+
+\begin_layout Proof
+Applying the Tayor expansion of 
+\begin_inset Formula $W_{n}$
+\end_inset
+
+ we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat}{1}
+\bar{W}_{n}(T_{n})= & \bar{W}_{n}(c)+\bar{W}'_{n}(\tilde{T}_{n})\left(T_{n}-c\right)
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+for 
+\begin_inset Formula $\tilde{T}_{n}$
+\end_inset
+
+ is between 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $c.$
+\end_inset
+
+ Since 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ is the solution to 
+\begin_inset Formula $\bar{W}_{n},$
+\end_inset
+
+ the LHS of (1) is zero.
+ Thus:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(T_{n}-c\right)= & \frac{\sqrt{n}\bar{W}_{n}(c)}{-\bar{W}_{n}'(\tilde{T}_{n})}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For the numerator, we have 
+\begin_inset Formula $W_{i}(c)$
+\end_inset
+
+ are i.i.d with mean zero.
+ We now calculate its variance, and note that 
+\begin_inset Formula $c$
+\end_inset
+
+ sastify 
+\begin_inset Formula $g(c)=0\Leftrightarrow\ln c=3(c-1)$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}W_{i}(c)= & \mathbb{E}\left[W_{i}^{2}(c)\right]\\
+= & \mathbb{E}\left[\left(c^{X}-X^{2}\right)^{2}\right]\\
+= & \mathbb{E}\left[c^{2X}\right]-2\mathbb{E}\left[c^{X}X^{2}\right]+\mathbb{E}X^{4}\\
+= & \frac{c^{2}-1}{2\ln c}-\frac{4-4c+4c\ln c-2c\ln^{2}c}{\ln^{3}c}+\frac{1}{5}\\
+= & \frac{45c^{3}-171c^{2}+147c+59}{270(c-1)^{2}}:=\sigma^{2}\\
+\approx & 0.2812
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By the CLT, 
+\begin_inset Formula $\sqrt{n}\bar{W}_{n}(c)\overset{d}{\rightarrow}\mathcal{N}\left(0,\sigma^{2}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+For the denominator, since 
+\begin_inset Formula $\left|\tilde{T}_{n}-c\right|\le\left|T_{n}-c\right|,$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{n}\overset{\mathbb{P}}{\rightarrow}c,$
+\end_inset
+
+ thus 
+\begin_inset Formula $\tilde{T}_{n}\overset{\mathbb{P}}{\rightarrow}c.$
+\end_inset
+
+ By Theorem 9.2 in Keener, 
+\begin_inset Formula $\|\bar{W}_{n}'-\mu\|_{\infty}\overset{\mathbb{P}}{\rightarrow}0,$
+\end_inset
+
+ for:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mu(t)= & \mathbb{E}W'\left(t\right)\\
+= & \mathbb{E}\left[(X-1)t^{X}\right]\\
+= & \int_{0}^{1}xt^{x}dx-\int_{0}^{1}t^{x}dx\\
+= & \frac{-t+t\ln t+1}{\ln^{2}t}-\frac{t-1}{\ln t}\\
+= & \frac{-t+\ln t+1}{\ln^{2}t}\\
+\mu(c)= & -0.2363
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So we have 
+\begin_inset Formula $\|\bar{W}_{n}'-\mu\|_{\infty}\overset{\mathbb{P}}{\rightarrow}0$
+\end_inset
+
+ with 
+\begin_inset Formula $\mu$
+\end_inset
+
+ a non-random function, and 
+\begin_inset Formula $\tilde{T}_{n}\overset{\mathbb{P}}{\rightarrow}c,$
+\end_inset
+
+ thus by Theorem 9.4 in Keener part 1, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\bar{W}_{n}'(\tilde{T}_{n})\overset{\mathbb{P}}{\rightarrow} & \mu(c)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By the Slutky theorem (8.13), we have: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(T_{n}-c\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{\sigma^{2}}{\mu^{2}(c)}\right)\\
+\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{3}{40}\left(45c^{3}-171c^{2}+147c+59\right)\right)\\
+\approx & \mathcal{N}\left(0,5.03649\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Normal location 
+\begin_inset Formula $\mathcal{N}\left(\theta,1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(a) Let 
+\begin_inset Formula $\Phi(x,\mu,\sigma)$
+\end_inset
+
+ be the CDF of normal mean 
+\begin_inset Formula $\mu,$
+\end_inset
+
+ variance 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+.
+ Let the CDF of 
+\begin_inset Formula $1/\bar{X}_{n}$
+\end_inset
+
+ be 
+\begin_inset Formula $F_{n},$
+\end_inset
+
+ and PDF be 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+, then we see that 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ is continuous everywhere except 0.
+ We have 
+\begin_inset Formula $\bar{X}_{n}\sim\mathcal{N}\left(\theta,\frac{1}{n}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+F_{n}(b)= & \mathbb{P}\left[\sqrt{n}\left(\frac{1}{\bar{X}_{n}}-\frac{1}{\theta}\right)<b\right]\\
+= & \mathbb{P}\left[\frac{1}{\bar{X}_{n}}<\frac{b}{\sqrt{n}}+\frac{1}{\theta}\right]\\
+= & \mathbb{P}\left[\frac{1}{\bar{X}_{n}}<\frac{b\theta+\sqrt{n}}{\theta\sqrt{n}}\right]\\
+= & \mathbb{P}\left[\frac{1}{\bar{X}_{n}}<\frac{1}{a}\right],\mbox{ for a=}\frac{\theta\sqrt{n}}{b\theta+\sqrt{n}}\\
+= & \begin{cases}
+\mathbb{P}\left[\bar{X}_{n}>a\vee\bar{X}<0\right] & \mbox{ if a}>0\\
+\mathbb{P}\left[0>\bar{X}_{n}>a\right] & \mbox{ if a}<0
+\end{cases}\\
+= & \begin{cases}
+1-\Phi\left(a,\theta,\frac{1}{n}\right)+\Phi\left(0,\theta,\frac{1}{n}\right) & \mbox{ if a}>0\\
+\Phi\left(0,\theta,\frac{1}{n}\right)-\Phi\left(a,\theta,\frac{1}{n}\right) & \mbox{ if a}<0
+\end{cases}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For both cases 
+\begin_inset Formula $a>0$
+\end_inset
+
+ and 
+\begin_inset Formula $a<0,$
+\end_inset
+
+ we share the same form of density, which is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+f_{n}(b)= & \frac{\partial F_{n}(b)}{\partial b}\\
+= & \frac{\partial F_{n}(b)}{\partial a}(a)\frac{\partial a}{\partial b}(b)\\
+= & -\frac{\partial\Phi\left(a,\theta,\frac{1}{n}\right)}{\partial a}(a)\times\left(-\frac{\sqrt{n}\theta^{2}}{(b\theta+\sqrt{n})^{2}}\right)\\
+= & \frac{\sqrt{n}}{\sqrt{2\pi}}\exp\left\{ -\frac{n}{2}\left(\frac{\theta\sqrt{n}}{b\theta+\sqrt{n}}-\theta\right)^{2}\right\} \left(\frac{\sqrt{n}\theta^{2}}{(b\theta+\sqrt{n})^{2}}\right)\\
+= & \frac{n\theta^{2}}{\sqrt{2\pi}(b\theta+\sqrt{n})^{2}}\exp\left\{ -\frac{n\theta^{2}}{2}\left(\frac{-b\theta}{b\theta+\sqrt{n}}\right)^{2}\right\} \\
+= & \frac{\theta^{2}n}{\sqrt{2\pi}}\frac{n}{\left(b\theta+\sqrt{n}\right)^{2}}\exp\left\{ -\frac{\theta^{4}}{2}b^{2}\frac{n}{(b\theta+\sqrt{n})^{2}}\right\} \\
+\Rightarrow\lim_{n\rightarrow\infty}f_{n}(b)= & \frac{\theta^{2}}{\sqrt{2\pi}}\exp\left\{ -\frac{\theta^{4}}{2}b^{2}\right\} ,\forall b\neq0
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This limit is the density for normal mean 
+\begin_inset Formula $0$
+\end_inset
+
+ variance 
+\begin_inset Formula $\frac{1}{\theta^{2}}.$
+\end_inset
+
+ Thus the probability density of 
+\begin_inset Formula $\sqrt{n}\left(1/\bar{X}_{n}-1/\theta\right)$
+\end_inset
+
+ converges to 
+\begin_inset Formula $\phi(x,0,\frac{1}{\theta^{2}})$
+\end_inset
+
+.
+ By the Scheffe Lemma, the CDF also converges to the corresponding CDF 
+\begin_inset Formula $\Phi(x,0,\frac{1}{\theta^{2}}).$
+\end_inset
+
+ So 
+\begin_inset Formula $\delta=\frac{1}{\bar{X}_{n}}\overset{\mathbb{P}}{\rightarrow}\mathcal{N}\left(0,\frac{1}{\theta^{2}}\right).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+(b) WLOG assuming that 
+\begin_inset Formula $\theta>0.$
+\end_inset
+
+ For 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ arbitrary, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[\frac{1}{\bar{X}_{n}}\right]= & \int_{-\infty}^{0}\frac{1}{x}\phi(x,\theta,\frac{1}{n})dx+\int_{0}^{\theta}\frac{1}{x}\phi(x,\theta,\frac{1}{n})dx+\int_{\theta}^{\infty}\frac{1}{x}\phi(x,\theta,\frac{1}{n})dx
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now we have 
+\begin_inset Formula $\phi(x,\theta,\frac{1}{n})$
+\end_inset
+
+ is a a function symmetric at 
+\begin_inset Formula $x=\theta,$
+\end_inset
+
+ decreasing with respect to 
+\begin_inset Formula $x$
+\end_inset
+
+ when 
+\begin_inset Formula $0<x<\theta$
+\end_inset
+
+.
+ Thus:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\int_{0}^{\theta}\frac{1}{x}\phi(x,\theta,\frac{1}{n})dx> & \int_{0}^{\theta}\frac{1}{x}\phi(0,\theta,\frac{1}{n})dx\\
+= & \int_{0}^{\theta}\frac{c}{x}dx\mbox{ for c}>0\\
+= & \infty
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus 
+\begin_inset Formula $\forall n,\mathbb{E}\left[\frac{1}{\bar{X}_{n}}\right]$
+\end_inset
+
+ also diverges.
+ This does not contradict the result in part (a).
+ We only have convergence in distribution implying convergence in expectation
+ of bounded continuous function.
+ Since function 
+\begin_inset Formula $1/x$
+\end_inset
+
+ is not continuous at 0, and not bounded, it needs not sastify that condition.
+ 
+\end_layout
+
+\begin_layout Problem
+Poisson Asymptotic Confidence Interval
+\end_layout
+
+\begin_layout Proof
+(a) The variance of Poisson is also 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ By CLT, 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}(\hat{\theta}-\theta)\overset{d}{\rightarrow} & \mathcal{N}(0,\theta)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By the Delta method for any 
+\begin_inset Formula $g$
+\end_inset
+
+ differentiable at 
+\begin_inset Formula $\theta$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(g(\hat{\theta})-g(\theta)\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,(g'(\theta))^{2}\theta\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We want 
+\begin_inset Formula $(g'(\theta))^{2}\theta=1\Leftrightarrow g'(\theta)=\frac{1}{\sqrt{\theta}}\Rightarrow g(\theta)=2\sqrt{\theta}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+(b) 
+\begin_inset Formula $Z_{n}=2\sqrt{n}\left(\sqrt{\bar{X}_{n}}-\sqrt{\theta}\right).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[\left|Z_{n}\right|<z_{\alpha/2}\right]\rightarrow & 1-\alpha\\
+\mathbb{P}\left[-z_{\alpha/2}<2\sqrt{n}\left(\sqrt{\bar{X}_{n}}-\sqrt{\theta}\right)<z_{\alpha/2}\right]\rightarrow & 1-\alpha\\
+\mathbb{P}\left[z_{\alpha/2}>2\sqrt{n}\left(\sqrt{\theta}-\sqrt{\bar{X}_{n}}\right)>-z_{\alpha/2}\right]\rightarrow & 1-\alpha\\
+\mathbb{P}\left[\frac{z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}>\sqrt{\theta}>\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right]\rightarrow & 1-\alpha
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}>0,$
+\end_inset
+
+ we have: 
+\begin_inset Formula $\mathbb{P}\left[\left(\frac{z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right)^{2}>\theta>\left(\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right)^{2}\right]=\mathbb{P}\left[\frac{z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}>\sqrt{\theta}>\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right].$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\le0,$
+\end_inset
+
+ we have 
+\begin_inset Formula $\left[\left(\frac{z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right)^{2}>\theta\right]=\mathbb{P}\left[\frac{z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}>\sqrt{\theta}>\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+So the 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+ confidence interval is 
+\begin_inset Formula $(\delta_{1},\delta_{2}),$
+\end_inset
+
+ for 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\delta_{1}= & \begin{cases}
+0 & \mbox{ if }\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\le0\\
+\left(\frac{-z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right)^{2} & \mbox{ otherwise}
+\end{cases}\\
+\delta_{2}= & \left(\frac{z_{\alpha/2}}{2\sqrt{n}}+\sqrt{\bar{X}_{n}}\right)^{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Asymptotic Confidence Interval.
+ Normal
+\end_layout
+
+\begin_layout Proof
+(a) According to Theorem 9.14 in Keener:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(\hat{\mu}_{n}-\mu\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\frac{1}{I(\mu)}\right)\\
+\sqrt{nI(\mu)}\left(\hat{\mu}_{n}-\mu\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,1\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The likelihood function for a single 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+l(\mu)= & \log f_{\mu}(X)\\
+= & -\frac{(X-\mu)^{2}}{2g^{2}(\mu)}-\log g(\mu)-\frac{1}{2}\log(2\pi)\\
+\Rightarrow-l'(\mu)= & \frac{g'(\mu)}{g(\mu)}+\frac{-2(X-\mu)g^{2}(\mu)-(X-\mu)^{2}2g'(\mu)g(\mu)}{2g^{4}(\mu)}\\
+= & \frac{g'(\mu)}{g(\mu)}-\frac{X-\mu}{g^{2}(\mu)}-\frac{(X-\mu)^{2}g'(\mu)}{g^{3}(\mu)}\\
+\Rightarrow\mathbb{E}_{\mu}\left[\left(l'(\mu)\right)^{2}\right]= & \left(\frac{g'(\mu)}{g(\mu)}\right)^{2}+\frac{1}{g^{2}(\mu)}+\frac{3(g'(\mu))^{2}}{g^{2}(\mu)}-2\frac{(g'(\mu))^{2}}{g^{2}(\mu)}\\
+= & 2\left(\frac{g'(\mu)}{g(\mu)}\right)^{2}+\frac{1}{g^{2}(\mu)}=I(\mu)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now we can use 
+\begin_inset Formula $I(\hat{\mu})$
+\end_inset
+
+ instead of 
+\begin_inset Formula $I(\mu)$
+\end_inset
+
+ to get the confident interval (according to Slutsky we still have convergence
+ in distribution to normal).
+ So we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[-z_{\alpha/2}<\sqrt{nI(\hat{\mu}_{n})}\left(\hat{\mu}_{n}-\mu\right)<z_{\alpha/2}\right]\rightarrow & 1-\alpha\\
+\mathbb{P}\left[-z_{\alpha/2}/\sqrt{nI(\hat{\mu}_{n})}<\mu-\hat{\mu}_{n}<z_{\alpha/2}/\sqrt{nI(\hat{\mu}_{n})}\right]\rightarrow & 1-\alpha\\
+\Rightarrow\mathbb{P}\left[\hat{\mu}_{n}-z_{\alpha/2}/\sqrt{nI(\hat{\mu}_{n})}<\mu<\hat{\mu}_{n}+z_{\alpha/2}/\sqrt{nI(\hat{\mu}_{n})}\right]\rightarrow & 1-\alpha
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+I(\hat{\mu}_{n})= & 2\left(\frac{g'(\hat{\mu}_{n})}{g(\hat{\mu}_{n})}\right)^{2}+\frac{1}{g^{2}(\hat{\mu}_{n})}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) Without the functional relation, we have CLT:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{n}\left(\hat{\mu}'_{n}-\mu\right)\overset{d}{\rightarrow} & \mathcal{N}\left(0,\sigma^{2}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus the confidence interval width is 
+\begin_inset Formula $2z_{\alpha/2}\sigma/\sqrt{n}$
+\end_inset
+
+.
+ Thus the ratio of the width of two confidence interval is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\frac{Width(b)}{Width(a)}= & \sigma\sqrt{I(\hat{\mu}_{n})}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We have 
+\begin_inset Formula $\hat{\mu}_{n}\overset{\mathbb{P}}{\rightarrow}\mu$
+\end_inset
+
+ (consistency of MLE), thus according to the continuous mapping theorem,
+ 
+\begin_inset Formula $I(\hat{\mu}_{n})\overset{\mathbb{P}}{\rightarrow}I(\mu).$
+\end_inset
+
+ So the limit:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\frac{Width(b)}{Width(a)}\overset{\mathbb{P}}{\rightarrow} & 2(g'(\mu))^{2}+1
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Asymptotically, the confidence interval in part (b) is wider than that in
+ part (a).
+ This makes because we have more structure in part (a), as the mean and
+ variance are related, thus we should be more confidence with our estimate.
+ 
+\end_layout
+
+\end_body
+\end_document
