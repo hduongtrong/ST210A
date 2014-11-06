@@ -1058,7 +1058,7 @@ for all
 \begin_inset Formula $X$
 \end_inset
 
- is clled a 
+ is called a 
 \begin_inset Formula $1-\alpha$
 \end_inset
 
@@ -1086,6 +1086,834 @@ for all
 \end_inset
 
 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+A variable, which depends on both the data and the parameter, but whose
+ distribution is independent of the parameter is called Pivot
+\end_layout
+
+\begin_layout Standard
+Suppose 
+\begin_inset Formula $\sqrt{n}(\hat{\theta}_{n}-\theta)\Rightarrow\mathcal{N}(0,1/I(\theta))$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{nI(\theta)}(\hat{\theta}_{n}-\theta)\Rightarrow & \mathcal{N}(0,1)\\
+\Rightarrow\mathbb{P}\left[\sqrt{nI(\theta)}\left|\hat{\theta}_{n}-\theta\right|\le z_{\alpha/2}\right]\rightarrow & 1-\alpha
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is often difficult to calculate Fisher information.
+ We will discuss strategies to approximate the Fisher information
+\end_layout
+
+\begin_layout Enumerate
+We can use 
+\begin_inset Formula $I(\hat{\theta}_{n})$
+\end_inset
+
+ instead.
+ If 
+\begin_inset Formula $I(\theta)$
+\end_inset
+
+ is continuous then:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{\frac{I(\hat{\theta}_{n})}{I(\theta)}}\rightarrow^{p} & 1
+\end{alignat*}
+
+\end_inset
+
+Then using Slutsky theory, we can conclude that
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{nI(\hat{\theta}_{n})}(\hat{\theta}_{n}-\theta)= & \sqrt{\frac{I(\hat{\theta}_{n})}{I(\theta)}}\sqrt{nI(\theta)}(\hat{\theta}_{n}-\theta)\Rightarrow\mathcal{N}(0,1)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We can also use the results from empirical process theorey.
+ Remember that 
+\begin_inset Formula $l(\theta)=\sum_{i=1}^{n}\log f_{\theta}(X_{i}).$
+\end_inset
+
+ Thus by law of large number
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+\frac{-l''(\hat{\theta}_{n})}{n}\rightarrow^{p} & I(\theta)
+\end{alignat*}
+
+\end_inset
+
+And thus by Slutsky theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\sqrt{-l''(\hat{\theta}_{n})}(\hat{\theta}_{n}-\theta)\Rightarrow & \mathcal{N}(0,1)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Another method are profile regions.
+ Expand 
+\begin_inset Formula $l_{n}(\theta)$
+\end_inset
+
+ in Taylor series
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+l_{n}(\theta)= & l_{n}(\hat{\theta}_{n})+\frac{1}{2}l''_{n}(\theta_{n}^{*})(\theta-\hat{\theta}_{n})^{2}
+\end{alignat*}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\theta_{n}^{*}$
+\end_inset
+
+ is a random variable between 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\theta}_{n}.$
+\end_inset
+
+ By rearranging this equation we get
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+2l_{n}(\hat{\theta}_{n})-2l_{n}(\theta)= & \left[\sqrt{-l''_{n}(\theta_{n}^{*})}(\theta-\hat{\theta}_{n})\right]^{2}\Rightarrow\mathcal{X}_{1}^{2}
+\end{alignat*}
+
+\end_inset
+
+Note that for 
+\begin_inset Formula $Z\sim\mathcal{N}(0,1)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[Z^{2}\le z_{\alpha/2}^{2}\right]= & \mathbb{P}\left[-z_{\alpha/2}\le Z\le z_{\alpha/2}\right]=1-\alpha
+\end{alignat*}
+
+\end_inset
+
+And thus
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}_{\theta}(2l_{n}(\hat{\theta}_{n})-2l_{n}(\theta)\le z_{\alpha/2}^{2})\rightarrow & 1-\alpha
+\end{alignat*}
+
+\end_inset
+
+This identity can now be used to calculate the asymptotic 
+\begin_inset Formula $(1-\alpha)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+confidence interval for 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Hypothesis Testing
+\end_layout
+
+\begin_layout Subsection
+General Setting and Simple vs.
+ Simple Case
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{P}=\left\{ P_{\theta},\theta\in\Omega\right\} $
+\end_inset
+
+ be a family of distribution.
+ The distributions of 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ can be classified into 
+\begin_inset Formula $H$
+\end_inset
+
+, one in which the hypothesis is true, and 
+\begin_inset Formula $K$
+\end_inset
+
+, one in which the hypothesis is false.
+ And the corresponding partition of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ into 
+\begin_inset Formula $\Omega_{H},\Omega_{K}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $H\cup K=\mathcal{P},\Omega_{H}\cup\Omega_{k}=\mathcal{P}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let the decision of accepting or rejecting 
+\begin_inset Formula $H$
+\end_inset
+
+ be 
+\begin_inset Formula $d_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{1}$
+\end_inset
+
+ respectively.
+ A nonrandomized test procedure assigns to each possible value 
+\begin_inset Formula $x$
+\end_inset
+
+ of 
+\begin_inset Formula $X$
+\end_inset
+
+ one of these two decisions and thereby divides the sample space into two
+ complementary regions 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $S_{1}.$
+\end_inset
+
+ The set 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ is called the region of acceptance, and the set 
+\begin_inset Formula $S_{1}$
+\end_inset
+
+ the region of rejection or critical region.
+ 
+\end_layout
+
+\begin_layout Standard
+There are two types of error: rejecting the hypothesis when it is true (Type
+ I), and accepting when it is false (Type II).
+ 
+\end_layout
+
+\begin_layout Standard
+Define the level of significant 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ be such that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+P_{\theta}(\delta(X)=d_{1})=P_{\theta}(X\in S_{1})\le\alpha, & \forall\theta\in\Omega_{H}\label{eq:1}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Subject to this condition, it is desired to minimize 
+\begin_inset Formula $P_{\theta}(\delta(X)=d_{0})$
+\end_inset
+
+ for 
+\begin_inset Formula $\theta\in\Omega_{K}$
+\end_inset
+
+ or equivalently maximize
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+P_{\theta}(\delta(X)=d_{1})=P_{\theta}(X\in S_{1}) & ,\forall\theta\in\Omega_{K}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usually, (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+
+\end_inset
+
+) implies
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+\sup_{\Omega_{H}}P_{\theta}(X\in S)= & \alpha
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The LHS in (3) is called the size of the test or critical region 
+\begin_inset Formula $S_{1}.$
+\end_inset
+
+ The probability of rejection in (2) is called power of the test against
+ the alternative 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ Consider as a function of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ over 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, the probability is called the power function of the test and is denoted
+ 
+\begin_inset Formula $\beta(\theta).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, for each 
+\begin_inset Formula $X=x,$
+\end_inset
+
+ instead of choosing 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $0$
+\end_inset
+
+ deterministically, one can do it randomly as a Bernoulli trial with success
+ rate 
+\begin_inset Formula $\phi(x).$
+\end_inset
+
+ The randomized test is therefore completely characterized with the function
+ 
+\begin_inset Formula $\phi(x).$
+\end_inset
+
+The set of points 
+\begin_inset Formula $x$
+\end_inset
+
+ for which 
+\begin_inset Formula $\phi(x)=1$
+\end_inset
+
+ is the region of rejection.
+ The probability of rejection is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}_{\theta}\phi(X)= & \int\phi(x)dP_{\theta}(x)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The problem now is to select 
+\begin_inset Formula $\phi$
+\end_inset
+
+ so as to maximize the power
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+\beta_{\phi}(\theta)= & \mathbb{E}_{\theta}\phi(X),\forall\theta\in\Omega_{K}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+subject to the condition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat}{1}
+\mathbb{E}_{\theta}\phi(X)\le & \alpha,\forall\theta\in\Omega_{H}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now if 
+\begin_inset Formula $\Omega_{K}$
+\end_inset
+
+ has more than one element, the test that maximize the power for each alternativ
+e will be different, so things is more complicated.
+ But if 
+\begin_inset Formula $\Omega_{K}$
+\end_inset
+
+ has only one element, things simplify.
+ Sometimes in case when there are many alternatives, we can get lucky and
+ have the test maximizes the power of all alternatives in K.
+ This is called 
+\series bold
+uniformly most powerful
+\series default
+ UMP tests.
+ 
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ be probability distribution possessing densities 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ respectively wrt measure 
+\begin_inset Formula $\mu.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+(i) Existence.
+ For testing H: 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ against the alternative K: 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ there exists a test 
+\begin_inset Formula $\phi$
+\end_inset
+
+ and a constant k such that: 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat}{1}
+\mathbb{E}_{0}\phi(X)= & \alpha\label{eq:6}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+and 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat}{1}
+\phi(x)= & \begin{cases}
+1 & \mbox{when }p_{1}(x)>kp_{0}(x)\\
+0 & \mbox{when }p_{1}(x)<kp_{0}(x)
+\end{cases}\label{eq:7}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+(ii) Sufficient Condition for a Most Powerful Test.
+ If a test sastifies (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:6"
+
+\end_inset
+
+), and (7) for some k, then it is most powerful for testing 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ against 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ at level 
+\begin_inset Formula $\alpha.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+(iii) Necessary condition for most powerful test.
+ If 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is most powerful at level 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ for testing 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ against 
+\begin_inset Formula $p_{1},$
+\end_inset
+
+ then for some k it sastitifes 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:7"
+
+\end_inset
+
+ a.e.
+ 
+\begin_inset Formula $\mu.$
+\end_inset
+
+ It also sastifies 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:6"
+
+\end_inset
+
+ unless there exists a test of size 
+\begin_inset Formula $<\alpha$
+\end_inset
+
+ and with power 1.
+ 
+\end_layout
+
+\begin_layout Subsection
+Simple vs Multiple - Distributions with Monotone Likelihood Ratio
+\end_layout
+
+\begin_layout Standard
+Now when the set 
+\begin_inset Formula $\Omega_{K}$
+\end_inset
+
+ has multiple elements, again in general the most powerful test of H agains
+ an alternative 
+\begin_inset Formula $\theta_{1}>\theta_{0}$
+\end_inset
+
+ (in contrast to 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ 
+\begin_inset Formula $\theta_{1}\le\theta_{0}$
+\end_inset
+
+) depends on 
+\begin_inset Formula $\theta_{1}$
+\end_inset
+
+ and is then not UMP.
+ However, a UMP test does exists if an additional assumption is satisfied.
+ The real-parameter family of densities 
+\begin_inset Formula $p_{\theta}(x)$
+\end_inset
+
+ is said to have monotone likelihood ratio 
+\end_layout
+
+\begin_layout Definition
+Monotone Likelihood Ratio.
+ The real-parameter family of densities 
+\begin_inset Formula $p_{\theta}(x)$
+\end_inset
+
+ is said to have monotone likelihood ratio if there exists a real-valued
+ function 
+\begin_inset Formula $T(x)$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\theta<\theta'$
+\end_inset
+
+ the distribution 
+\begin_inset Formula $P_{\theta}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{\theta'}$
+\end_inset
+
+ are distinct, and the ratio 
+\begin_inset Formula $p_{\theta'}(x)/p_{\theta}(x)$
+\end_inset
+
+ is a nondecreasing function of 
+\begin_inset Formula $T(x).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $\theta$
+\end_inset
+
+ be a real parameter, and let the random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ have density 
+\begin_inset Formula $p_{\theta}(x)$
+\end_inset
+
+ with monotone likelihood ratio in 
+\begin_inset Formula $T(x).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+(i) For testing 
+\begin_inset Formula $H:\theta\le\theta_{0}$
+\end_inset
+
+ against 
+\begin_inset Formula $K:\theta>\theta_{0},$
+\end_inset
+
+ there exists a UMP test, which is given by:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat}{1}
+\phi(x)= & \begin{cases}
+1 & ,T(x)>C\\
+\gamma & ,T(x)=C\\
+0 & ,T(x)<C
+\end{cases}\label{eq:8}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+where 
+\begin_inset Formula $C$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ are determined by
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat}{1}
+\mathbb{E}_{\theta_{0}}\phi(X)= & \alpha\label{eq:9}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+(ii) The power function 
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\beta(\theta)= & \mathbb{E}_{\theta}\phi(X)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+of this test is strictly increasing for all points 
+\begin_inset Formula $\theta$
+\end_inset
+
+ for which 
+\begin_inset Formula $0<\beta(\theta)<1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+(iii) For all 
+\begin_inset Formula $\theta',$
+\end_inset
+
+ the test determined by (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:8"
+
+\end_inset
+
+) and (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:9"
+
+\end_inset
+
+) is UMP for testing 
+\begin_inset Formula $H':\theta\le\theta'$
+\end_inset
+
+ against 
+\begin_inset Formula $K':\theta>\theta'$
+\end_inset
+
+ at level 
+\begin_inset Formula $\alpha'=\beta(\theta')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Theorem
+(iv) For any 
+\begin_inset Formula $\theta<\theta_{0}$
+\end_inset
+
+ the test minimizes 
+\begin_inset Formula $\beta(\theta)$
+\end_inset
+
+ (Type I error) amonng all tests satisfying (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:9"
+
+\end_inset
+
+).
+ 
 \end_layout
 
 \end_body
