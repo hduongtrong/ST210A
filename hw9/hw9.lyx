@@ -1,0 +1,736 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+STAT 210 - Homework 9
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $X\sim\mathcal{N}_{p}\left(\theta,I\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $H_{0}:\theta\in\Omega_{0},H_{1}:\theta\not\in\Omega_{0}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+(a) We have the likelihood ratio statistic 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is defined as:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\lambda= & \frac{\sup_{\Omega_{1}}L(\theta)}{\sup_{\Omega_{0}}L(\theta)}\\
+= & \frac{\sup_{\theta'\in\Omega_{1}}\exp\left\{ -\frac{1}{2}\sum\left(X_{i}-\theta'_{i}\right)^{2}\right\} }{\sup_{\theta\in\Omega_{0}}\exp\left\{ -\frac{1}{2}\sum\left(X_{i}-\theta{}_{i}\right)^{2}\right\} }\\
+= & \exp\left\{ -\frac{1}{2}\inf_{\theta'\in\Omega_{1}}\sum\left(X_{i}-\theta'_{i}\right)^{2}+\frac{1}{2}\inf_{\theta\in\Omega_{0}}\sum\left(X_{i}-\theta_{i}\right)^{2}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus the likelihood ratio test:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\lambda> & C\\
+\Leftrightarrow2\log\lambda> & 2\log C\\
+\Leftrightarrow\inf_{\theta\in\Omega_{0}}\|X-\theta\|> & 2\log C+\inf_{\theta'\in\Omega_{1}}\|X-\theta'\|
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So the likelihood ratio test is equivalent to the distance 
+\begin_inset Formula $D$
+\end_inset
+
+ between 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\Omega_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) The significant level:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat}{1}
+\mathbb{E}\phi(X)= & \sup_{\theta\in\Omega_{0}}\mathbb{P}_{\theta}\left[D>c\right]\\
+= & \sup_{\theta\in\Omega_{0}}\mathbb{P}_{\theta}\left[\inf_{\theta\in\Omega_{0}}\left\{ \left(X_{1}-\theta_{1}\right)^{2}+\left(X_{2}-\theta_{2}\right)^{2}\right\} >c\right]
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First we notice the the probability in (2) is maximized when 
+\begin_inset Formula $\theta=(0,0).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now for 
+\begin_inset Formula $c>0,$
+\end_inset
+
+ the event 
+\begin_inset Formula $\inf_{\theta\in\Omega_{0}}\left\{ \left(X_{1}-\theta_{1}\right)^{2}+\left(X_{2}-\theta_{2}\right)^{2}\right\} >c$
+\end_inset
+
+ can be partitioned into three mutually exclusive events:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\begin{cases}
+X_{1}>\sqrt{c},X_{2}\le0\\
+X_{2}>\sqrt{c},X_{1}\le0\\
+X_{1}^{2}+X_{2}^{2}>c,X_{1}>0,X_{2}>0
+\end{cases}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Together with the fact that 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ are independent (conditioning on 
+\begin_inset Formula $\theta$
+\end_inset
+
+), we have the probability of the above event is the sum of these three
+ events (for 
+\begin_inset Formula $\mathbb{P}_{0}$
+\end_inset
+
+ denote the bivariate standard normal):
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+(2)= & \mathbb{P}_{0}\left[X_{1}>\sqrt{c}\right]\mathbb{P}_{0}\left[X_{2}\le0\right]+\mathbb{P}_{0}\left[X_{2}>\sqrt{c}\right]\mathbb{P}_{0}\left[X_{1}\le0\right]+\\
+ & +\mathbb{P}_{0}\left[X_{1}^{2}+X_{2}^{2}>c,X_{1}>0,X_{2}>0\right]\bigg\}\\
+= & 1-\Phi(\sqrt{c})+\frac{1}{4}\left(1-F_{2}(c)\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is CDF of standard normal, 
+\begin_inset Formula $F_{2}$
+\end_inset
+
+ is CDF of standard 
+\begin_inset Formula $\mathcal{X}_{2}^{2}$
+\end_inset
+
+ (degree of freedom 2).
+ The above number is the significant level.
+\end_layout
+
+\begin_layout Problem
+\begin_inset Formula $\mathcal{N}(\mu,\sigma^{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(a) We have 
+\begin_inset Formula $\bar{Y}_{n}\sim\mathcal{N}\left(\mu,\sigma^{2}/n\right),$
+\end_inset
+
+ thus:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat}{1}
+\mathbb{P}_{\mu_{0}}\left[\bar{Y}\ge t_{\alpha}\right]= & \mathbb{P}_{\mu_{0}}\left[\frac{\bar{Y}-\mu_{0}}{\sigma/\sqrt{n}}\ge\frac{t_{\alpha}-\mu_{0}}{\sigma/\sqrt{n}}\right]\\
+= & 1-\Phi\left(\frac{t_{\alpha}-\mu_{0}}{\sigma/\sqrt{n}}\right)
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We want (4) to be equal to 
+\begin_inset Formula $\alpha,$
+\end_inset
+
+ 
+\begin_inset Formula $\alpha=1-\Phi\left(\frac{\sqrt{n}\left(t_{\alpha}-\mu_{0}\right)}{\sigma}\right).$
+\end_inset
+
+ Thus 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the solution to this function (expressed in term of inverse of Gaussian
+ CDF).
+ 
+\end_layout
+
+\begin_layout Proof
+(b) We have the power of the test:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\beta(\mu_{1})= & \mathbb{P}_{\mu_{1}}\left[\bar{Y}_{n}\ge t_{\alpha}\right]\\
+= & 1-\Phi\left(\frac{t_{\alpha}-\mu_{1}}{\sigma/\sqrt{n}}\right)\\
+= & \Phi\left(\frac{\sqrt{n}(\mu_{1}-t_{\alpha})}{\sigma}\right)\\
+= & \Phi\left(z_{\alpha}+\delta_{n}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+As 
+\begin_inset Formula $\mu_{1}-\mu_{0}$
+\end_inset
+
+ increases, we have 
+\begin_inset Formula $\delta_{n}$
+\end_inset
+
+ increases, thus we have higher power (since CDF is an increasing function).
+ This make sense as if the true mean is very large in comparision with 
+\begin_inset Formula $\mu_{0},$
+\end_inset
+
+ the probability of us successfully rejecting 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ is higher.
+ 
+\end_layout
+
+\begin_layout Proof
+As 
+\begin_inset Formula $\delta$
+\end_inset
+
+ increases, we have 
+\begin_inset Formula $\delta_{n}$
+\end_inset
+
+ decreases as 
+\begin_inset Formula $\mu_{1}-\mu_{0}$
+\end_inset
+
+ is positive.
+ So the power decreaese.
+ This also makes sense as when there is more variance, it should be harder
+ to tell whether the true parameter is 
+\begin_inset Formula $\mu_{0}$
+\end_inset
+
+ or not.
+ 
+\end_layout
+
+\begin_layout Proof
+(c) When 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is 
+\begin_inset Formula $\mu_{0},$
+\end_inset
+
+ we have 
+\begin_inset Formula $Z_{i}$
+\end_inset
+
+ is Bernouli with probability 1/2, expectation 
+\begin_inset Formula $1/2,$
+\end_inset
+
+ and variance 
+\begin_inset Formula $1/4$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\bar{Z}_{n}$
+\end_inset
+
+ by CLT is approximately 
+\begin_inset Formula $\mathcal{N}\left(\frac{1}{2},\frac{1}{4n}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+The significant level for rejecting at 
+\begin_inset Formula $s$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}_{\mu_{0}}\left[\bar{Z}_{n}\ge s\right]= & \mathbb{P}_{\mu_{0}}\left[\frac{\bar{Z}_{n}-\frac{1}{2}}{\frac{1}{2\sqrt{n}}}\ge\frac{s-\frac{1}{2}}{\frac{1}{2\sqrt{n}}}\right]\\
+\approx & 1-\Phi\left(2\sqrt{n}(s-1/2)\right)\\
+= & 1-\Phi\left(2\sqrt{n}s-\sqrt{n}\right)\\
+= & \Phi(\sqrt{n}-2\sqrt{n}s)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So if we want:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\alpha= & \Phi(\sqrt{n}-2\sqrt{n}s)\\
+\Leftrightarrow z_{\alpha}= & \sqrt{n}-2\sqrt{n}s\\
+\Leftrightarrow s= & \frac{\sqrt{n}-z_{\alpha}}{2\sqrt{n}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We have to pick 
+\begin_inset Formula $s_{\alpha}=\frac{z_{\alpha}+1}{2\sqrt{n}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now when 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is 
+\begin_inset Formula $\mu_{1},$
+\end_inset
+
+ 
+\begin_inset Formula $Z_{i}$
+\end_inset
+
+ is Bernoulli with success probability 
+\begin_inset Formula $\mathbb{P}_{\mu_{1}}\left[Y_{i}\ge\mu_{0}\right]=\mathbb{P}_{\mu_{1}}\left[\frac{Y_{i}-\mu_{1}}{\sigma}\ge\frac{\mu_{0}-\mu_{1}}{\sigma}\right]=1-\Phi\left(-\frac{\delta_{n}}{\sqrt{n}}\right)=\Phi(\frac{\delta_{n}}{\sqrt{n}})$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\bar{Z}_{n}$
+\end_inset
+
+ by CLT is approximately 
+\begin_inset Formula $\mathcal{N}\left(\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right),\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\left[1-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\right]\bigg/n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The power function for level-
+\begin_inset Formula $\alpha$
+\end_inset
+
+ test is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+B_{Z}(\mu_{1})= & \mathbb{P}_{\mu_{1}}\left[\bar{Z}_{n}\ge s_{\alpha}\right]\\
+= & \mathbb{P}_{\mu_{1}}\left[\frac{\bar{Z}_{n}-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)}{\sqrt{\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\left[1-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\right]\bigg/n}}\ge\frac{s_{\alpha}-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)}{\sqrt{\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\left[1-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\right]\bigg/n}}\right]\\
+\approx & \Phi\left\{ \frac{\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)-\frac{\sqrt{n}-z_{\alpha}}{2\sqrt{n}}}{\sqrt{\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\left[1-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\right]\bigg/n}}\right\} \\
+= & \Phi\left\{ \frac{n\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)-n/2+\sqrt{n}z_{\alpha}/2}{\sqrt{n\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\left[1-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\right]}}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+--------------------------------------------
+\end_layout
+
+\begin_layout Proof
+(d) Using the first order Taylor approximation 
+\begin_inset Formula $\Phi(\delta_{n}/\sqrt{n})\approx\frac{1}{2}+\left(\delta_{n}/\sqrt{2\pi n}\right)$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+1-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)= & \frac{1}{2}-\frac{\delta_{n}}{\sqrt{2\pi n}}\\
+\Rightarrow\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\left[1-\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)\right]= & \frac{1}{4}-\frac{\delta_{n}^{2}}{2\pi n}\\
+= & \frac{1}{4}\left(1-\frac{2\delta_{n}^{2}}{\pi n}\right)\\
+\approx & \frac{1}{4}\\
+n\Phi\left(\frac{\delta_{n}}{\sqrt{n}}\right)-n/2+\sqrt{n}z_{\alpha}/2= & \frac{n}{2}+\frac{\sqrt{n}\delta_{n}}{\sqrt{2\pi}}-\frac{n}{2}+\frac{\sqrt{n}z_{\alpha}}{2}\\
+= & \frac{\sqrt{n}}{2}\left(z_{\alpha}+\sqrt{\frac{2}{\pi}}\delta_{n}\right)\\
+\Rightarrow B_{Z}(\mu_{1})\approx & \Phi\left(z_{\alpha}+\sqrt{\frac{2}{\pi}}\delta_{n}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The amount of power loss is approximately:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\Phi(z_{\alpha}+\delta_{n})- & \Phi(z_{\alpha}+\sqrt{\frac{2}{\pi}}\delta_{n})
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If we use Taylor series to approximate the Gaussian cdf, we see that this
+ power is less than the previous power before thresholding an approximate
+ amount about 
+\begin_inset Formula $\frac{1}{\sqrt{2\pi}}\delta_{n}\left(1-\sqrt{\frac{2}{\pi}}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+Nonparametric Hypothesis Test
+\end_layout
+
+\begin_layout Proof
+(a) Under the null hypothesis, 
+\begin_inset Formula $\mathbb{P}\left[Y_{i}>\mu_{0}\right]=1/2$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $S$
+\end_inset
+
+ is binomial with n trial, success probability 
+\begin_inset Formula $1/2.$
+\end_inset
+
+ This can be useful because in hypothesis testing the significant level
+ is the probability of 
+\begin_inset Formula $S$
+\end_inset
+
+ belong to some interval conditioning on the null hypothesis is true.
+ 
+\end_layout
+
+\begin_layout Proof
+(b) We approximate the binomial distribution of 
+\begin_inset Formula $S$
+\end_inset
+
+ by normal: 
+\begin_inset Formula $\mathcal{N}\left(\frac{1}{2},\frac{1}{4n}\right)$
+\end_inset
+
+ according to CLT.
+ Then we have the level 
+\begin_inset Formula $\alpha(s)$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}_{0}\left[\delta_{s}(Y)\right]= & \mathbb{P}_{0}\left[S\ge s\right]\\
+= & \mathbb{P}_{0}\left[\frac{S-\frac{1}{2}}{\frac{1}{2\sqrt{n}}}\ge\frac{s-1/2}{\frac{1}{2\sqrt{n}}}\right]\\
+= & \Phi\left(2\sqrt{n}\left(s-1/2\right)\right)\\
+= & \Phi\left(2\sqrt{n}s-\sqrt{n}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Bayes Risk and Hypothesis Testing
+\end_layout
+
+\begin_layout Proof
+(a) We have 
+\begin_inset Formula $\delta(X)=\mathbb{I}_{\left\{ X\in C\right\} },l(\theta,\delta(X))=\left|\mathbb{I}_{\left\{ \theta\in\Omega_{1}\right\} }-\delta(X)\right|$
+\end_inset
+
+Under the prior of 
+\begin_inset Formula $\lambda,$
+\end_inset
+
+ we have the Bayes risk is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+r(\lambda,\delta)= & \mathbb{E}l(\theta,\delta(X))\\
+= & \mathbb{E}\left[\mathbb{E}\left[l(\theta,\delta(X))\mid\theta\right]\right]\\
+= & \mathbb{P}\left[\theta=\theta_{0}\right]\mathbb{E}\left[l(\theta,\delta(X))\mid\theta=\theta_{0}\right]+\mathbb{P}\left[\theta=\theta_{1}\right]\mathbb{E}\left[l(\theta,\delta(X))\mid\theta=\theta_{1}\right]\\
+= & \lambda_{0}\mathbb{E}_{0}\delta(X)+(1-\lambda_{0})(1-\mathbb{E}_{1}\delta(X))
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+r(\lambda,\delta)= & \lambda_{0}\int p_{0}(x)\delta(x)dx-(1-\lambda_{0})\int p_{1}(x)(1-\delta(x))dx\\
+= & 1-\lambda_{0}+\int\left[\lambda_{0}p_{0}(x)-(1-\lambda_{0})p_{1}(x)\right]\delta(x)dx\\
+= & 1-\lambda_{0}+\int_{p_{1}(x)/p_{0}(x)<\lambda_{0}/(1-\lambda_{0})}\left|\lambda_{0}p_{0}(x)-(1-\lambda_{0})p_{1}(x)\right|\delta(x)dx\\
+ & -\int_{p_{1}(x)/p_{0}(x)>\lambda_{0}/(1-\lambda_{0})}\left|\lambda_{0}p_{0}(x)-(1-\lambda_{0})p_{1}(x)\right|\delta(x)dx
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+From here we see that the test that minimizes Bayes risk is a likelihood
+ ratio test where:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\delta(x)= & \begin{cases}
+0 & ,\frac{p_{1}(x)}{p_{0}(x)}<\frac{\lambda_{0}}{1-\lambda_{0}}\\
+1 & ,\frac{p_{1}(x)}{p_{0}(x)}>\frac{\lambda_{0}}{1-\lambda_{0}}
+\end{cases}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(c) The test:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\delta_{n}(x)= & \begin{cases}
+0 & ,\frac{\prod p_{1}(x_{i})}{\prod p_{0}(x_{i})}<\frac{\lambda_{0}}{1-\lambda_{0}}\\
+1 & ,\frac{\prod p_{1}(x_{i})}{\prod p_{0}(x_{i})}>\frac{\lambda_{0}}{1-\lambda_{0}}
+\end{cases}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For the derived Bayes test above, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+r(\lambda,\delta_{n})= & \lambda_{0}\mathbb{E}_{0}\delta_{n}(X)+(1-\lambda_{0})\left(1-\mathbb{E}_{1}\delta_{n}(X)\right)\\
+= & \lambda_{0}\mathbb{P}_{0}\left[\frac{\prod p_{1}(x_{i})}{\prod p_{0}(x_{i})}>\left(1-\lambda_{0}\right)\right]+(1-\lambda_{0})\left(1-\mathbb{P}_{1}\left[\frac{\prod p_{1}(x_{i})}{\prod p_{0}(x_{i})}>\frac{\lambda_{0}}{1-\lambda_{0}}\right]\right)\\
+= & \lambda_{0}\int_{t^{n}}^{\infty}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+Generalized Likelihood
+\end_layout
+
+\begin_layout Proof
+(a) Let 
+\begin_inset Formula $\Omega_{0}=\left\{ \mu_{x},\mu_{y},\sigma_{x},\sigma_{y}\mid\mu_{x}=\mu_{y},\sigma_{x}^{2}=\sigma_{y}^{2}\right\} .$
+\end_inset
+
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\lambda= & \frac{\sup_{\theta\not\in\Omega_{0}}L(\theta)}{L_{\theta\in W_{0}}(\theta)}\\
+= & \sup_{\theta'\not\in\Omega_{0}}\exp\left\{ -\frac{1}{2}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
