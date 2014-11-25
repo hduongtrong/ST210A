@@ -1,0 +1,694 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+STAT210A - Homework 10
+\end_layout
+
+\begin_layout Author
+Hoang Duong
+\end_layout
+
+\begin_layout Problem
+Read Chapter of Keener
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Problem
+Complete Sufficient Statistics
+\end_layout
+
+\begin_layout Proof
+We have the density for Y is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat}{1}
+p_{Y}(y)= & \frac{1}{\left(2\pi\right)^{-n/2}\sigma^{n}}\exp\left\{ -\frac{1}{2\sigma^{2}}\left(y-X\beta\right)^{T}\left(y-X\beta\right)\right\} \\
+= & \frac{1}{\left(2\pi\right)^{-n/2}\sigma^{n}}\exp\left\{ -\frac{1}{2\sigma^{2}}\left(y-X\hat{\beta}+X\hat{\beta}-X\beta\right)^{T}\left(y-X\hat{\beta}+X\hat{\beta}-X\beta\right)\right\} \\
+= & \frac{1}{\left(2\pi\right)^{-n/2}\sigma^{n}}\exp\left\{ -\frac{1}{2\sigma^{2}}\left[\|y-X\hat{\beta}\|_{2}^{2}+\|X\hat{\beta}-X\beta\|_{2}^{2}+2\left(y-X\hat{\beta}\right)^{T}\left(X\hat{\beta}-X\beta\right)\right]\right\} \\
+= & \frac{1}{\left(2\pi\right)^{-n/2}\sigma^{n}}\exp\left\{ -\frac{1}{2\sigma^{2}}\left[\left(n-p\right)S^{2}+\|X\hat{\beta}-X\beta\|_{2}^{2}+2y^{T}(I_{n}-H)^{T}X(\hat{\beta}-\beta)\right]\right\} 
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $H=X\left(X^{T}X\right)^{-1}X^{T}$
+\end_inset
+
+ is the projection matrix.
+ 
+\begin_inset Formula $H$
+\end_inset
+
+ is symmetric, thus 
+\begin_inset Formula $I_{n}-X$
+\end_inset
+
+ is symmetric.
+ So 
+\begin_inset Formula $\left(I_{n}-H\right)^{T}X=\left(I_{n}-H\right)X=X-HX=0$
+\end_inset
+
+.
+ So the cross term in (4) is zero.
+ Thus:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p_{Y}(y)= & =\frac{1}{\left(2\pi\right)^{-n/2}\sigma^{n}}\exp\left\{ -\frac{1}{2\sigma^{2}}\left[\left(n-p\right)S^{2}+\|X\hat{\beta}-X\beta\|_{2}^{2}\right]\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By the property of exponential family, we have 
+\begin_inset Formula $\left(\hat{\beta},S^{2}\right)$
+\end_inset
+
+ is a complete sufficient statistics.
+\end_layout
+
+\begin_layout Problem
+Hypothesis Testing
+\end_layout
+
+\begin_layout Proof
+(a) Consider a test 
+\begin_inset Formula $\delta_{b}(X)=\mathbb{I}_{\left\{ \left|\hat{\beta}\right|\ge b\right\} }$
+\end_inset
+
+ of rejecting 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ if 
+\begin_inset Formula $\left|\hat{\beta}\right|\ge b$
+\end_inset
+
+, and fail to reject if not.
+ In the setting of Keener Section 14.5, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+S^{2}= & \frac{1}{n-2}\sum e^{2}\\
+\mathbb{P}\left[\hat{\beta}_{2}-\frac{St_{\alpha/2,n-2}}{\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}\le\beta\le\hat{\beta}_{2}+\frac{St_{\alpha/2,n-2}}{\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}\right]= & 1-\alpha\\
+\mathbb{P}\left[\left|\hat{\beta}-\beta\right|\ge\frac{St_{\alpha/2,n-2}}{\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}\right]= & \alpha
+\end{alignat*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Proof
+So if we choose 
+\begin_inset Formula $b=\frac{St_{\alpha/2,n-2}}{\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\delta_{b}(X)$
+\end_inset
+
+ is a level
+\begin_inset Formula $-\alpha$
+\end_inset
+
+ test for 
+\begin_inset Formula $H_{0}:\beta_{2}=0$
+\end_inset
+
+ versus 
+\begin_inset Formula $H_{1}:\beta_{2}\neq0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+(b) Idea taken from John P.
+ Buonaccorsi's note at UMass, and Parker (2011).
+\end_layout
+
+\begin_layout Proof
+Consider 
+\begin_inset Formula $\hat{\theta}=\bar{x}+\left(y_{0}-\hat{\beta}_{1}\right)/\hat{\beta}_{2}$
+\end_inset
+
+ as an estimate for 
+\begin_inset Formula $\theta.$
+\end_inset
+
+ From Casella and Berger (2002), we note:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+{\rm Var}\left[\frac{U}{V}\right]\approx & \frac{{\rm Var}\left[U\right]}{\mathbb{E}^{2}V}+\frac{\mathbb{E}^{2}U}{\mathbb{E}^{4}V}{\rm Var}\left[V\right]-2\frac{\mathbb{E}U}{\mathbb{E}^{3}V}{\rm Cov}\left[U,V\right]\\
+U= & y_{0}-\hat{\beta}_{1}\\
+V= & \hat{\beta}_{2}\\
+\mathbb{E}U= & \mathbb{E}\left[y_{0}-\hat{\beta}_{1}\right]=\mathbb{E}\left[\hat{\beta}_{2}\left(\theta-\bar{x}\right)+e_{0}\right]\\
+= & \left(\theta-\bar{x}\right)\mathbb{E}\hat{\beta}_{2}=\beta_{2}\left(\theta-\bar{x}\right)\\
+\mathbb{E}V= & \beta_{2}\\
+{\rm Var}U= & {\rm Var}\left[y_{0}\right]+{\rm Var}\left[\hat{\beta}_{1}\right]-2{\rm Cov}\left[y_{0},\hat{\beta}_{1}\right]\\
+= & \sigma^{2}+\frac{\sigma^{2}}{n}+\frac{\sigma^{2}\bar{x}^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\\
+{\rm Var}V= & \frac{\sigma^{2}}{S_{xx}}\\
+{\rm Cov}\left[U,V\right]= & \frac{\sigma^{2}\bar{x}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\\
+\Rightarrow{\rm Var}\left[\frac{U}{V}\right]\approx & \frac{\sigma^{2}}{\beta_{2}^{2}}\left(1+\frac{1}{n}+\frac{(\theta-\bar{x})^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Based on the Delta Method, we have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[\hat{\theta}-t_{1-\alpha/2,n-2}\frac{\hat{\sigma}^{2}}{\hat{\beta}_{2}^{2}}\sqrt{1+\frac{1}{n}+\frac{(\theta-\bar{x})^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}\le\theta\le\hat{\theta}+t_{1-\alpha/2,n-2}\frac{\hat{\sigma}^{2}}{\hat{\beta}_{2}^{2}}\sqrt{1+\frac{1}{n}+\frac{(\theta-\bar{x})^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}\right] & =1-\alpha
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Thus a level-
+\begin_inset Formula $\alpha$
+\end_inset
+
+ test of 
+\begin_inset Formula $H_{0}:\theta=\theta_{0}$
+\end_inset
+
+ versus 
+\begin_inset Formula $H_{1}:\theta\neq\theta_{0}$
+\end_inset
+
+ is to reject 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ iff:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\left|\hat{\theta}-\theta_{0}\right|\ge & t_{1-\alpha/2,n-2}\frac{\hat{\sigma}^{2}}{\hat{\beta}_{2}^{2}}\sqrt{1+\frac{1}{n}+\frac{(\theta_{0}-\bar{x})^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}\\
+\hat{\theta}= & \bar{x}+\frac{y_{0}-\hat{\beta}_{1}}{\hat{\beta}_{2}}\\
+\hat{\sigma}^{2}= & \frac{1}{n-2}\sum_{i=1}^{n}\left(y_{i}-\hat{\beta}_{1}-\hat{\beta}_{2}\left(x_{i}-\bar{x}\right)\right)^{2}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(c) We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+h(\theta)= & \frac{y_{0}-\left(\hat{\beta}_{1}+\hat{\beta}_{2}\theta\right)}{\left[\sigma^{2}+\frac{\sigma^{2}}{n}+\theta^{2}\frac{\sigma^{2}}{S_{xx}}+2\theta\frac{\sigma^{2}\bar{x}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right]^{1/2}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+is t-distributed with 
+\begin_inset Formula $n-2$
+\end_inset
+
+ degrees of freedom.
+ The set of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ where 
+\begin_inset Formula $h^{2}(\theta)\le t_{1-\alpha/2,n-2}^{2}$
+\end_inset
+
+ is a 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+ confidence region for 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+Confidence Interval
+\end_layout
+
+\begin_layout Proof
+Rewrite the regression as a linear model:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\left[\begin{array}{c}
+Y_{1}\\
+\ldots\\
+Y_{n_{1}}\\
+Y_{n_{1}+1}\\
+\ldots\\
+Y_{n}
+\end{array}\right]= & \left[\begin{array}{cccc}
+1 & x_{1} & 0 & 0\\
+\ldots & \ldots & \ldots & \ldots\\
+1 & x_{n_{1}} & 0 & 0\\
+0 & 0 & 1 & x_{n_{1}+1}\\
+\ldots & \ldots & \ldots & \ldots\\
+0 & 0 & 1 & x_{n}
+\end{array}\right]\left[\begin{array}{c}
+\beta_{1}\\
+\beta_{2}\\
+\beta_{3}\\
+\beta_{4}
+\end{array}\right]+\left[\begin{array}{c}
+\epsilon_{1}\\
+\ldots\\
+\epsilon_{n_{1}}\\
+\epsilon_{n_{1}+1}\\
+\ldots\\
+\epsilon_{n}
+\end{array}\right]\\
+Y= & X\beta+\epsilon\\
+\epsilon\sim & \mathcal{N}\left(0,\sigma^{2}I\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The OLS estimator for this linear model is: 
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\hat{\beta}= & X\left(X^{T}X\right)^{-1}X^{T}y\\
+\hat{y}= & X\hat{\beta}\\
+{\rm Var}\hat{\beta}= & \sigma^{2}\left(X^{T}X\right)^{-1}\\
+c= & \left[\begin{array}{c}
+0\\
+-1\\
+0\\
+1
+\end{array}\right]\\
+\mathbb{E}\left[c^{T}\hat{\beta}\right]= & c^{T}\beta=\beta_{4}-\beta_{2}\\
+\Rightarrow{\rm Var}\left[c^{T}\hat{\beta}\right]= & \sigma^{2}c^{T}\left(X^{T}X\right)^{-1}c\\
+\hat{\sigma}^{2}= & \frac{1}{n-4}\|y-\hat{y}\|_{2}^{2}\\
+\Rightarrow{\rm SE}\left(c^{T}\hat{\beta}\right)= & \hat{\sigma}^{2}c^{T}\left(X^{T}X\right)^{-1}c
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We have 
+\begin_inset Formula $\left(c^{T}\hat{\beta}-c^{T}\beta\right)/SE(c^{T}\beta)$
+\end_inset
+
+ follows a standard t distrubution with 
+\begin_inset Formula $n-4$
+\end_inset
+
+ degree of freedom.
+ Thus:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[-t_{\alpha/2,n-4}\le\frac{c^{T}\hat{\beta}-c^{T}\beta}{SE(c^{T}\hat{\beta})}\le t_{\alpha/2,n-4}\right]= & 1-\alpha\\
+\Rightarrow\mathbb{P}\left[-c^{T}\hat{\beta}-t_{\alpha/2,n-4}SE(c^{T}\hat{\beta})\le-c^{T}\beta\le-c^{T}\hat{\beta}+t_{\alpha/2,n-4}SE\left(c^{T}\hat{\beta}\right)\right]= & 1-\alpha\\
+\Rightarrow\mathbb{P}\left[c^{T}\hat{\beta}-t_{\alpha/2,n-4}SE\left(c^{T}\hat{\beta}\right)\le c^{T}\beta\le c^{T}\hat{\beta}+t_{\alpha/2,n-4}SE(c^{T}\hat{\beta})\right]= & 1-\alpha
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So the 
+\begin_inset Formula $(1-\alpha)$
+\end_inset
+
+ confident interval for 
+\begin_inset Formula $\beta_{4}-\beta_{2}$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+ & \left[c^{T}\hat{\beta}-t_{\alpha/2,n-4}SE(c^{T}\hat{\beta}),c^{T}\hat{\beta}+t_{\alpha/2,n-4}SE(c^{T}\hat{\beta})\right]\\
+c^{T}= & \left[0,-1,0,1\right]\\
+\hat{\beta}= & \left(X^{T}X\right)^{-1}X^{T}y\\
+SE\left(c^{T}\hat{\beta}\right)= & \hat{\sigma}^{2}c^{T}\left(X^{T}X\right)^{-1}c\\
+\hat{\sigma}^{2}= & \frac{1}{n-4}\|y-\hat{y}\|_{2}^{2}\\
+\hat{y}= & X\hat{\beta}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $t_{\alpha/2,n-4}$
+\end_inset
+
+ is the the value such that the CDF of standard t-distribution with 
+\begin_inset Formula $n-4$
+\end_inset
+
+ degree of freedom evaluate to 
+\begin_inset Formula $1-\alpha/2$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Problem
+Log-normal Distribution
+\end_layout
+
+\begin_layout Proof
+(a) Let 
+\begin_inset Formula $X=\log Y\sim\mathcal{N}\left(\mu,\sigma^{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}Y= & \mathbb{E}\exp X\\
+= & \int\exp\left\{ x\right\} \frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ -\frac{\left(x-\mu\right)^{2}}{2\sigma^{2}}\right\} dx\\
+= & \int\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ -\frac{x^{2}-2x\mu+\mu^{2}-2x\sigma^{2}}{2\sigma^{2}}\right\} dx\\
+= & \int\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ \mu+\frac{\sigma^{2}}{2}\right\} \exp\left\{ -\frac{x^{2}-2x(\mu+\sigma^{2})+\mu^{2}+2\mu\sigma^{2}+\sigma^{4}}{2\sigma^{2}}\right\} dx\\
+= & \exp\left\{ \mu+\frac{\sigma^{2}}{2}\right\} \int\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ -\frac{x^{2}-2x(\mu+\sigma^{2})+\mu^{2}+2\mu\sigma^{2}+\sigma^{4}}{2\sigma^{2}}\right\} dx\\
+= & \exp\left\{ \mu+\frac{\sigma^{2}}{2}\right\} \\
+\mathbb{E}Y^{2}= & \mathbb{E}\exp2X\\
+= & \int\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ -\frac{x^{2}-2x\mu+\mu^{2}-4x\sigma^{2}}{2\sigma^{2}}\right\} dx\\
+= & \int\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{ 2\mu+2\sigma^{2}\right\} \exp\left\{ -\frac{x^{2}-2x(\mu+2\sigma^{2})+\mu^{2}+4\mu\sigma^{2}+4\sigma^{4}}{2\sigma^{2}}\right\} dx\\
+= & \exp\left\{ 2\mu+2\sigma^{2}\right\} \\
+\mathbb{E}Y^{\alpha}= & \exp\left\{ \alpha\mu+\alpha^{2}\sigma^{2}/2\right\} \\
+\Rightarrow{\rm Var}Y= & \mathbb{E}Y^{2}-\mathbb{E}^{2}Y=\exp\left\{ 2\mu+2\sigma^{2}\right\} -\exp\left\{ 2\mu+\sigma^{2}\right\} \\
+\mathbb{P}\left[Y\le y\right]= & \mathbb{P}\left[\log Y\le\log y\right]=\Phi\left(\log y\right)\\
+\Rightarrow p_{Y}(y)= & \frac{\partial\Phi(\log y)}{\partial y}\\
+= & \frac{\partial\Phi\left(\log y\right)}{\partial\log y}\frac{\partial\log y}{\partial y}\\
+= & \phi(\log y)\frac{1}{y}\\
+= & \frac{1}{\sqrt{2\pi}\sigma y}\exp\left\{ -\frac{\left(\log y-\mu\right)^{2}}{2\sigma^{2}}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(b) 
+\begin_inset Formula $Y_{1},...,Y_{n}$
+\end_inset
+
+ are i.i.d log-normal is equivalent to 
+\begin_inset Formula $\log Y_{1},\log Y_{2},...,\log Y_{n}$
+\end_inset
+
+ are i.i.d normal 
+\begin_inset Formula $\mu,\sigma^{2}$
+\end_inset
+
+.
+ In the Gaussian setting, we know that sample mean and sample variance is
+ the UMVU.
+ Thus 
+\begin_inset Formula $\left(\sum_{i=1}^{n}\log Y_{i}\right)/n$
+\end_inset
+
+ is the UMVU for 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+(c) Consider 
+\begin_inset Formula $\hat{\eta}_{1}=\exp\left\{ \left(\sum_{i=1}^{n}\log Y_{i}\right)/n\right\} $
+\end_inset
+
+ as an estimate for 
+\begin_inset Formula $\eta=\mathbb{E}Y_{i}$
+\end_inset
+
+.
+ We have:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\hat{\eta}_{1}= & \mathbb{E}\left[\prod_{i=1}^{n}Y_{i}^{1/n}\right]\\
+= & \prod_{i=1}^{n}\mathbb{E}\left[Y_{i}^{1/n}\right]\mbox{ }Y_{i}\mbox{'s are independent}\\
+= & \prod_{i=1}^{n}\exp\left\{ \frac{\mu}{n}+\frac{\sigma^{2}}{2n^{2}}\right\} \\
+= & \exp\left\{ \mu+\frac{\sigma^{2}}{2n}\right\} \\
+= & \eta\exp\left\{ \frac{\sigma^{2}}{2n}\right\} \\
+\Rightarrow\mathbb{E}\frac{\hat{\eta}_{1}}{\exp\left\{ \sigma^{2}/(2n)\right\} }= & \eta\\
+\Leftrightarrow\mathbb{E}\left[\exp\left\{ \frac{1}{n}\sum_{i=1}^{n}\log Y_{i}+\frac{1}{2n}\sigma^{2}\right\} \right]= & \eta\\
+\hat{\eta}= & \exp\left\{ \frac{1}{n}\sum_{i=1}^{n}\log Y_{i}+\frac{1}{2n}\sigma^{2}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+So 
+\begin_inset Formula $\hat{\eta}$
+\end_inset
+
+ is an unbiased estimator of 
+\begin_inset Formula $\eta$
+\end_inset
+
+.
+ Now consider the density of 
+\begin_inset Formula $(Y_{1},Y_{2},...,Y_{n}):$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{alignat*}{1}
+p_{Y_{1},...,Y_{n}}(y_{1},...,y_{n})= & \prod_{i=1}^{n}\left[\frac{1}{\sqrt{2\pi}\sigma y_{i}}\exp\left\{ -\frac{\left(\log y_{i}-\mu\right)^{2}}{2\sigma^{2}}\right\} \right]\\
+= & \frac{1}{\left(2\pi\right)^{n/2}\sigma^{n}\prod_{i=1}^{n}y_{i}}\exp\left\{ -\frac{1}{2\sigma^{2}}\left[\sum_{i=1}^{n}\log^{2}y_{i}-2\mu\sum\log y_{i}+n\mu^{2}\right]\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+With 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ a known constant, by the factor theorem for sufficient statistics, we have
+ 
+\begin_inset Formula $\sum\log y_{i}$
+\end_inset
+
+ is a sufficient statistic.
+ 
+\begin_inset Formula $\hat{\eta}$
+\end_inset
+
+ is a function of sufficient statistic, thus it is UMVU.
+ 
+\end_layout
+
+\begin_layout Proof
+(d) I would log-transform 
+\begin_inset Formula $Y_{i}$
+\end_inset
+
+ into 
+\begin_inset Formula $\log Y_{i}$
+\end_inset
+
+ then perform typical OLS on 
+\begin_inset Formula $\log Y_{i}\sim\beta_{1}+\beta_{2}x_{i}.$
+\end_inset
+
+ So the estimator should be 
+\begin_inset Formula $\left(X^{T}X\right)^{-1}X^{T}\log Y$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\log Y$
+\end_inset
+
+ is the element-wise log of 
+\begin_inset Formula $Y=\left[Y_{1},...,Y_{n}\right]$
+\end_inset
+
+.
+ This estimator is also the MLE estimator according to the multivariate
+ log-normal density we have in (c).
+ 
+\end_layout
+
+\begin_layout Proof
+
+\series bold
+References:
+\end_layout
+
+\begin_layout Proof
+Buonaccorsi, J.P., 2012.
+ STAT505/ST697R: Regression Analysis, Fall 2012 Note.
+ http://people.math.umass.edu/~johnpb/s505/notes12.pdf
+\end_layout
+
+\begin_layout Proof
+Casella, G., Berger, R.L.
+ (2002).
+ Statistical Inference, 2nd ed., Duxbury, CA.
+\end_layout
+
+\begin_layout Proof
+Parker, P.A., Vining, G.G., Wilson, S.R., Szarka III, J.L., Johnson, N.G., 2011.
+ The Prediction Properties of Inverse and Reverse Regression for the Simple
+ Linear Calibration Problem.
+ http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110016499.pdf
+\end_layout
+
+\end_body
+\end_document
