@@ -77,6 +77,601 @@ theorems-ams-bytype
 \begin_body
 
 \begin_layout Section
+Classic
+\end_layout
+
+\begin_layout Subsection
+Statistical Decision Theory
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $X=(X_{1},X_{2},...,X_{n})$
+\end_inset
+
+ be random vector.
+ 
+\begin_inset Formula $X\sim P_{\theta}$
+\end_inset
+
+ distributed.
+ 
+\begin_inset Formula $P_{\theta}\in\mathcal{P}=\left\{ P_{\theta}:\theta\in\Omega\right\} $
+\end_inset
+
+ a family of probability distribution.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parametric
+\series default
+ model: 
+\begin_inset Formula $\theta\in\mathbb{R}^{P}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A 
+\series bold
+statistic
+\series default
+ 
+\begin_inset Formula $\delta(X)$
+\end_inset
+
+ is a function of the data 
+\begin_inset Formula $X.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In statistical estimation, the goal is to find a statistic 
+\begin_inset Formula $\delta$
+\end_inset
+
+ such that 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is 
+\begin_inset Quotes eld
+\end_inset
+
+close to
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $g(\theta).$
+\end_inset
+
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is called an 
+\series bold
+estimator
+\series default
+ of 
+\begin_inset Formula $g(\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Loss function
+\series default
+ 
+\begin_inset Formula $L(\theta,\delta(X))$
+\end_inset
+
+ is non-negative, with 
+\begin_inset Formula $L(\theta,g(\theta))=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Frequentist risk
+\series default
+ conditions on parameter: 
+\begin_inset Formula 
+\begin{alignat*}{1}
+R(\theta,\delta)= & \mathbb{E}_{\theta}L(\theta,\delta(X))
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An estimator 
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+ is said to 
+\series bold
+dominate
+\series default
+ another estimator 
+\begin_inset Formula $\delta_{2}$
+\end_inset
+
+ w.r.t a risk function 
+\begin_inset Formula $R$
+\end_inset
+
+ iff 
+\begin_inset Formula $R(\theta,\delta_{1})\le R(\theta,\delta_{2}),\forall\theta\in\Omega,$
+\end_inset
+
+ and the inequality is strict at at least one point.
+\end_layout
+
+\begin_layout Standard
+An estimator 
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+ is said to be 
+\series bold
+inadmissible
+\series default
+ w.r.t a risk function 
+\begin_inset Formula $R$
+\end_inset
+
+ iff 
+\begin_inset Formula $\exists\delta_{2}$
+\end_inset
+
+ estimator that dominates 
+\begin_inset Formula $\delta_{1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+An estimator is called 
+\series bold
+unbiased
+\series default
+ iff 
+\begin_inset Formula $\mathbb{E}_{\theta}\delta(X)=g(\theta),\forall\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+An estimator is called 
+\series bold
+equivariant
+\series default
+ w.r.t some transformation 
+\begin_inset Formula $h$
+\end_inset
+
+ if after transforming data by function 
+\begin_inset Formula $h,$
+\end_inset
+
+ then the corresponding estimator is also transformed by 
+\begin_inset Formula $h.$
+\end_inset
+
+ MLE estimator is equivariant.
+ 
+\end_layout
+
+\begin_layout Standard
+An estimator is 
+\series bold
+minimax
+\series default
+ iff it has the best 
+\begin_inset Quotes eld
+\end_inset
+
+worst performance among all 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ among all estimator.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Bayes risk
+\series default
+ assume 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is a random variable with density 
+\begin_inset Formula $\pi$
+\end_inset
+
+ and integrate over 
+\begin_inset Formula $\theta:$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+R(\delta)= & \int R(\theta,\delta)\pi(\theta)d\theta
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In general, 
+\begin_inset Formula $\pi$
+\end_inset
+
+ does not have to be a probability density, but a general measure density.
+ It is viewed as a 
+\series bold
+prior
+\series default
+ on 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Bayesian/posterior risk
+\series default
+ conditions on the data: 
+\begin_inset Formula 
+\begin{alignat*}{1}
+r(x,\pi)= & \int L(\theta,\delta(x))p(\theta\mid x)d\theta
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Bayes risk
+\series default
+ can be obtained by integrating Bayesian risk:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+R(\delta,\pi)= & \int r(x,\pi)p(x)dx
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Exponential Families
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $\mu$
+\end_inset
+
+ be a measure on 
+\begin_inset Formula $\mathbb{R}^{n},h:\mathbb{R}^{n}\rightarrow\mathbb{R}^{+},T_{1},...,T_{s}:\mathbb{R}^{n}\rightarrow\mathbb{R}$
+\end_inset
+
+ measurable and 
+\begin_inset Formula $\eta\in\mathbb{R}^{s}.$
+\end_inset
+
+ The exponential family is defined as:
+\begin_inset Formula 
+\begin{alignat}{1}
+p_{\eta}(x)= & \exp\left(\sum_{i=1}^{s}\eta_{i}T_{i}(x)-A(\eta)\right)h(x)\\
+A(\eta)= & \log\int\exp\left(\sum_{i=1}^{s}\eta_{i}T_{i}(x)\right)h(x)\mu(dx)\label{eq:A(eta)}
+\end{alignat}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+The set 
+\begin_inset Formula $\Xi=\left\{ \eta:A(\eta)<\infty\right\} $
+\end_inset
+
+ is called the natural parameter space, and the family of density 
+\begin_inset Formula $p_{\eta}(x)$
+\end_inset
+
+ is called an s-parameter exponential family in canonical form.
+ 
+\end_layout
+
+\begin_layout Theorem
+Let 
+\begin_inset Formula $\Xi_{f}=\left\{ \eta:\int\left|f(x)\right|\exp\left(\sum_{i}\eta_{i}T_{i}(x)\right)h(x)\mu(dx)<\infty\right\} .$
+\end_inset
+
+ Then:
+\begin_inset Formula 
+\begin{alignat*}{1}
+g(\eta)= & \int f(x)\exp\left(\sum\eta_{i}T_{i}(x)\right)h(x)\mu(dx)
+\end{alignat*}
+
+\end_inset
+
+ is continuous, had continuous partial derivatives of all order for 
+\begin_inset Formula $\eta\in\Xi_{f}^{o},$
+\end_inset
+
+ the interior of 
+\begin_inset Formula $\Xi_{f}.$
+\end_inset
+
+ Further more, these derivatives can be computed by differentiation under
+ the integral sign.
+ 
+\end_layout
+
+\begin_layout Standard
+E.g.
+ when 
+\begin_inset Formula $f=1,$
+\end_inset
+
+ by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:A(eta)"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{alignat*}{1}
+g(\eta)=\exp\left(A(\eta)\right)= & \int\exp\left[\sum_{i=1}^{s}n_{i}T_{i}(x)\right]h(x)d\mu(x)\\
+\Rightarrow\exp\left(A(\eta)\right)\frac{\partial A(\eta)}{\partial\eta_{j}}= & \int\frac{\partial}{\partial\eta_{j}}\exp\left[\sum_{i=1}^{s}\eta_{i}T_{i}(x)\right]h(x)d\mu(x)\\
+= & \int T_{i}(x)\exp\left[\sum_{i=1}^{s}\eta_{i}T_{i}(x)\right]h(x)d\mu(x)\\
+\Rightarrow\mathbb{E}_{\eta}T_{j}(x)= & \frac{\partial A(\eta)}{\partial\eta}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+The moment generating function, and cumulant generating function of a random
+ vector T is defined as:
+\begin_inset Formula 
+\begin{alignat*}{1}
+M_{T}(u)= & \mathbb{E}\exp\left(u^{T}T\right)\\
+K_{T}(u)= & \log\mathbb{E}\exp\left(u^{T}T\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Then 
+\begin_inset Formula 
+\begin{alignat*}{1}
+\alpha_{r_{1},...,r_{s}}\coloneqq\mathbb{E}\left[T_{1}^{r_{1}}...T_{s}^{r_{s}}\right]= & \frac{\partial^{r_{1}}}{\partial u_{1}^{r_{1}}}...\frac{\partial^{r_{s}}}{\partial u_{s}^{r_{s}}}M_{T}(u)\mid_{u=0}\\
+\kappa_{r_{1},...,r_{s}}\coloneqq & \frac{\partial^{r_{1}}}{\partial u_{1}^{r_{1}}}...\frac{\partial^{r_{s}}}{\partial u_{s}^{r_{s}}}K_{T}(u)\mid_{u=0}\\
+K'_{T}= & \mathbb{E}T\\
+K''_{T}= & \mathbb{E}T^{2}-\left(\mathbb{E}T\right)^{2}={\rm Var}\left(T\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the exponential family, 
+\begin_inset Formula 
+\begin{alignat*}{1}
+M_{T}(u)= & \exp\left(A(u+\eta)-A(\eta)\right)\\
+K_{T}(u)= & A(u+\eta)-A(\eta)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sufficient Statistics
+\end_layout
+
+\begin_layout Definition
+(Frequentist sufficiency).
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be an rv with distribution from a family 
+\begin_inset Formula $\mathcal{P}=\left\{ P_{\theta}:\theta\in\Omega\right\} .$
+\end_inset
+
+ Then 
+\begin_inset Formula $T(X)$
+\end_inset
+
+ is a sufficient statistic for 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ iff, 
+\begin_inset Formula $\forall t,\theta,$
+\end_inset
+
+ the conditional distribution 
+\begin_inset Formula $P_{\theta}(X\mid T=t)$
+\end_inset
+
+ does not depend on 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+(Bayesian sufficiency).
+ A statistic 
+\begin_inset Formula $T$
+\end_inset
+
+ is sufficient if 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta$
+\end_inset
+
+ are conditionally independent given 
+\begin_inset Formula $T(X)=t,$
+\end_inset
+
+ i.e., if
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[x,\theta\mid t\right]= & \mathbb{P}\left[x\mid t\right]\mathbb{P}\left[\theta\mid t\right]
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the exponential family, 
+\begin_inset Formula $T(x)$
+\end_inset
+
+ is a sufficient statistic.
+ 
+\end_layout
+
+\begin_layout Theorem
+Suppose that 
+\begin_inset Formula $X\sim\mathcal{P}=\left\{ P_{\theta}:\theta\in\Omega\right\} $
+\end_inset
+
+ and that 
+\begin_inset Formula $T$
+\end_inset
+
+ is sufficient for the family 
+\begin_inset Formula $\mathcal{P}.$
+\end_inset
+
+ Then for any estimator 
+\begin_inset Formula $\delta(X)$
+\end_inset
+
+ of 
+\begin_inset Formula $g(\theta),$
+\end_inset
+
+ 
+\begin_inset Formula $\exists$
+\end_inset
+
+ a (possibly randomized) estimator based on 
+\begin_inset Formula $T$
+\end_inset
+
+ that has the same risk function as 
+\begin_inset Formula $\delta(X)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+Factorization.
+ A statistic 
+\begin_inset Formula $T$
+\end_inset
+
+ is sufficient if there exists 
+\begin_inset Formula $g_{\theta}\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $h\ge0$
+\end_inset
+
+ such that:
+\begin_inset Formula 
+\begin{alignat*}{1}
+p_{\theta}(x)= & g_{\theta}(T(x))h(x)
+\end{alignat*}
+
+\end_inset
+
+ almost everywhere.
+ 
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\begin_layout Section
 Large-Sample Theory
 \end_layout
 
@@ -1914,6 +2509,356 @@ reference "eq:9"
 
 ).
  
+\end_layout
+
+\begin_layout Section
+Concentration Bound
+\end_layout
+
+\begin_layout Theorem
+Markov Inequality.
+ 
+\begin_inset Formula $X\ge0.\mathbb{E}X<\infty.$
+\end_inset
+
+ Then:
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[X\ge t\right]\le & \frac{\mathbb{E}X}{t},t>0
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+Chebyshev.
+ 
+\begin_inset Formula $\mathbb{E}X<\infty$
+\end_inset
+
+.
+ Then: 
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[\left|X-\mu\right|\ge t\right]\le & \frac{\mathbb{E}\left(X-\mu\right)^{2}}{t^{2}}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+Assuming 
+\begin_inset Formula $\mathbb{E}\exp\left\{ \lambda\left(X-\mu\right)\right\} <\infty$
+\end_inset
+
+ for 
+\begin_inset Formula $\left|\lambda\right|\le b$
+\end_inset
+
+.
+ Then
+\begin_inset Formula $\forall\lambda\in\left[0,b\right]:$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[X-\mu\ge t\right]\le & \frac{\mathbb{E}\exp\left\{ \lambda\left(X-\mu\right)\right\} }{\exp\left[\lambda t\right]}\\
+\mathbb{P}\left[X-\mu\ge t\right]\le & -\sup_{\lambda\in\left[0,b\right]}\left\{ \lambda t-\log\mathbb{E}\exp\left\{ \lambda\left(X-\mu\right)\right\} \right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+E.g.
+ Gaussian: Mgf: 
+\begin_inset Formula $\mathbb{E}\exp\left\{ \lambda X\right\} =\exp\left\{ \mu\lambda+\lambda^{2}\sigma^{2}/2\right\} ,\forall\lambda\in\mathbb{R}$
+\end_inset
+
+.
+ Thus: 
+\begin_inset Formula $\mathbb{P}\left[X-\mu\ge t\right]\le\exp\left\{ -t^{2}/\left(2\sigma^{2}\right)\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Sub-gaussian.
+ A RV 
+\begin_inset Formula $X$
+\end_inset
+
+ with mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is called sub-gaussian iff 
+\begin_inset Formula $\exists\sigma>0$
+\end_inset
+
+ such that:
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\exp\left\{ \lambda\left(X-\mu\right)\right\} \le\exp\left\{ \frac{\lambda^{2}\sigma^{2}}{2}\right\} ,\forall\lambda\in\mathbb{R}
+\end{alignat*}
+
+\end_inset
+
+ 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is the sub-gaussian parameter.
+ 
+\end_layout
+
+\begin_layout Standard
+The symmetry of definition implies 
+\begin_inset Formula $X$
+\end_inset
+
+ is sub-gaussian iff 
+\begin_inset Formula $-X$
+\end_inset
+
+ is sub-gaussian.
+ Thus
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[\left|X-\mu\right|\ge t\right]\le & 2\exp\left\{ -\frac{t^{2}}{2\sigma^{2}}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Hoeffding Bound.
+ 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ mean 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ and subgaussian with parameter 
+\begin_inset Formula $\sigma_{i}.$
+\end_inset
+
+ Then 
+\begin_inset Formula $\forall t\ge0,$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[\sum_{i=1}^{n}\left(X_{i}-\mu_{i}\right)\ge t\right]\le & \exp\left\{ -\frac{t^{2}}{-2\sum_{i=1}^{n}\sigma_{i}^{2}}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+Equivalent characterizations of sub-Gaussian variables.
+ Given any zero-mean RV X, the following properties are equivalent:
+\begin_inset Formula 
+\begin{alignat*}{1}
+(i) & \exists\sigma:\mathbb{E}\left[\exp\left\{ \lambda X\right\} \right]\le\exp\left\{ \frac{\lambda^{2}\sigma^{2}}{2}\right\} \\
+(ii) & \exists c\ge1,Z\sim\mathcal{N}\left(0,\tau^{2}\right):\mathbb{P}\left[\left|X\right|\ge s\right]\le c\mathbb{P}\left[\left|Z\right|\ge s\right],\forall s\ge0\\
+(iii) & \exists\theta\ge0:\mathbb{E}\left[X^{2k}\right]\le\frac{(2k)!}{2^{k}k!}\theta^{2k},\forall k=1,2,...\\
+(iv) & \mathbb{E}\left[\exp\left\{ \frac{\lambda X^{2}}{2\sigma^{2}}\right\} \le\frac{1}{\sqrt{1-\lambda}}\right],\forall\lambda\in[0,1)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+A RV X with mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is sub-exponential if 
+\begin_inset Formula $\exists\nu>0,b>0$
+\end_inset
+
+ such that:
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\exp\left\{ \lambda\left(X-\mu\right)\right\} \le & \exp\left\{ \frac{\nu^{2}\lambda^{2}}{2}\right\} ,\forall\left|\lambda\right|\le\frac{1}{b}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Sub-exponential tail bound.
+ Suppose that 
+\begin_inset Formula $X$
+\end_inset
+
+ is sub-exponential with parameters 
+\begin_inset Formula $\left(\nu,b\right).$
+\end_inset
+
+ Then:
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[X\ge\mu+t\right]\le & \begin{cases}
+\exp\left\{ -\frac{t^{2}}{2\nu^{2}}\right\} , & \forall t\in\left[0,\frac{\nu^{2}}{b}\right]\\
+\exp\left\{ -\frac{t}{2b}\right\} , & \forall t>\frac{\nu^{2}}{b}
+\end{cases}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Bernstein's condition.
+ Given a RV 
+\begin_inset Formula $X$
+\end_inset
+
+ mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and variance 
+\begin_inset Formula $\sigma^{2}.$
+\end_inset
+
+ We say that Bernstein's condition with parameter b holds if:
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[\left(X-\mu\right)^{k}\right]\le & \frac{1}{2}k!\sigma^{2}b^{k-2},\forall k=3,4,...
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Bernstein-type bound.
+ For any RV satisfying the Bernstein condition above, we have:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[\exp\left\{ \lambda\left(X-\mu\right)\right\} \right]\le & \exp\left\{ \frac{\lambda^{2}\sigma^{2}/2}{1-b\left|\lambda\right|}\right\} ,\forall\left|\lambda\right|<\frac{1}{b}\\
+\mathbb{P}\left[\left|X-\mu\right|\ge t\right]\le & 2\exp\left\{ -\frac{t^{2}}{2\left(\sigma^{2}+bt\right)}\right\} 
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Multivariate sub-exponential.
+ RV's 
+\begin_inset Formula $X_{1},...,X_{n}$
+\end_inset
+
+ are independent, and 
+\begin_inset Formula $X_{k}$
+\end_inset
+
+ is subexponential with parameters 
+\begin_inset Formula $\left(\nu_{k},b_{k}\right),$
+\end_inset
+
+ and has mean 
+\begin_inset Formula $\mu_{k}=\mathbb{E}\left[X_{k}\right]$
+\end_inset
+
+.
+ The MGF is:
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{E}\left[\exp\left\{ \lambda\sum_{k=1}^{n}\left(X_{k}-\mu_{k}\right)\right\} \right]= & \prod_{k=1}^{n}\mathbb{E}\left[\exp\left\{ \lambda X_{k}\right\} \right]\\
+\le & \prod_{i=1}\exp\left\{ \frac{\lambda^{2}\nu_{k}^{2}}{2}\right\} ,\forall\left|\lambda\right|<\left(\max_{k=1,...,n}b_{k}\right)^{-1}
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $Z_{k}\overset{i.i.d}{\sim}\mathcal{N}\left(0,1\right).$
+\end_inset
+
+ Then we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{alignat*}{1}
+\mathbb{P}\left[\left|\frac{1}{n}\sum_{k=1}^{n}Z_{k}^{2}-1\right|\ge t\right]\le & 2\exp\left\{ -\frac{nt^{2}}{8}\right\} ,\forall t\in\left(0,1\right)
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Equivalent Characterizations of sub-exponential variables.
+ For a zero-mean RV 
+\begin_inset Formula $X,$
+\end_inset
+
+ the following statements are equivalent:
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula 
+\begin{alignat*}{1}
+(i). & \exists\nu>0,b>0:\mathbb{E}\left[\exp\left(\lambda X\right)\right]\le\exp\left\{ \frac{\nu^{2}\lambda^{2}}{2}\right\} ,\forall\left|\lambda\right|<\frac{1}{b}\\
+(ii). & \exists c_{0}>0:\mathbb{E}\left[\exp\left(\lambda X\right)\right]<\infty,\forall\left|\lambda\right|\le c_{0}\\
+(iii). & \exists c_{1},c_{2}>0:\mathbb{P}\left[\left|X\right|\ge t\right]\le c_{1}\exp\left(-c_{2}t\right),\forall t\ge0\\
+(iv). & \gamma\coloneqq\sup_{k\ge2}\left[\frac{\mathbb{E}\left[X^{k}\right]}{k!}\right]^{1/k}<\infty
+\end{alignat*}
+
+\end_inset
+
+
 \end_layout
 
 \end_body
